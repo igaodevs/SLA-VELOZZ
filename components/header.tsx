@@ -12,7 +12,7 @@ export function Header() {
               <FileSpreadsheet className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold">SLA Fusion</h1>
+              <h1 className="text-xl font-bold">SLA VELOZZ</h1>
               <p className="text-xs text-muted-foreground hidden sm:block">
                 Mesclagem profissional de planilhas
               </p>

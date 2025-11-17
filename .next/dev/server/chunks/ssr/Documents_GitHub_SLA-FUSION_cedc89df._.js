@@ -1383,7 +1383,7 @@ function AboutDialog() {
                                         lineNumber: 30,
                                         columnNumber: 13
                                     }, this),
-                                    "SLA Fusion"
+                                    "SLA-VELOZZ"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/about-dialog.tsx",
@@ -1408,7 +1408,7 @@ function AboutDialog() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-sm text-muted-foreground leading-relaxed",
-                                children: "O SLA Fusion foi desenvolvido especialmente para otimizar o processo de mesclagem de planilhas de SLA do Mercado Livre, permitindo análise rápida e eficiente de dados de múltiplas fontes."
+                                children: "O SLA-VELOZZ foi desenvolvido especialmente para otimizar o processo de mesclagem de planilhas de SLA do Mercado Livre, permitindo análise rápida e eficiente de dados de múltiplas fontes."
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/about-dialog.tsx",
                                 lineNumber: 41,
@@ -1725,7 +1725,7 @@ function AboutDialog() {
                                 className: "text-center pt-4 border-t",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "text-xs text-muted-foreground",
-                                    children: "© 2025 SLA Fusion. Desenvolvido para otimizar sua gestão de SLA."
+                                    children: "© 2025 SLA-VELOZZ. Desenvolvido para otimizar sua gestão de SLA."
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/SLA-FUSION/components/about-dialog.tsx",
                                     lineNumber: 119,
@@ -1815,7 +1815,7 @@ function Header() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                                         className: "text-xl font-bold",
-                                        children: "SLA Fusion"
+                                        children: "SLA VELOZZ"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/header.tsx",
                                         lineNumber: 15,

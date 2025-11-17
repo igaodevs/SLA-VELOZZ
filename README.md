@@ -1,8 +1,8 @@
-# SLA Fusion front-end
+# SLA-VELOZZ
 
 *Automatically synced with your [v0.app](https://v0.app) deployments*
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/igaodevs-projects/v0-sla-fusion-front-end)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/igaodevs-projects/v0-sla-velozz)
 [![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/eiYJz21ZefS)
 
 ## Overview
@@ -14,7 +14,7 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/igaodevs-projects/v0-sla-fusion-front-end](https://vercel.com/igaodevs-projects/v0-sla-fusion-front-end)**
+**[https://vercel.com/igaodevs-projects/v0-sla-velozz](https://vercel.com/igaodevs-projects/v0-sla-velozz)**
 
 ## Build your app
 

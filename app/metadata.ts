@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
-  title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  title: 'SLA-VELOZZ - Mescle Planilhas Excel Profissionalmente',
   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
-  authors: [{ name: 'SLA Fusion Team' }],
+  authors: [{ name: 'SLA-VELOZZ Team' }],
   openGraph: {
-    title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+    title: 'SLA-VELOZZ - Mescle Planilhas Excel Profissionalmente',
     description: 'Plataforma profissional para fusão de planilhas Excel. Suporte a arquivos grandes, filtros automáticos e análise visual.',
     type: 'website',
   },

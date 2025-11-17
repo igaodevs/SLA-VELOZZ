@@ -30,7 +30,7 @@ export function AboutDialog() {
             <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary">
               <Sparkles className="w-6 h-6 text-primary-foreground" />
             </div>
-            SLA Fusion
+            SLA-VELOZZ
           </DialogTitle>
           <DialogDescription>
             Plataforma profissional para mesclagem de planilhas Excel
@@ -39,7 +39,7 @@ export function AboutDialog() {
 
         <div className="space-y-6 mt-4">
           <p className="text-sm text-muted-foreground leading-relaxed">
-            O SLA Fusion foi desenvolvido especialmente para otimizar o processo de mesclagem de planilhas 
+            O SLA-VELOZZ foi desenvolvido especialmente para otimizar o processo de mesclagem de planilhas 
             de SLA do Mercado Livre, permitindo análise rápida e eficiente de dados de múltiplas fontes.
           </p>
 
@@ -117,7 +117,7 @@ export function AboutDialog() {
 
           <div className="text-center pt-4 border-t">
             <p className="text-xs text-muted-foreground">
-              © 2025 SLA Fusion. Desenvolvido para otimizar sua gestão de SLA.
+              © 2025 SLA-VELOZZ. Desenvolvido para otimizar sua gestão de SLA.
             </p>
           </div>
         </div>
