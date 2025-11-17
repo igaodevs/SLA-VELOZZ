@@ -1,2 +1,235 @@
-[00:00:02.183] Server  LOG      ✓ Ready in 1363ms
-[00:00:07.782] Server  LOG      ○ Compiling / ...
+[00:00:02.160] Server  LOG      ✓ Ready in 1393ms
+[00:00:07.987] Server  LOG      ○ Compiling / ...
+[00:01:09.249] Server  LOG      ✓ Compiled in 2.2s
+[00:03:26.436] Server  LOG      ✓ Compiled in 921ms
+[00:03:26.988] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:03:34.520] Server  ERROR    ⨯ ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+
+[00:03:34.635] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:03:35.466] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:03:35.466] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:03:36.377] Server  INFO    Time 8.302
+[00:03:36.657] Browser ERROR   uncaughtError: Error: ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+
+[00:03:36.788] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:03:36.892] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:03:54.173] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:03:54.396] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:04:03.988] Browser ERROR   ./Documents/GitHub/SLA-FUSION/app/layout.tsx:22:14
+Ecmascript file had an error
+  20 | })
+  21 |
+> 22 | export const metadata: Metadata = {
+     |              ^^^^^^^^
+  23 |   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',
+  24 |   description: 'Plataforma profissional para fusão de planilhas Excel de SLA do Mercado Livre. Rápido, simples e intuitivo. Suporte a arquivos grandes, filtros automáticos, gráficos dinâmicos e ranking de atrasos.',
+  25 |   keywords: ['excel', 'planilhas', 'mesclar', 'sla', 'mercado livre', 'fusão', 'dados'],
+
+You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/docs/app/api-reference/directives/use-client
+
+Import traces:
+  Client Component Browser:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component Browser]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+
+  Client Component SSR:
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Client Component SSR]
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx [Server Component]
+[00:04:14.842] Server  LOG      ✓ Compiled in 422ms
+[00:04:54.576] Server  LOG      ✓ Compiled in 839ms
