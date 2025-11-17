@@ -556,6 +556,10 @@ img, video {
   width: 2.5rem;
 }
 
+.w-16 {
+  width: 4rem;
+}
+
 .w-3 {
   width: .75rem;
 }
@@ -578,10 +582,6 @@ img, video {
 
 .w-full {
   width: 100%;
-}
-
-.w-16 {
-  width: 4rem;
 }
 
 .min-w-0 {
@@ -916,8 +916,17 @@ img, video {
   background-color: rgb(220 252 231 / var(--tw-bg-opacity, 1));
 }
 
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
+}
+
 .bg-green-500\/10 {
   background-color: #22c55e1a;
+}
+
+.bg-inherit {
+  background-color: inherit;
 }
 
 .bg-muted {
@@ -949,15 +958,6 @@ img, video {
 
 .bg-transparent {
   background-color: #0000;
-}
-
-.bg-green-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity, 1));
-}
-
-.bg-inherit {
-  background-color: inherit;
 }
 
 .bg-white\/20 {
@@ -1273,12 +1273,12 @@ img, video {
   text-underline-offset: 4px;
 }
 
-.opacity-70 {
-  opacity: .7;
-}
-
 .opacity-0 {
   opacity: 0;
+}
+
+.opacity-70 {
+  opacity: .7;
 }
 
 .shadow-lg {
@@ -1331,6 +1331,12 @@ img, video {
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
+.transition {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter, backdrop-filter;
+  transition-duration: .15s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
 .transition-\[color\,box-shadow\] {
   transition-property: color, box-shadow;
   transition-duration: .15s;
@@ -1361,12 +1367,6 @@ img, video {
 
 .transition-shadow {
   transition-property: box-shadow;
-  transition-duration: .15s;
-  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-}
-
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter, backdrop-filter;
   transition-duration: .15s;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
 }
