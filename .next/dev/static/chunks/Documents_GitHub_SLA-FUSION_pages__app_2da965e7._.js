@@ -7,8 +7,10 @@
   "static/chunks/7cb33_next_dist_592e0f47._.js",
   "static/chunks/7cb33_next_app_183261b6.js",
   "static/chunks/[next]_entry_page-loader_ts_73d9228c._.js",
-  "static/chunks/7cb33_react-dom_49962f4c._.js",
-  "static/chunks/7cb33_f6c9da44._.js",
+  "static/chunks/7cb33_react_f5eb98af._.js",
+  "static/chunks/7cb33_react-dom_cjs_react-dom_development_f4faa938.js",
+  "static/chunks/7cb33_react-dom_8b2bb40b._.js",
+  "static/chunks/7cb33_0b90700b._.js",
   "static/chunks/[root-of-the-server]__183be35c._.js"
 ],
     source: "entry"

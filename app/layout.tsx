@@ -3,7 +3,16 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import ClientOnly from '@/components/ClientOnly'
 
-const inter = Inter({ subsets: ['latin'] })
+// Configure the Inter font with basic settings
+const inter = Inter({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  fallback: ['system-ui', 'sans-serif'],
+  preload: true,
+  adjustFontFallback: false
+})
 
 export const metadata: Metadata = {
   title: 'SLA Fusion - Mescle Planilhas Excel Profissionalmente',

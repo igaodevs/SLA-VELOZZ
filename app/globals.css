@@ -1,15 +1,21 @@
 @import 'tailwindcss';
 
-@theme inline {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+:root {
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  
+  /* Background colors */
   --color-background: #ffffff;
-  --color-foreground: #0f172a;
   --color-muted: #f1f5f9;
-  --color-muted-foreground: #64748b;
   --color-card: #ffffff;
-  --color-card-foreground: #0f172a;
   --color-popover: #ffffff;
+  
+  /* Text colors */
+  --color-foreground: #0f172a;
+  --color-muted-foreground: #64748b;
+  --color-card-foreground: #0f172a;
   --color-popover-foreground: #0f172a;
+  
+  /* UI colors */
   --color-border: #e2e8f0;
   --color-input: #e2e8f0;
   --color-primary: #0ea5e9;
@@ -21,7 +27,20 @@
   --color-destructive: #ef4444;
   --color-destructive-foreground: #ffffff;
   --color-ring: #0ea5e9;
+  
+  /* Border radius */
   --radius: 0.5rem;
+}
+
+/* Apply the font to the body */
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.5;
 }
 
 @media (prefers-color-scheme: dark) {
