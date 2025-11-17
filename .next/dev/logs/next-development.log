@@ -340,3 +340,60 @@ Import trace:
     ./Documents/GitHub/SLA-FUSION/app/layout.tsx
 
 https://nextjs.org/docs/messages/module-not-found
+[00:03:35.706] Browser ERROR   [next]/internal/font/google/inter_ef3038f1.module.css:242:9
+Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  240 |   font-display: swap;
+  241 |   src: url(@vercel/turbopack-next/internal/font/google/font?{%22url%22:%22https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2%22,%22preload%22:false,%22has_size_adjust%22:false}) format('woff2');
+> 242 |   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      |         ^
+  243 | }
+  244 | /* latin */
+  245 | @font-face {
+
+Import map: Resolved by import map
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_ef3038f1.module.css
+    [next]/internal/font/google/inter_ef3038f1.js
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:03:35.706] Browser ERROR   [next]/internal/font/google/inter_ef3038f1.module.css:242:9
+Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  240 |   font-display: swap;
+  241 |   src: url(@vercel/turbopack-next/internal/font/google/font?{%22url%22:%22https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2%22,%22preload%22:false,%22has_size_adjust%22:false}) format('woff2');
+> 242 |   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      |         ^
+  243 | }
+  244 | /* latin */
+  245 | @font-face {
+
+Import map: Resolved by import map
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_ef3038f1.module.css
+    [next]/internal/font/google/inter_ef3038f1.js
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+[00:03:45.848] Browser ERROR   [next]/internal/font/google/inter_ef3038f1.module.css:242:9
+Module not found: Can't resolve '@vercel/turbopack-next/internal/font/google/font'
+  240 |   font-display: swap;
+  241 |   src: url(@vercel/turbopack-next/internal/font/google/font?{%22url%22:%22https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2%22,%22preload%22:false,%22has_size_adjust%22:false}) format('woff2');
+> 242 |   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      |         ^
+  243 | }
+  244 | /* latin */
+  245 | @font-face {
+
+Import map: Resolved by import map
+
+Import trace:
+  Server Component:
+    [next]/internal/font/google/inter_ef3038f1.module.css
+    [next]/internal/font/google/inter_ef3038f1.js
+    ./Documents/GitHub/SLA-FUSION/app/layout.tsx
+
+https://nextjs.org/docs/messages/module-not-found
