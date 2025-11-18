@@ -21,31 +21,12 @@ export function Header() {
               </h1>
             </Link>
 
-            {/* Links de Navegação */}
-            <nav className="hidden md:flex items-center gap-1">
-              <Button variant="ghost" size="sm" className="gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                <BarChart3 className="h-4 w-4" />
-                Análises
-              </Button>
-              <Button variant="ghost" size="sm" className="gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                <Settings className="h-4 w-4" />
-                Configurações
-              </Button>
-            </nav>
+            {/* Navegação removida */}
           </div>
 
           {/* Ações */}
           <div className="flex items-center gap-2">
-            {/* CTA Principal */}
-            <Button className="group relative overflow-hidden">
-              <span className="relative z-10 flex items-center gap-1.5">
-                <Upload className="h-4 w-4 transition-transform group-hover:translate-y-[-2px]" />
-                <span>Novo Upload</span>
-              </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-            </Button>
-
-            {/* Menu de Ajuda */}
+{/* Menu de Ajuda */}
             <div className="hidden md:flex items-center gap-1 border-l border-border pl-2 ml-2">
               <Button 
                 variant="ghost" 

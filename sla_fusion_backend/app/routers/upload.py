@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, status, Depends
+from fastapi import APIRouter, UploadFile, File, HTTPException, status, Depends, Form
 from fastapi.responses import JSONResponse
 import os
 from datetime import datetime
@@ -11,17 +11,16 @@ from ...config import settings
 
 router = APIRouter()
 
-class FileUploadRequest(BaseModel):
-    file: UploadFile = File(..., description="Arquivo para upload")
+class FileUploadData(BaseModel):
     name: Optional[str] = Field(None, description="Nome de exibição opcional para o arquivo")
 
 @router.post("/upload/{file_type}", response_model=FileUploadResponse)
 async def upload_file(
     file_type: FileType,
-    file_request: FileUploadRequest = Depends()
+    file: UploadFile = File(...),
+    name: Optional[str] = Form(None)
 ):
-    file = file_request.file
-    display_name = file_request.name
+    display_name = name
     
     # Verifica a extensão do arquivo
     if not file.filename.lower().endswith(('.xlsx', '.xls')):
