@@ -1,5 +1,5 @@
 module.exports = [
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/picocolors/picocolors.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/picocolors@1.1.1/node_modules/picocolors/picocolors.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 let p = process || {}, argv = p.argv || [], env = p.env || {};
 let isColorSupported = !(!!env.NO_COLOR || argv.includes("--no-color")) && (!!env.FORCE_COLOR || argv.includes("--color") || p.platform === "win32" || (p.stdout || {}).isTTY && env.TERM !== "dumb" || !!env.CI);
@@ -66,7 +66,7 @@ let createColors = (enabled = isColorSupported)=>{
 module.exports = createColors();
 module.exports.createColors = createColors;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/tokenize.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/tokenize.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 const SINGLE_QUOTE = "'".charCodeAt(0);
@@ -331,11 +331,11 @@ module.exports = function tokenizer(input, options = {}) {
     };
 };
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/terminal-highlight.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/terminal-highlight.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let pico = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/picocolors/picocolors.js [postcss] (ecmascript)");
-let tokenizer = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/tokenize.js [postcss] (ecmascript)");
+let pico = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/picocolors@1.1.1/node_modules/picocolors/picocolors.js [postcss] (ecmascript)");
+let tokenizer = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/tokenize.js [postcss] (ecmascript)");
 let Input;
 function registerInput(dependant) {
     Input = dependant;
@@ -392,11 +392,11 @@ function terminalHighlight(css) {
 terminalHighlight.registerInput = registerInput;
 module.exports = terminalHighlight;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/css-syntax-error.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/css-syntax-error.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let pico = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/picocolors/picocolors.js [postcss] (ecmascript)");
-let terminalHighlight = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/terminal-highlight.js [postcss] (ecmascript)");
+let pico = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/picocolors@1.1.1/node_modules/picocolors/picocolors.js [postcss] (ecmascript)");
+let terminalHighlight = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/terminal-highlight.js [postcss] (ecmascript)");
 class CssSyntaxError extends Error {
     constructor(message, line, column, source, file, plugin){
         super(message);
@@ -483,7 +483,7 @@ class CssSyntaxError extends Error {
 module.exports = CssSyntaxError;
 CssSyntaxError.default = CssSyntaxError;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/stringifier.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/stringifier.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 const DEFAULT_RAW = {
@@ -787,10 +787,10 @@ class Stringifier {
 module.exports = Stringifier;
 Stringifier.default = Stringifier;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Stringifier = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/stringifier.js [postcss] (ecmascript)");
+let Stringifier = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/stringifier.js [postcss] (ecmascript)");
 function stringify(node, builder) {
     let str = new Stringifier(builder);
     str.stringify(node);
@@ -798,19 +798,19 @@ function stringify(node, builder) {
 module.exports = stringify;
 stringify.default = stringify;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/symbols.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/symbols.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 module.exports.isClean = Symbol('isClean');
 module.exports.my = Symbol('my');
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/node.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/node.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let CssSyntaxError = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/css-syntax-error.js [postcss] (ecmascript)");
-let Stringifier = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/stringifier.js [postcss] (ecmascript)");
-let stringify = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)");
-let { isClean, my } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/symbols.js [postcss] (ecmascript)");
+let CssSyntaxError = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/css-syntax-error.js [postcss] (ecmascript)");
+let Stringifier = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/stringifier.js [postcss] (ecmascript)");
+let stringify = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)");
+let { isClean, my } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/symbols.js [postcss] (ecmascript)");
 function cloneNode(obj, parent) {
     let cloned = new obj.constructor();
     for(let i in obj){
@@ -856,9 +856,6 @@ function sourceOffset(inputCSS, position) {
     return offset;
 }
 class Node {
-    get proxyOf() {
-        return this;
-    }
     constructor(defaults = {}){
         this.raws = {};
         this[isClean] = false;
@@ -973,13 +970,12 @@ class Node {
         let index = this.parent.index(this);
         return this.parent.nodes[index + 1];
     }
-    positionBy(opts = {}) {
+    positionBy(opts) {
         let pos = this.source.start;
         if (opts.index) {
             pos = this.positionInside(opts.index);
         } else if (opts.word) {
-            let inputString = 'document' in this.source.input ? this.source.input.document : this.source.input.css;
-            let stringRepresentation = inputString.slice(sourceOffset(inputString, this.source.start), sourceOffset(inputString, this.source.end));
+            let stringRepresentation = this.source.input.document.slice(sourceOffset(this.source.input.document, this.source.start), sourceOffset(this.source.input.document, this.source.end));
             let index = stringRepresentation.indexOf(opts.word);
             if (index !== -1) pos = this.positionInside(index);
         }
@@ -988,11 +984,10 @@ class Node {
     positionInside(index) {
         let column = this.source.start.column;
         let line = this.source.start.line;
-        let inputString = 'document' in this.source.input ? this.source.input.document : this.source.input.css;
-        let offset = sourceOffset(inputString, this.source.start);
+        let offset = sourceOffset(this.source.input.document, this.source.start);
         let end = offset + index;
         for(let i = offset; i < end; i++){
-            if (inputString[i] === '\n') {
+            if (this.source.input.document[i] === '\n') {
                 column = 1;
                 line += 1;
             } else {
@@ -1001,8 +996,7 @@ class Node {
         }
         return {
             column,
-            line,
-            offset: end
+            line
         };
     }
     prev() {
@@ -1010,26 +1004,20 @@ class Node {
         let index = this.parent.index(this);
         return this.parent.nodes[index - 1];
     }
-    rangeBy(opts = {}) {
-        let inputString = 'document' in this.source.input ? this.source.input.document : this.source.input.css;
+    rangeBy(opts) {
         let start = {
             column: this.source.start.column,
-            line: this.source.start.line,
-            offset: sourceOffset(inputString, this.source.start)
+            line: this.source.start.line
         };
         let end = this.source.end ? {
             column: this.source.end.column + 1,
-            line: this.source.end.line,
-            offset: typeof this.source.end.offset === 'number' ? this.source.end.offset : // the `sourceOffset(... , this.source.end)` returns an inclusive offset.
-            // So, we add 1 to convert it to exclusive.
-            sourceOffset(inputString, this.source.end) + 1
+            line: this.source.end.line
         } : {
             column: start.column + 1,
-            line: start.line,
-            offset: start.offset + 1
+            line: start.line
         };
         if (opts.word) {
-            let stringRepresentation = inputString.slice(sourceOffset(inputString, this.source.start), sourceOffset(inputString, this.source.end));
+            let stringRepresentation = this.source.input.document.slice(sourceOffset(this.source.input.document, this.source.start), sourceOffset(this.source.input.document, this.source.end));
             let index = stringRepresentation.indexOf(opts.word);
             if (index !== -1) {
                 start = this.positionInside(index);
@@ -1039,8 +1027,7 @@ class Node {
             if (opts.start) {
                 start = {
                     column: opts.start.column,
-                    line: opts.start.line,
-                    offset: sourceOffset(inputString, opts.start)
+                    line: opts.start.line
                 };
             } else if (opts.index) {
                 start = this.positionInside(opts.index);
@@ -1048,8 +1035,7 @@ class Node {
             if (opts.end) {
                 end = {
                     column: opts.end.column,
-                    line: opts.end.line,
-                    offset: sourceOffset(inputString, opts.end)
+                    line: opts.end.line
                 };
             } else if (typeof opts.endIndex === 'number') {
                 end = this.positionInside(opts.endIndex);
@@ -1060,8 +1046,7 @@ class Node {
         if (end.line < start.line || end.line === start.line && end.column <= start.column) {
             end = {
                 column: start.column + 1,
-                line: start.line,
-                offset: start.offset + 1
+                line: start.line
             };
         }
         return {
@@ -1129,7 +1114,6 @@ class Node {
             } else if (typeof value === 'object' && value.toJSON) {
                 fixed[name] = value.toJSON(null, inputs);
             } else if (name === 'source') {
-                if (value == null) continue;
                 let inputId = inputs.get(value.input);
                 if (inputId == null) {
                     inputId = inputsNextIndex;
@@ -1166,21 +1150,24 @@ class Node {
         });
         return result;
     }
-    warn(result, text, opts = {}) {
+    warn(result, text, opts) {
         let data = {
             node: this
         };
         for(let i in opts)data[i] = opts[i];
         return result.warn(text, data);
     }
+    get proxyOf() {
+        return this;
+    }
 }
 module.exports = Node;
 Node.default = Node;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/comment.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/comment.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Node = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/node.js [postcss] (ecmascript)");
+let Node = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/node.js [postcss] (ecmascript)");
 class Comment extends Node {
     constructor(defaults){
         super(defaults);
@@ -1190,14 +1177,11 @@ class Comment extends Node {
 module.exports = Comment;
 Comment.default = Comment;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Node = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/node.js [postcss] (ecmascript)");
+let Node = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/node.js [postcss] (ecmascript)");
 class Declaration extends Node {
-    get variable() {
-        return this.prop.startsWith('--') || this.prop[0] === '$';
-    }
     constructor(defaults){
         if (defaults && typeof defaults.value !== 'undefined' && typeof defaults.value !== 'string') {
             defaults = {
@@ -1208,17 +1192,20 @@ class Declaration extends Node {
         super(defaults);
         this.type = 'decl';
     }
+    get variable() {
+        return this.prop.startsWith('--') || this.prop[0] === '$';
+    }
 }
 module.exports = Declaration;
 Declaration.default = Declaration;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/container.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/container.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Comment = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/comment.js [postcss] (ecmascript)");
-let Declaration = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)");
-let Node = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/node.js [postcss] (ecmascript)");
-let { isClean, my } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/symbols.js [postcss] (ecmascript)");
+let Comment = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/comment.js [postcss] (ecmascript)");
+let Declaration = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)");
+let Node = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/node.js [postcss] (ecmascript)");
+let { isClean, my } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/symbols.js [postcss] (ecmascript)");
 let AtRule, parse, Root, Rule;
 function cleanSource(nodes) {
     return nodes.map((i)=>{
@@ -1236,14 +1223,6 @@ function markTreeDirty(node) {
     }
 }
 class Container extends Node {
-    get first() {
-        if (!this.proxyOf.nodes) return undefined;
-        return this.proxyOf.nodes[0];
-    }
-    get last() {
-        if (!this.proxyOf.nodes) return undefined;
-        return this.proxyOf.nodes[this.proxyOf.nodes.length - 1];
-    }
     append(...children) {
         for (let child of children){
             let nodes = this.normalize(child, this.last);
@@ -1558,6 +1537,14 @@ class Container extends Node {
             }
         });
     }
+    get first() {
+        if (!this.proxyOf.nodes) return undefined;
+        return this.proxyOf.nodes[0];
+    }
+    get last() {
+        if (!this.proxyOf.nodes) return undefined;
+        return this.proxyOf.nodes[this.proxyOf.nodes.length - 1];
+    }
 }
 Container.registerParse = (dependant)=>{
     parse = dependant;
@@ -1593,10 +1580,10 @@ Container.default = Container;
     }
 }; /* c8 ignore stop */ 
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/at-rule.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/at-rule.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
+let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
 class AtRule extends Container {
     constructor(defaults){
         super(defaults);
@@ -1615,10 +1602,10 @@ module.exports = AtRule;
 AtRule.default = AtRule;
 Container.registerAtRule(AtRule);
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/document.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/document.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
+let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
 let LazyResult, Processor;
 class Document extends Container {
     constructor(defaults){
@@ -1645,7 +1632,7 @@ Document.registerProcessor = (dependant)=>{
 module.exports = Document;
 Document.default = Document;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/nanoid/non-secure/index.cjs [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/nanoid@3.3.11/node_modules/nanoid/non-secure/index.cjs [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 // This alphabet uses `A-Za-z0-9_-` symbols.
 // The order of characters is optimized for better gzip and brotli compression.
@@ -1681,7 +1668,7 @@ module.exports = {
     customAlphabet
 };
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/base64.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/base64.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -1734,7 +1721,7 @@ module.exports = {
     return -1;
 };
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/base64-vlq.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/base64-vlq.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -1770,7 +1757,7 @@ module.exports = {
  * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ var base64 = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/base64.js [postcss] (ecmascript)");
+ */ var base64 = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/base64.js [postcss] (ecmascript)");
 // A single base 64 digit can contain 6 bits of data. For the base 64 variable
 // length quantities we use in the source map spec, the first bit is the sign,
 // the next four bits are the actual value, and the 6th bit is the
@@ -1850,7 +1837,7 @@ var VLQ_CONTINUATION_BIT = VLQ_BASE;
     aOutParam.rest = aIndex;
 };
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -2345,13 +2332,13 @@ exports.parseSourceMapInput = parseSourceMapInput;
 }
 exports.computeSourceURL = computeSourceURL;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/array-set.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/array-set.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
- */ var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
+ */ var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
 var has = Object.prototype.hasOwnProperty;
 var hasNativeMap = typeof Map !== "undefined";
 /**
@@ -2448,13 +2435,13 @@ var hasNativeMap = typeof Map !== "undefined";
 };
 exports.ArraySet = ArraySet;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/mapping-list.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/mapping-list.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2014 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
- */ var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
+ */ var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
 /**
  * Determine whether mappingB is after mappingA with respect to generated
  * position.
@@ -2517,16 +2504,16 @@ exports.ArraySet = ArraySet;
 };
 exports.MappingList = MappingList;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/source-map-generator.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/source-map-generator.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
- */ var base64VLQ = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/base64-vlq.js [postcss] (ecmascript)");
-var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
-var ArraySet = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/array-set.js [postcss] (ecmascript)").ArraySet;
-var MappingList = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/mapping-list.js [postcss] (ecmascript)").MappingList;
+ */ var base64VLQ = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/base64-vlq.js [postcss] (ecmascript)");
+var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
+var ArraySet = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/array-set.js [postcss] (ecmascript)").ArraySet;
+var MappingList = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/mapping-list.js [postcss] (ecmascript)").MappingList;
 /**
  * An instance of the SourceMapGenerator represents a source map which is
  * being built incrementally. You may pass an object with the following
@@ -2882,7 +2869,7 @@ SourceMapGenerator.prototype._generateSourcesContent = function SourceMapGenerat
 };
 exports.SourceMapGenerator = SourceMapGenerator;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/binary-search.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/binary-search.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -2981,7 +2968,7 @@ exports.LEAST_UPPER_BOUND = 2;
     return index;
 };
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/quick-sort.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/quick-sort.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -3094,17 +3081,17 @@ exports.quickSort = function(ary, comparator, start = 0) {
     doQuickSort(ary, comparator, start, ary.length - 1);
 };
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/source-map-consumer.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/source-map-consumer.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
- */ var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
-var binarySearch = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/binary-search.js [postcss] (ecmascript)");
-var ArraySet = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/array-set.js [postcss] (ecmascript)").ArraySet;
-var base64VLQ = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/base64-vlq.js [postcss] (ecmascript)");
-var quickSort = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/quick-sort.js [postcss] (ecmascript)").quickSort;
+ */ var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
+var binarySearch = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/binary-search.js [postcss] (ecmascript)");
+var ArraySet = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/array-set.js [postcss] (ecmascript)").ArraySet;
+var base64VLQ = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/base64-vlq.js [postcss] (ecmascript)");
+var quickSort = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/quick-sort.js [postcss] (ecmascript)").quickSort;
 function SourceMapConsumer(aSourceMap, aSourceMapURL) {
     var sourceMap = aSourceMap;
     if (typeof aSourceMap === 'string') {
@@ -4061,14 +4048,14 @@ IndexedSourceMapConsumer.prototype.constructor = SourceMapConsumer;
 };
 exports.IndexedSourceMapConsumer = IndexedSourceMapConsumer;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/source-node.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/source-node.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /* -*- Mode: js; js-indent-level: 2; -*- */ /*
  * Copyright 2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE or:
  * http://opensource.org/licenses/BSD-3-Clause
- */ var SourceMapGenerator = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/source-map-generator.js [postcss] (ecmascript)").SourceMapGenerator;
-var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
+ */ var SourceMapGenerator = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/source-map-generator.js [postcss] (ecmascript)").SourceMapGenerator;
+var util = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/util.js [postcss] (ecmascript)");
 // Matches a Windows-style `\r\n` newline or a `\n` newline used by all other
 // operating systems these days (capturing the result).
 var REGEX_NEWLINE = /(\r?\n)/;
@@ -4419,22 +4406,22 @@ var isSourceNode = "$$$isSourceNode$$$";
 };
 exports.SourceNode = SourceNode;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/source-map.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/source-map.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
  * http://opensource.org/licenses/BSD-3-Clause
- */ exports.SourceMapGenerator = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/source-map-generator.js [postcss] (ecmascript)").SourceMapGenerator;
-exports.SourceMapConsumer = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/source-map-consumer.js [postcss] (ecmascript)").SourceMapConsumer;
-exports.SourceNode = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/lib/source-node.js [postcss] (ecmascript)").SourceNode;
+ */ exports.SourceMapGenerator = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/source-map-generator.js [postcss] (ecmascript)").SourceMapGenerator;
+exports.SourceMapConsumer = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/source-map-consumer.js [postcss] (ecmascript)").SourceMapConsumer;
+exports.SourceNode = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/lib/source-node.js [postcss] (ecmascript)").SourceNode;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/previous-map.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/previous-map.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 let { existsSync, readFileSync } = __turbopack_context__.r("[externals]/fs [external] (fs, cjs)");
 let { dirname, join } = __turbopack_context__.r("[externals]/path [external] (path, cjs)");
-let { SourceMapConsumer, SourceMapGenerator } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/source-map.js [postcss] (ecmascript)");
+let { SourceMapConsumer, SourceMapGenerator } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/source-map.js [postcss] (ecmascript)");
 function fromBase64(str) {
     if ("TURBOPACK compile-time truthy", 1) {
         return Buffer.from(str, 'base64').toString();
@@ -4543,35 +4530,20 @@ class PreviousMap {
 module.exports = PreviousMap;
 PreviousMap.default = PreviousMap;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/input.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/input.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let { nanoid } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/nanoid/non-secure/index.cjs [postcss] (ecmascript)");
+let { nanoid } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/nanoid@3.3.11/node_modules/nanoid/non-secure/index.cjs [postcss] (ecmascript)");
 let { isAbsolute, resolve } = __turbopack_context__.r("[externals]/path [external] (path, cjs)");
-let { SourceMapConsumer, SourceMapGenerator } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/source-map.js [postcss] (ecmascript)");
+let { SourceMapConsumer, SourceMapGenerator } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/source-map.js [postcss] (ecmascript)");
 let { fileURLToPath, pathToFileURL } = __turbopack_context__.r("[externals]/url [external] (url, cjs)");
-let CssSyntaxError = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/css-syntax-error.js [postcss] (ecmascript)");
-let PreviousMap = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/previous-map.js [postcss] (ecmascript)");
-let terminalHighlight = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/terminal-highlight.js [postcss] (ecmascript)");
-let lineToIndexCache = Symbol('lineToIndexCache');
+let CssSyntaxError = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/css-syntax-error.js [postcss] (ecmascript)");
+let PreviousMap = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/previous-map.js [postcss] (ecmascript)");
+let terminalHighlight = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/terminal-highlight.js [postcss] (ecmascript)");
+let fromOffsetCache = Symbol('fromOffsetCache');
 let sourceMapAvailable = Boolean(SourceMapConsumer && SourceMapGenerator);
 let pathAvailable = Boolean(resolve && isAbsolute);
-function getLineToIndex(input) {
-    if (input[lineToIndexCache]) return input[lineToIndexCache];
-    let lines = input.css.split('\n');
-    let lineToIndex = new Array(lines.length);
-    let prevIndex = 0;
-    for(let i = 0, l = lines.length; i < l; i++){
-        lineToIndex[i] = prevIndex;
-        prevIndex += lines[i].length + 1;
-    }
-    input[lineToIndexCache] = lineToIndex;
-    return lineToIndex;
-}
 class Input {
-    get from() {
-        return this.file || this.id;
-    }
     constructor(css, opts = {}){
         if (css === null || typeof css === 'undefined' || typeof css === 'object' && !css.toString) {
             throw new Error(`PostCSS received ${css} instead of CSS string`);
@@ -4606,37 +4578,30 @@ class Input {
         if (this.map) this.map.file = this.from;
     }
     error(message, line, column, opts = {}) {
-        let endColumn, endLine, endOffset, offset, result;
+        let endColumn, endLine, result;
         if (line && typeof line === 'object') {
             let start = line;
             let end = column;
             if (typeof start.offset === 'number') {
-                offset = start.offset;
-                let pos = this.fromOffset(offset);
+                let pos = this.fromOffset(start.offset);
                 line = pos.line;
                 column = pos.col;
             } else {
                 line = start.line;
                 column = start.column;
-                offset = this.fromLineAndColumn(line, column);
             }
             if (typeof end.offset === 'number') {
-                endOffset = end.offset;
-                let pos = this.fromOffset(endOffset);
+                let pos = this.fromOffset(end.offset);
                 endLine = pos.line;
                 endColumn = pos.col;
             } else {
                 endLine = end.line;
                 endColumn = end.column;
-                endOffset = this.fromLineAndColumn(end.line, end.column);
             }
         } else if (!column) {
-            offset = line;
-            let pos = this.fromOffset(offset);
+            let pos = this.fromOffset(line);
             line = pos.line;
             column = pos.col;
-        } else {
-            offset = this.fromLineAndColumn(line, column);
         }
         let origin = this.origin(line, column, endLine, endColumn);
         if (origin) {
@@ -4660,9 +4625,7 @@ class Input {
             column,
             endColumn,
             endLine,
-            endOffset,
             line,
-            offset,
             source: this.css
         };
         if (this.file) {
@@ -4673,14 +4636,21 @@ class Input {
         }
         return result;
     }
-    fromLineAndColumn(line, column) {
-        let lineToIndex = getLineToIndex(this);
-        let index = lineToIndex[line - 1];
-        return index + column - 1;
-    }
     fromOffset(offset) {
-        let lineToIndex = getLineToIndex(this);
-        let lastLine = lineToIndex[lineToIndex.length - 1];
+        let lastLine, lineToIndex;
+        if (!this[fromOffsetCache]) {
+            let lines = this.css.split('\n');
+            lineToIndex = new Array(lines.length);
+            let prevIndex = 0;
+            for(let i = 0, l = lines.length; i < l; i++){
+                lineToIndex[i] = prevIndex;
+                prevIndex += lines[i].length + 1;
+            }
+            this[fromOffsetCache] = lineToIndex;
+        } else {
+            lineToIndex = this[fromOffsetCache];
+        }
+        lastLine = lineToIndex[lineToIndex.length - 1];
         let min = 0;
         if (offset >= lastLine) {
             min = lineToIndex.length - 1;
@@ -4771,6 +4741,9 @@ class Input {
         }
         return json;
     }
+    get from() {
+        return this.file || this.id;
+    }
 }
 module.exports = Input;
 Input.default = Input;
@@ -4778,10 +4751,10 @@ if (terminalHighlight && terminalHighlight.registerInput) {
     terminalHighlight.registerInput(Input);
 }
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/root.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/root.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
+let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
 let LazyResult, Processor;
 class Root extends Container {
     constructor(defaults){
@@ -4828,7 +4801,7 @@ module.exports = Root;
 Root.default = Root;
 Container.registerRoot(Root);
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/list.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/list.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 let list = {
@@ -4887,12 +4860,17 @@ let list = {
 module.exports = list;
 list.default = list;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/rule.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/rule.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
-let list = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/list.js [postcss] (ecmascript)");
+let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
+let list = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/list.js [postcss] (ecmascript)");
 class Rule extends Container {
+    constructor(defaults){
+        super(defaults);
+        this.type = 'rule';
+        if (!this.nodes) this.nodes = [];
+    }
     get selectors() {
         return list.comma(this.selector);
     }
@@ -4901,26 +4879,21 @@ class Rule extends Container {
         let sep = match ? match[0] : ',' + this.raw('between', 'beforeOpen');
         this.selector = values.join(sep);
     }
-    constructor(defaults){
-        super(defaults);
-        this.type = 'rule';
-        if (!this.nodes) this.nodes = [];
-    }
 }
 module.exports = Rule;
 Rule.default = Rule;
 Container.registerRule(Rule);
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/fromJSON.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/fromJSON.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let AtRule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/at-rule.js [postcss] (ecmascript)");
-let Comment = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/comment.js [postcss] (ecmascript)");
-let Declaration = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)");
-let Input = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/input.js [postcss] (ecmascript)");
-let PreviousMap = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/previous-map.js [postcss] (ecmascript)");
-let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
-let Rule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/rule.js [postcss] (ecmascript)");
+let AtRule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/at-rule.js [postcss] (ecmascript)");
+let Comment = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/comment.js [postcss] (ecmascript)");
+let Declaration = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)");
+let Input = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/input.js [postcss] (ecmascript)");
+let PreviousMap = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/previous-map.js [postcss] (ecmascript)");
+let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
+let Rule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/rule.js [postcss] (ecmascript)");
 function fromJSON(json, inputs) {
     if (Array.isArray(json)) return json.map((n)=>fromJSON(n));
     let { inputs: ownInputs, ...defaults } = json;
@@ -4967,13 +4940,13 @@ function fromJSON(json, inputs) {
 module.exports = fromJSON;
 fromJSON.default = fromJSON;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/map-generator.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/map-generator.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 let { dirname, relative, resolve, sep } = __turbopack_context__.r("[externals]/path [external] (path, cjs)");
-let { SourceMapConsumer, SourceMapGenerator } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/source-map-js/source-map.js [postcss] (ecmascript)");
+let { SourceMapConsumer, SourceMapGenerator } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/source-map-js@1.2.1/node_modules/source-map-js/source-map.js [postcss] (ecmascript)");
 let { pathToFileURL } = __turbopack_context__.r("[externals]/url [external] (url, cjs)");
-let Input = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/input.js [postcss] (ecmascript)");
+let Input = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/input.js [postcss] (ecmascript)");
 let sourceMapAvailable = Boolean(SourceMapConsumer && SourceMapGenerator);
 let pathAvailable = Boolean(dirname && resolve && relative && sep);
 class MapGenerator {
@@ -5298,15 +5271,15 @@ class MapGenerator {
 }
 module.exports = MapGenerator;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/parser.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/parser.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let AtRule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/at-rule.js [postcss] (ecmascript)");
-let Comment = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/comment.js [postcss] (ecmascript)");
-let Declaration = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)");
-let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
-let Rule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/rule.js [postcss] (ecmascript)");
-let tokenizer = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/tokenize.js [postcss] (ecmascript)");
+let AtRule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/at-rule.js [postcss] (ecmascript)");
+let Comment = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/comment.js [postcss] (ecmascript)");
+let Declaration = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)");
+let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
+let Rule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/rule.js [postcss] (ecmascript)");
+let tokenizer = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/tokenize.js [postcss] (ecmascript)");
 const SAFE_COMMENT_NEIGHBOR = {
     empty: true,
     space: true
@@ -5608,8 +5581,6 @@ class Parser {
             if (prev && prev.type === 'rule' && !prev.raws.ownSemicolon) {
                 prev.raws.ownSemicolon = this.spaces;
                 this.spaces = '';
-                prev.source.end = this.getPosition(token[2]);
-                prev.source.end.offset += prev.raws.ownSemicolon.length;
             }
         }
     }
@@ -5824,7 +5795,7 @@ class Parser {
         });
     }
     unknownWord(tokens) {
-        throw this.input.error('Unknown word ' + tokens[0][1], {
+        throw this.input.error('Unknown word', {
             offset: tokens[0][2]
         }, {
             offset: tokens[0][2] + tokens[0][1].length
@@ -5840,12 +5811,12 @@ class Parser {
 }
 module.exports = Parser;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/parse.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/parse.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
-let Input = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/input.js [postcss] (ecmascript)");
-let Parser = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/parser.js [postcss] (ecmascript)");
+let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
+let Input = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/input.js [postcss] (ecmascript)");
+let Parser = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/parser.js [postcss] (ecmascript)");
 function parse(css, opts) {
     let input = new Input(css, opts);
     let parser = new Parser(input);
@@ -5862,7 +5833,7 @@ module.exports = parse;
 parse.default = parse;
 Container.registerParse(parse);
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/warning.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/warning.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 class Warning {
@@ -5895,20 +5866,17 @@ class Warning {
 module.exports = Warning;
 Warning.default = Warning;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/result.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/result.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Warning = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/warning.js [postcss] (ecmascript)");
+let Warning = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/warning.js [postcss] (ecmascript)");
 class Result {
-    get content() {
-        return this.css;
-    }
     constructor(processor, root, opts){
         this.processor = processor;
         this.messages = [];
         this.root = root;
         this.opts = opts;
-        this.css = '';
+        this.css = undefined;
         this.map = undefined;
     }
     toString() {
@@ -5927,11 +5895,14 @@ class Result {
     warnings() {
         return this.messages.filter((i)=>i.type === 'warning');
     }
+    get content() {
+        return this.css;
+    }
 }
 module.exports = Result;
 Result.default = Result;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/warn-once.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/warn-once.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
 /* eslint-disable no-console */ let printed = {};
@@ -5943,18 +5914,18 @@ module.exports = function warnOnce(message) {
     }
 };
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/lazy-result.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/lazy-result.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
-let Document = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/document.js [postcss] (ecmascript)");
-let MapGenerator = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/map-generator.js [postcss] (ecmascript)");
-let parse = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/parse.js [postcss] (ecmascript)");
-let Result = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/result.js [postcss] (ecmascript)");
-let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
-let stringify = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)");
-let { isClean, my } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/symbols.js [postcss] (ecmascript)");
-let warnOnce = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/warn-once.js [postcss] (ecmascript)");
+let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
+let Document = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/document.js [postcss] (ecmascript)");
+let MapGenerator = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/map-generator.js [postcss] (ecmascript)");
+let parse = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/parse.js [postcss] (ecmascript)");
+let Result = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/result.js [postcss] (ecmascript)");
+let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
+let stringify = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)");
+let { isClean, my } = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/symbols.js [postcss] (ecmascript)");
+let warnOnce = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/warn-once.js [postcss] (ecmascript)");
 const TYPE_TO_CLASS_NAME = {
     atrule: 'AtRule',
     comment: 'Comment',
@@ -6059,30 +6030,6 @@ function cleanMarks(node) {
 }
 let postcss = {};
 class LazyResult {
-    get content() {
-        return this.stringify().content;
-    }
-    get css() {
-        return this.stringify().css;
-    }
-    get map() {
-        return this.stringify().map;
-    }
-    get messages() {
-        return this.sync().messages;
-    }
-    get opts() {
-        return this.result.opts;
-    }
-    get processor() {
-        return this.result.processor;
-    }
-    get root() {
-        return this.sync().root;
-    }
-    get [Symbol.toStringTag]() {
-        return 'LazyResult';
-    }
     constructor(processor, css, opts){
         this.stringified = false;
         this.processed = false;
@@ -6413,6 +6360,30 @@ class LazyResult {
     warnings() {
         return this.sync().warnings();
     }
+    get content() {
+        return this.stringify().content;
+    }
+    get css() {
+        return this.stringify().css;
+    }
+    get map() {
+        return this.stringify().map;
+    }
+    get messages() {
+        return this.sync().messages;
+    }
+    get opts() {
+        return this.result.opts;
+    }
+    get processor() {
+        return this.result.processor;
+    }
+    get root() {
+        return this.sync().root;
+    }
+    get [Symbol.toStringTag]() {
+        return 'LazyResult';
+    }
 }
 LazyResult.registerPostcss = (dependant)=>{
     postcss = dependant;
@@ -6422,54 +6393,15 @@ LazyResult.default = LazyResult;
 Root.registerLazyResult(LazyResult);
 Document.registerLazyResult(LazyResult);
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/no-work-result.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/no-work-result.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let MapGenerator = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/map-generator.js [postcss] (ecmascript)");
-let parse = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/parse.js [postcss] (ecmascript)");
-const Result = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/result.js [postcss] (ecmascript)");
-let stringify = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)");
-let warnOnce = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/warn-once.js [postcss] (ecmascript)");
+let MapGenerator = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/map-generator.js [postcss] (ecmascript)");
+let parse = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/parse.js [postcss] (ecmascript)");
+const Result = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/result.js [postcss] (ecmascript)");
+let stringify = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)");
+let warnOnce = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/warn-once.js [postcss] (ecmascript)");
 class NoWorkResult {
-    get content() {
-        return this.result.css;
-    }
-    get css() {
-        return this.result.css;
-    }
-    get map() {
-        return this.result.map;
-    }
-    get messages() {
-        return [];
-    }
-    get opts() {
-        return this.result.opts;
-    }
-    get processor() {
-        return this.result.processor;
-    }
-    get root() {
-        if (this._root) {
-            return this._root;
-        }
-        let root;
-        let parser = parse;
-        try {
-            root = parser(this._css, this._opts);
-        } catch (error) {
-            this.error = error;
-        }
-        if (this.error) {
-            throw this.error;
-        } else {
-            this._root = root;
-            return root;
-        }
-    }
-    get [Symbol.toStringTag]() {
-        return 'NoWorkResult';
-    }
     constructor(processor, css, opts){
         css = css.toString();
         this.stringified = false;
@@ -6526,20 +6458,59 @@ class NoWorkResult {
     warnings() {
         return [];
     }
+    get content() {
+        return this.result.css;
+    }
+    get css() {
+        return this.result.css;
+    }
+    get map() {
+        return this.result.map;
+    }
+    get messages() {
+        return [];
+    }
+    get opts() {
+        return this.result.opts;
+    }
+    get processor() {
+        return this.result.processor;
+    }
+    get root() {
+        if (this._root) {
+            return this._root;
+        }
+        let root;
+        let parser = parse;
+        try {
+            root = parser(this._css, this._opts);
+        } catch (error) {
+            this.error = error;
+        }
+        if (this.error) {
+            throw this.error;
+        } else {
+            this._root = root;
+            return root;
+        }
+    }
+    get [Symbol.toStringTag]() {
+        return 'NoWorkResult';
+    }
 }
 module.exports = NoWorkResult;
 NoWorkResult.default = NoWorkResult;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/processor.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/processor.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let Document = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/document.js [postcss] (ecmascript)");
-let LazyResult = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/lazy-result.js [postcss] (ecmascript)");
-let NoWorkResult = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/no-work-result.js [postcss] (ecmascript)");
-let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
+let Document = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/document.js [postcss] (ecmascript)");
+let LazyResult = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/lazy-result.js [postcss] (ecmascript)");
+let NoWorkResult = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/no-work-result.js [postcss] (ecmascript)");
+let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
 class Processor {
     constructor(plugins = []){
-        this.version = '8.5.6';
+        this.version = '8.5.0';
         this.plugins = this.normalize(plugins);
     }
     normalize(plugins) {
@@ -6584,27 +6555,27 @@ Processor.default = Processor;
 Root.registerProcessor(Processor);
 Document.registerProcessor(Processor);
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/postcss.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/postcss.js [postcss] (ecmascript)", ((__turbopack_context__, module, exports) => {
 "use strict";
 
-let AtRule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/at-rule.js [postcss] (ecmascript)");
-let Comment = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/comment.js [postcss] (ecmascript)");
-let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
-let CssSyntaxError = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/css-syntax-error.js [postcss] (ecmascript)");
-let Declaration = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)");
-let Document = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/document.js [postcss] (ecmascript)");
-let fromJSON = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/fromJSON.js [postcss] (ecmascript)");
-let Input = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/input.js [postcss] (ecmascript)");
-let LazyResult = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/lazy-result.js [postcss] (ecmascript)");
-let list = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/list.js [postcss] (ecmascript)");
-let Node = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/node.js [postcss] (ecmascript)");
-let parse = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/parse.js [postcss] (ecmascript)");
-let Processor = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/processor.js [postcss] (ecmascript)");
-let Result = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/result.js [postcss] (ecmascript)");
-let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
-let Rule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/rule.js [postcss] (ecmascript)");
-let stringify = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)");
-let Warning = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/warning.js [postcss] (ecmascript)");
+let AtRule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/at-rule.js [postcss] (ecmascript)");
+let Comment = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/comment.js [postcss] (ecmascript)");
+let Container = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/container.js [postcss] (ecmascript)");
+let CssSyntaxError = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/css-syntax-error.js [postcss] (ecmascript)");
+let Declaration = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/declaration.js [postcss] (ecmascript)");
+let Document = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/document.js [postcss] (ecmascript)");
+let fromJSON = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/fromJSON.js [postcss] (ecmascript)");
+let Input = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/input.js [postcss] (ecmascript)");
+let LazyResult = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/lazy-result.js [postcss] (ecmascript)");
+let list = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/list.js [postcss] (ecmascript)");
+let Node = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/node.js [postcss] (ecmascript)");
+let parse = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/parse.js [postcss] (ecmascript)");
+let Processor = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/processor.js [postcss] (ecmascript)");
+let Result = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/result.js [postcss] (ecmascript)");
+let Root = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/root.js [postcss] (ecmascript)");
+let Rule = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/rule.js [postcss] (ecmascript)");
+let stringify = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/stringify.js [postcss] (ecmascript)");
+let Warning = __turbopack_context__.r("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/warning.js [postcss] (ecmascript)");
 function postcss(...plugins) {
     if (plugins.length === 1 && Array.isArray(plugins[0])) {
         plugins = plugins[0];
@@ -6670,7 +6641,7 @@ LazyResult.registerPostcss(postcss);
 module.exports = postcss;
 postcss.default = postcss;
 }),
-"[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/postcss.mjs [postcss] (ecmascript)", ((__turbopack_context__) => {
+"[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/postcss.mjs [postcss] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
@@ -6725,34 +6696,34 @@ __turbopack_context__.s([
     "stringify",
     ()=>stringify
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Documents/GitHub/SLA-FUSION/node_modules/postcss/lib/postcss.js [postcss] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Documents/GitHub/SLA-FUSION/node_modules/.pnpm/postcss@8.5.0/node_modules/postcss/lib/postcss.js [postcss] (ecmascript)");
 ;
-const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"];
-const stringify = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].stringify;
-const fromJSON = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].fromJSON;
-const plugin = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].plugin;
-const parse = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].parse;
-const list = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].list;
-const document = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].document;
-const comment = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].comment;
-const atRule = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].atRule;
-const rule = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].rule;
-const decl = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].decl;
-const root = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].root;
-const CssSyntaxError = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].CssSyntaxError;
-const Declaration = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Declaration;
-const Container = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Container;
-const Processor = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Processor;
-const Document = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Document;
-const Comment = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Comment;
-const Warning = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Warning;
-const AtRule = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].AtRule;
-const Result = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Result;
-const Input = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Input;
-const Rule = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Rule;
-const Root = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Root;
-const Node = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Node;
+const __TURBOPACK__default__export__ = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"];
+const stringify = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].stringify;
+const fromJSON = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].fromJSON;
+const plugin = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].plugin;
+const parse = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].parse;
+const list = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].list;
+const document = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].document;
+const comment = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].comment;
+const atRule = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].atRule;
+const rule = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].rule;
+const decl = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].decl;
+const root = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].root;
+const CssSyntaxError = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].CssSyntaxError;
+const Declaration = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Declaration;
+const Container = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Container;
+const Processor = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Processor;
+const Document = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Document;
+const Comment = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Comment;
+const Warning = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Warning;
+const AtRule = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].AtRule;
+const Result = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Result;
+const Input = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Input;
+const Rule = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Rule;
+const Root = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Root;
+const Node = __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f2e$pnpm$2f$postcss$40$8$2e$5$2e$0$2f$node_modules$2f$postcss$2f$lib$2f$postcss$2e$js__$5b$postcss$5d$__$28$ecmascript$29$__["default"].Node;
 }),
 ];
 
-//# sourceMappingURL=7cb33_7e5637ac._.js.map
+//# sourceMappingURL=7cb33__pnpm_86cabbc7._.js.map
