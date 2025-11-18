@@ -1,0 +1,2 @@
+-- This root requirements file forwards to the backend requirements.
+-r sla_fusion_backend/requirements.txt
