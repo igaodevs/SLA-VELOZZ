@@ -1,26 +1,24 @@
 services:
   - type: web
     name: sla-fusion-backend
-    env: python
-    runtime: python3.10
-    root: sla_fusion_backend
+    runtime: python
     plan: free
-    autodeploy: true
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    autoDeploy: true
+    rootDir: sla_fusion_backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     envVars:
       - key: PORT
         value: "8000"
 
   - type: web
     name: sla-fusion-frontend
-    env: node
-    runtime: 18
-    root: .
+    runtime: node
     plan: free
-    autodeploy: true
-    buildCommand: npm install && npm run build
-    startCommand: npm run start
+    autoDeploy: true
+    rootDir: .
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
     envVars:
       - key: PORT
         value: "3000"
