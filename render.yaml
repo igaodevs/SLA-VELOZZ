@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: sla-fusion-backend
+    env: docker
+    dockerfilePath: sla_fusion_backend/Dockerfile
+    plan: free
+    autodeploy: true
+    envVars:
+      - key: PORT
+        value: "8000"
+
+  - type: web
+    name: sla-fusion-frontend
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    autodeploy: true
+    envVars:
+      - key: PORT
+        value: "3000"

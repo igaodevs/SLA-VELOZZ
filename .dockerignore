@@ -1,0 +1,13 @@
+node_modules
+venv
+venv311
+__pycache__
+*.pyc
+.env
+uploads
+.DS_Store
+*.log
+/.next
+/.vercel
+dist
+build
