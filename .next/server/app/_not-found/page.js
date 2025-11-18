@@ -1,0 +1,13 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_not-found/page.js")
+R.c("server/chunks/ssr/Documents_GitHub_SLA-FUSION_88bfd933._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__47d35147._.js")
+R.c("server/chunks/ssr/7cb33_next_dist_esm_build_templates_app-page_4fb0df74.js")
+R.c("server/chunks/ssr/[root-of-the-server]__2c43c094._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__d112e00b._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__7cb90022._.js")
+R.c("server/chunks/ssr/Documents_GitHub_SLA-FUSION_app_layout_tsx_0ef2cc86._.js")
+R.c("server/chunks/ssr/7cb33_next_dist_client_components_3a046679._.js")
+R.c("server/chunks/ssr/7cb33_next_dist_client_components_builtin_forbidden_a0ef0a56.js")
+R.c("server/chunks/ssr/80b94_GitHub_SLA-FUSION__next-internal_server_app__not-found_page_actions_2a2964e1.js")
+R.m(12066)
+module.exports=R.m(12066).exports

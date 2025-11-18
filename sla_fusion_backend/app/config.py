@@ -20,6 +20,8 @@ class Settings(BaseSettings):
     
     # Storage settings (local by default, can be overridden to use S3/GCP)
     STORAGE_TYPE: str = "local"  # 'local', 's3', or 'gcp'
+    # Base URL for generating download links (use IP to satisfy HttpUrl validation)
+    BASE_URL: str = "http://127.0.0.1:8000"
     
     # Create upload directory if it doesn't exist
     @property

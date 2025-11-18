@@ -39,8 +39,8 @@ async def merge_files(request: MergeRequest):
         # Salva o arquivo mesclado
         df.to_excel(output_path, index=False)
         
-        # URL para download do arquivo mesclado (ajuste conforme sua configuração)
-        base_url = f"http://localhost:8000"
+        # URL para download do arquivo mesclado (usa settings.BASE_URL)
+        base_url = getattr(settings, 'BASE_URL', 'http://127.0.0.1:8000')
         download_url = f"{base_url}/uploads/{output_filename}"
         
         return MergeResponse(
