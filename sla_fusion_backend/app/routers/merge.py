@@ -7,7 +7,7 @@ from datetime import datetime
 import uuid
 
 from ..models.schemas import MergeRequest, MergeResponse
-from ...config import settings
+from ..config import settings
 
 router = APIRouter()
 

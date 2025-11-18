@@ -7,7 +7,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 
 from ..models.schemas import FileUploadResponse, FileType, UploadStatus
-from ...config import settings
+from ..config import settings
 
 router = APIRouter()
 

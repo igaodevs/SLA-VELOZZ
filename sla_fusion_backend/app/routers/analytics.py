@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 from ..models.schemas import AnalyticsResponse
-from ...config import settings
+from ..config import settings
 
 router = APIRouter()
 

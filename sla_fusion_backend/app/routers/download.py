@@ -10,7 +10,7 @@ async def download_file(file_id: str):
     """
     Endpoint para baixar um arquivo pelo seu ID.
     """
-    from ...config import settings
+    from ..config import settings
     
     # Procura o arquivo no diretório de uploads
     upload_dir = Path(settings.UPLOAD_FOLDER)
