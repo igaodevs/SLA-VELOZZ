@@ -2,6 +2,7 @@ services:
   - type: web
     name: sla-fusion-backend
     env: python
+    runtime: python3.10
     root: sla_fusion_backend
     plan: free
     autodeploy: true
@@ -14,6 +15,7 @@ services:
   - type: web
     name: sla-fusion-frontend
     env: node
+    runtime: 18
     root: .
     plan: free
     autodeploy: true
