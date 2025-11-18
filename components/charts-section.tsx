@@ -1,5 +1,6 @@
-'use client'
+"use client"
 
+import { useRef, useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { X, Download, TrendingDown } from 'lucide-react'
@@ -33,8 +34,40 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
     }))
     .sort((a, b) => b.percentual - a.percentual)
 
-  const handleExport = (format: 'png' | 'pdf') => {
-    alert(`Exportando gráfico como ${format.toUpperCase()}...`)
+  const chartRef = useRef<HTMLDivElement | null>(null)
+  const [exporting, setExporting] = useState(false)
+
+  const handleExport = async (format: 'png' | 'pdf') => {
+    if (!chartRef.current) return
+    try {
+      setExporting(true)
+      const html2canvas = (await import('html2canvas')).default
+      const canvas = await html2canvas(chartRef.current, { scale: 2, useCORS: true, backgroundColor: null })
+      const dataUrl = canvas.toDataURL('image/png')
+
+      if (format === 'png') {
+        const a = document.createElement('a')
+        a.href = dataUrl
+        a.download = `grafico_atrasos_${Date.now()}.png`
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+      } else {
+        const { jsPDF } = await import('jspdf')
+        const pdf = new jsPDF({ orientation: 'landscape' })
+        const imgProps = pdf.getImageProperties(dataUrl)
+        const pdfWidth = pdf.internal.pageSize.getWidth()
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width
+        pdf.addImage(dataUrl, 'PNG', 0, 0, pdfWidth, pdfHeight)
+        pdf.save(`grafico_atrasos_${Date.now()}.pdf`)
+      }
+    } catch (err) {
+      // graceful fallback
+      console.error('Export failed', err)
+      alert('Falha ao exportar. Verifique o console para mais detalhes.')
+    } finally {
+      setExporting(false)
+    }
   }
 
   return (
@@ -56,7 +89,7 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
             </Button>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div ref={chartRef} className="grid md:grid-cols-2 gap-6 mb-8">
             <Card className="p-6 shadow-lg">
               <h3 className="font-semibold mb-4 text-lg">Atrasos por Vendedor</h3>
               <ResponsiveContainer width="100%" height={300}>
@@ -139,13 +172,23 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
           </div>
 
           <div className="flex justify-center gap-3">
-            <Button variant="outline" onClick={() => handleExport('png')} className="gap-2 hover:bg-primary hover:text-primary-foreground transition-colors">
+            <Button
+              variant="outline"
+              onClick={() => handleExport('png')}
+              className="gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+              disabled={exporting}
+            >
               <Download className="w-4 h-4" />
-              Exportar PNG
+              {exporting ? 'Exportando...' : 'Exportar PNG'}
             </Button>
-            <Button variant="outline" onClick={() => handleExport('pdf')} className="gap-2 hover:bg-primary hover:text-primary-foreground transition-colors">
+            <Button
+              variant="outline"
+              onClick={() => handleExport('pdf')}
+              className="gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+              disabled={exporting}
+            >
               <Download className="w-4 h-4" />
-              Exportar PDF
+              {exporting ? 'Exportando...' : 'Exportar PDF'}
             </Button>
           </div>
         </div>

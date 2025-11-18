@@ -23,6 +23,7 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
   const [searchTerm, setSearchTerm] = useState('')
   const [sortField, setSortField] = useState<string | null>(null)
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc')
+  const [exporting, setExporting] = useState(false)
 
   const filteredData = data.filter(row => 
     Object.values(row).some(val => 
@@ -47,9 +48,21 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
     }
   }
 
-  const handleDownload = () => {
-    // Simulate download
-    alert('Download iniciado! Arquivo Excel será baixado mantendo o padrão da planilha mãe.')
+  const handleDownload = async () => {
+    if (!data || data.length === 0) return
+    try {
+      setExporting(true)
+      const XLSX = await import('xlsx')
+      const ws = XLSX.utils.json_to_sheet(data)
+      const wb = XLSX.utils.book_new()
+      XLSX.utils.book_append_sheet(wb, ws, 'Resultado')
+      XLSX.writeFile(wb, 'mesclagem_resultado.xlsx')
+    } catch (err) {
+      console.error('Erro ao gerar Excel', err)
+      alert('Falha ao gerar arquivo Excel. Veja o console para detalhes.')
+    } finally {
+      setExporting(false)
+    }
   }
 
   const getStatusBadge = (status: string) => {
@@ -77,9 +90,14 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
               </p>
             </div>
             <div className="flex gap-3">
-              <Button variant="outline" onClick={handleDownload} className="gap-2 hover:bg-primary hover:text-primary-foreground transition-colors">
+              <Button
+                variant="outline"
+                onClick={handleDownload}
+                className="gap-2 hover:bg-primary hover:text-primary-foreground transition-colors"
+                disabled={exporting}
+              >
                 <Download className="w-4 h-4" />
-                Download Excel
+                {exporting ? 'Gerando...' : 'Download Excel'}
               </Button>
               <Button onClick={onShowCharts} className="gap-2">
                 <BarChart3 className="w-4 h-4" />

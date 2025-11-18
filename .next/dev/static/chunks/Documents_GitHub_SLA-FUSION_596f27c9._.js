@@ -104,8 +104,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2
 function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
     const getRecordCount = (file)=>{
         if (!file) return 0;
-        // Simulate record count based on file size
-        return Math.floor(Math.random() * 500) + 100;
+        // Record counts should come from server-side processing.
+        // Until server provides counts, display 0 as placeholder.
+        return 0;
     };
     const totalRecords = [
         files.main,
@@ -124,7 +125,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                         children: "Pré-Visualização e Automação"
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                        lineNumber: 31,
+                        lineNumber: 32,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -140,14 +141,14 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                 className: "w-5 h-5 text-primary"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                lineNumber: 36,
+                                                lineNumber: 37,
                                                 columnNumber: 17
                                             }, this),
                                             "Arquivos Carregados"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                        lineNumber: 35,
+                                        lineNumber: 36,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -161,24 +162,24 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                         children: "Planilha Mãe"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 42,
+                                                        lineNumber: 43,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-sm text-muted-foreground",
                                                         children: [
-                                                            getRecordCount(files.main),
+                                                            getRecordCount(files.main) || 'Indisponível',
                                                             " registros"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 43,
+                                                        lineNumber: 44,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                lineNumber: 41,
+                                                lineNumber: 42,
                                                 columnNumber: 19
                                             }, this),
                                             files.additional1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -189,24 +190,24 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                         children: "Planilha Avulsa 1"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 50,
+                                                        lineNumber: 51,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-sm text-muted-foreground",
                                                         children: [
-                                                            getRecordCount(files.additional1),
+                                                            getRecordCount(files.additional1) || 'Indisponível',
                                                             " registros"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 51,
+                                                        lineNumber: 52,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                lineNumber: 49,
+                                                lineNumber: 50,
                                                 columnNumber: 19
                                             }, this),
                                             files.additional2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -217,24 +218,24 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                         children: "Planilha Avulsa 2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 58,
+                                                        lineNumber: 59,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-sm text-muted-foreground",
                                                         children: [
-                                                            getRecordCount(files.additional2),
+                                                            getRecordCount(files.additional2) || 'Indisponível',
                                                             " registros"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 59,
+                                                        lineNumber: 60,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                lineNumber: 57,
+                                                lineNumber: 58,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -247,43 +248,43 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                 className: "w-4 h-4 text-green-600"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                lineNumber: 66,
+                                                                lineNumber: 67,
                                                                 columnNumber: 21
                                                             }, this),
                                                             "Total de registros"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 65,
+                                                        lineNumber: 66,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-sm font-bold text-green-600 dark:text-green-400",
                                                         children: [
-                                                            totalRecords,
+                                                            totalRecords || 'Indisponível',
                                                             " registros"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 69,
-                                                        columnNumber: 19
+                                                        lineNumber: 70,
+                                                        columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                lineNumber: 64,
+                                                lineNumber: 65,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                        lineNumber: 39,
+                                        lineNumber: 40,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                lineNumber: 34,
+                                lineNumber: 35,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
@@ -294,7 +295,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                         children: "Opções de Mesclagem Inteligente"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 78,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -310,7 +311,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                         className: "mt-0.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 80,
+                                                        lineNumber: 81,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -322,7 +323,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                 children: "Aplicar filtro Meli automaticamente"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                lineNumber: 87,
+                                                                lineNumber: 88,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -330,19 +331,19 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                 children: "Filtra apenas registros relacionados ao Mercado Livre por nome ou código"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                lineNumber: 93,
+                                                                lineNumber: 94,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 86,
+                                                        lineNumber: 87,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                lineNumber: 79,
+                                                lineNumber: 80,
                                                 columnNumber: 17
                                             }, this),
                                             !files.additional2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -352,7 +353,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                         className: "w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 101,
+                                                        lineNumber: 102,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -363,7 +364,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                 children: "Terceira planilha não enviada"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                lineNumber: 103,
+                                                                lineNumber: 104,
                                                                 columnNumber: 23
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -371,19 +372,19 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                 children: "A fusão será realizada com os arquivos disponíveis."
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                lineNumber: 106,
+                                                                lineNumber: 107,
                                                                 columnNumber: 23
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 102,
+                                                        lineNumber: 103,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                lineNumber: 100,
+                                                lineNumber: 101,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -393,7 +394,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                         className: "w-5 h-5 text-primary flex-shrink-0 mt-0.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 114,
+                                                        lineNumber: 115,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -404,7 +405,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                 children: "Automação Ativa"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                lineNumber: 116,
+                                                                lineNumber: 117,
                                                                 columnNumber: 21
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -414,73 +415,73 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                         children: "• Alinhamento automático de colunas"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                        lineNumber: 118,
+                                                                        lineNumber: 119,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                         children: "• Manutenção do padrão da planilha mãe"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                        lineNumber: 119,
+                                                                        lineNumber: 120,
                                                                         columnNumber: 23
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$SLA$2d$FUSION$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                         children: "• Detecção de inconsistências"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                        lineNumber: 120,
+                                                                        lineNumber: 121,
                                                                         columnNumber: 23
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                                lineNumber: 117,
+                                                                lineNumber: 118,
                                                                 columnNumber: 21
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                        lineNumber: 115,
+                                                        lineNumber: 116,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                                lineNumber: 113,
+                                                lineNumber: 114,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                        lineNumber: 78,
+                                        lineNumber: 79,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                                lineNumber: 76,
+                                lineNumber: 77,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                        lineNumber: 33,
+                        lineNumber: 34,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-                lineNumber: 30,
+                lineNumber: 31,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-            lineNumber: 29,
+            lineNumber: 30,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx",
-        lineNumber: 28,
+        lineNumber: 29,
         columnNumber: 5
     }, this);
 }

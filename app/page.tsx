@@ -98,64 +98,23 @@ export default function Home() {
   const [showCharts, setShowCharts] = useState(false);
   const [applyMeliFilter, setApplyMeliFilter] = useState(true);
 
-  // Memoized file upload handler with progress simulation
+  // Handle file upload
   const handleFileUpload = useCallback((type: FileType, file: File | null) => {
     setFiles(prev => ({ ...prev, [type]: file }));
-    
-    if (!file) {
-      setUploadProgress(prev => ({ ...prev, [type]: 0 }));
-      return;
-    }
-    
-    // Simulate upload progress for large files
-    let progress = 0;
-    setUploadProgress(prev => ({ ...prev, [type]: progress }));
-    
-    const interval = setInterval(() => {
-      progress += Math.floor(Math.random() * 10) + 5; // Random progress between 5-15%
-      if (progress >= 100) {
-        progress = 100;
-        clearInterval(interval);
-      }
-      setUploadProgress(prev => ({ ...prev, [type]: progress }));
-    }, 200);
-    
-    return () => clearInterval(interval);
+    setUploadProgress(prev => ({ ...prev, [type]: file ? 100 : 0 }));
   }, []);
 
-  // Memoized merge function with simulated data processing
+  // Handle merge functionality
   const handleMerge = useCallback(() => {
-    // Simulate processing delay
-    const processData = () => {
-      const mockData = [
-        { id: 1, vendedor: 'João Silva', data: '2024-01-15', status: 'Atrasado', dias: 3, categoria: 'Meli' },
-        { id: 2, vendedor: 'Maria Santos', data: '2024-01-16', status: 'No Prazo', dias: 0, categoria: 'Meli' },
-        { id: 3, vendedor: 'Pedro Costa', data: '2024-01-17', status: 'Atrasado', dias: 5, categoria: 'Meli' },
-        { id: 4, vendedor: 'Ana Lima', data: '2024-01-18', status: 'No Prazo', dias: 0, categoria: 'Meli' },
-        { id: 5, vendedor: 'João Silva', data: '2024-01-19', status: 'Atrasado', dias: 2, categoria: 'Meli' },
-        { id: 6, vendedor: 'Carlos Mendes', data: '2024-01-20', status: 'Atenção', dias: 1, categoria: 'Meli' },
-        { id: 7, vendedor: 'Juliana Reis', data: '2024-01-21', status: 'No Prazo', dias: 0, categoria: 'Meli' },
-        { id: 8, vendedor: 'Pedro Costa', data: '2024-01-22', status: 'Atrasado', dias: 4, categoria: 'Meli' },
-      ];
-      
-      return applyMeliFilter 
-        ? mockData.filter(item => item.categoria === 'Meli')
-        : mockData;
-    };
+    // This function will be implemented with actual file processing logic
+    // For now, we'll set an empty array to indicate no data is available
+    setMergedData([]);
     
-    // Simulate processing time
-    setTimeout(() => {
-      const filteredData = processData();
-      setMergedData(filteredData);
-      
-      // Scroll to results after a short delay
-      setTimeout(() => {
-        const resultsSection = document.getElementById('results-section');
-        if (resultsSection) {
-          resultsSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }, 800);
+    // Scroll to results section
+    const resultsSection = document.getElementById('results-section');
+    if (resultsSection) {
+      resultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [applyMeliFilter]);
 
   // Memoize the header and footer to prevent unnecessary re-renders

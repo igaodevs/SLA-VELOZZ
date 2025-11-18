@@ -206,6 +206,25 @@ class FileHandler:
         try:
             with pd.ExcelWriter(file_path, engine='xlsxwriter') as writer:
                 df.to_excel(writer, index=False)
+
+            # Register the saved merged file in the handler metadata so other
+            # services can reference it by its generated ID.
+            try:
+                file_size = file_path.stat().st_size
+                file_info = FileInfo(
+                    id=file_id,
+                    filename=file_path.name,
+                    name=filename,
+                    size=file_size,
+                    upload_time=datetime.utcnow(),
+                    status=UploadStatus.COMPLETED,
+                    file_type=FileType.MOTHER,
+                )
+                self.files[file_id] = file_info
+            except Exception:
+                # Non-fatal: registration failing should not break saving
+                logger.warning("Failed to register saved dataframe in metadata")
+
             return file_path
         except Exception as e:
             logger.error(f"Error saving DataFrame to {filename}: {str(e)}")

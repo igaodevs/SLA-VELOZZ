@@ -6,6 +6,7 @@ import numpy as np
 
 from ..models.schemas import AnalyticsResponse
 from .merge_service import merge_service
+from .file_handler import file_handler
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

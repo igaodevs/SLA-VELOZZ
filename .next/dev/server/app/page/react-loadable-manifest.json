@@ -2,35 +2,50 @@
   "[project]/Documents/GitHub/SLA-FUSION/components/charts-section.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/Documents/GitHub/SLA-FUSION/components/charts-section.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/3c54a_recharts_es6_util_2f5be96d._.js",
-      "static/chunks/3c54a_recharts_es6_state_3e8f4b6a._.js",
-      "static/chunks/3c54a_recharts_es6_component_aa89f4bc._.js",
-      "static/chunks/3c54a_recharts_es6_cartesian_96b889d6._.js",
-      "static/chunks/3c54a_recharts_es6_1ab0aa5c._.js",
-      "static/chunks/7cb33__pnpm_e82f1ac7._.js",
+      "static/chunks/7cb33_60410f6c._.js",
+      "static/chunks/7cb33_recharts_es6_util_097d6dd3._.js",
+      "static/chunks/7cb33_recharts_es6_state_36d3d052._.js",
+      "static/chunks/7cb33_recharts_es6_component_1e1a55c5._.js",
+      "static/chunks/7cb33_recharts_es6_cartesian_35352a26._.js",
+      "static/chunks/7cb33_recharts_es6_dd263c7e._.js",
+      "static/chunks/7cb33_747e807e._.js",
       "static/chunks/Documents_GitHub_SLA-FUSION_components_charts-section_tsx_626f024f._.js",
-      "static/chunks/Documents_GitHub_SLA-FUSION_components_charts-section_tsx_062bc8b3._.js"
+      "static/chunks/Documents_GitHub_SLA-FUSION_components_charts-section_tsx_d83d12d7._.js",
+      "static/chunks/7cb33_html2canvas_dist_html2canvas_e920a99f.js",
+      "static/chunks/7cb33_html2canvas_dist_html2canvas_96c39f0e.js",
+      "static/chunks/7cb33_fd82936f._.js",
+      "static/chunks/7cb33_a3bd873b._.js",
+      "static/chunks/7cb33_jspdf_dist_jspdf_es_min_96c39f0e.js",
+      "static/chunks/7cb33_cd91c23e._.js",
+      "static/chunks/7cb33_canvg_lib_index_es_bd53a2d9.js",
+      "static/chunks/7cb33_html2canvas_dist_html2canvas_bd53a2d9.js",
+      "static/chunks/7cb33_dompurify_dist_purify_0d22d16c.js",
+      "static/chunks/7cb33_dompurify_dist_purify_bd53a2d9.js"
     ]
   },
   "[project]/Documents/GitHub/SLA-FUSION/components/results-section.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/Documents/GitHub/SLA-FUSION/components/results-section.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/Documents_GitHub_SLA-FUSION_dc1388f8._.js",
-      "static/chunks/Documents_GitHub_SLA-FUSION_components_results-section_tsx_062bc8b3._.js"
+      "static/chunks/7cb33_xlsx_xlsx_mjs_118db8c6._.js",
+      "static/chunks/Documents_GitHub_SLA-FUSION_3e8de751._.js",
+      "static/chunks/Documents_GitHub_SLA-FUSION_components_results-section_tsx_d83d12d7._.js",
+      "static/chunks/7cb33_xlsx_xlsx_mjs_eb56885e._.js",
+      "static/chunks/7cb33_next_dist_compiled_buffer_index_e83faa61.js",
+      "static/chunks/7cb33_xlsx_xlsx_mjs_cd8ce91e._.js"
     ]
   },
   "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/Documents_GitHub_SLA-FUSION_475b0bb1._.js",
-      "static/chunks/Documents_GitHub_SLA-FUSION_components_preview-section_tsx_062bc8b3._.js"
+      "static/chunks/Documents_GitHub_SLA-FUSION_596f27c9._.js",
+      "static/chunks/Documents_GitHub_SLA-FUSION_components_preview-section_tsx_d83d12d7._.js"
     ]
   },
   "[project]/Documents/GitHub/SLA-FUSION/components/upload-section.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/Documents/GitHub/SLA-FUSION/components/upload-section.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/Documents_GitHub_SLA-FUSION_4b1daaec._.js",
-      "static/chunks/Documents_GitHub_SLA-FUSION_components_upload-section_tsx_062bc8b3._.js"
+      "static/chunks/Documents_GitHub_SLA-FUSION_34b41e8c._.js",
+      "static/chunks/Documents_GitHub_SLA-FUSION_components_upload-section_tsx_d83d12d7._.js"
     ]
   }
 }

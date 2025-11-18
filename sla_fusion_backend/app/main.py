@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .config import settings
 from .routers import upload, merge, download, analytics
+from .routers import reports
 
 # Create FastAPI app
 app = FastAPI(
@@ -19,7 +20,7 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with your frontend URL
+    allow_origins=settings.ALLOWED_ORIGINS or ( ["*"] if settings.DEBUG else [] ),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,14 +29,16 @@ app.add_middleware(
 # Create upload directory if it doesn't exist
 os.makedirs(settings.UPLOAD_FOLDER, exist_ok=True)
 
-# Mount static files (for serving uploaded files in development)
-app.mount("/uploads", StaticFiles(directory=settings.UPLOAD_FOLDER), name="uploads")
+# Mount static files (only in DEBUG/development)
+if settings.DEBUG:
+    app.mount("/uploads", StaticFiles(directory=settings.UPLOAD_FOLDER), name="uploads")
 
 # Include routers
 app.include_router(upload.router, prefix="/api/v1", tags=["File Upload"])
 app.include_router(merge.router, prefix="/api/v1", tags=["File Merge"])
 app.include_router(download.router, prefix="/api/v1", tags=["File Download"])
 app.include_router(analytics.router, prefix="/api/v1", tags=["Analytics"])
+app.include_router(reports.router, prefix="/api/v1", tags=["Reports"])
 
 # Health check endpoint
 @app.get("/health")

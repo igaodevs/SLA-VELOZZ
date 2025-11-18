@@ -16,8 +16,9 @@ interface PreviewSectionProps {
 export function PreviewSection({ files, applyMeliFilter, onFilterChange }: PreviewSectionProps) {
   const getRecordCount = (file: File | null) => {
     if (!file) return 0
-    // Simulate record count based on file size
-    return Math.floor(Math.random() * 500) + 100
+    // Record counts should come from server-side processing.
+    // Until server provides counts, display 0 as placeholder.
+    return 0
   }
 
   const totalRecords = [files.main, files.additional1, files.additional2]
@@ -41,15 +42,15 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                   <div className="flex justify-between items-center p-3 bg-primary/10 border border-primary/20 rounded-lg">
                     <span className="text-sm font-medium">Planilha Mãe</span>
                     <span className="text-sm text-muted-foreground">
-                      {getRecordCount(files.main)} registros
-                    </span>
+                        {getRecordCount(files.main) || 'Indisponível'} registros
+                      </span>
                   </div>
                 )}
                 {files.additional1 && (
                   <div className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
                     <span className="text-sm font-medium">Planilha Avulsa 1</span>
                     <span className="text-sm text-muted-foreground">
-                      {getRecordCount(files.additional1)} registros
+                      {getRecordCount(files.additional1) || 'Indisponível'} registros
                     </span>
                   </div>
                 )}
@@ -57,7 +58,7 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                   <div className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
                     <span className="text-sm font-medium">Planilha Avulsa 2</span>
                     <span className="text-sm text-muted-foreground">
-                      {getRecordCount(files.additional2)} registros
+                      {getRecordCount(files.additional2) || 'Indisponível'} registros
                     </span>
                   </div>
                 )}
@@ -66,8 +67,8 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                     <CheckCircle2 className="w-4 h-4 text-green-600" />
                     Total de registros
                   </span>
-                  <span className="text-sm font-bold text-green-600 dark:text-green-400">
-                    {totalRecords} registros
+                    <span className="text-sm font-bold text-green-600 dark:text-green-400">
+                    {totalRecords || 'Indisponível'} registros
                   </span>
                 </div>
               </div>

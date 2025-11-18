@@ -164,10 +164,11 @@ class MergeService:
             file_path = file_handler.save_dataframe(merged_df, filename)
             
             # Create response
+            # Expose a download URL for the merged file (served by reports router)
             response = MergeResponse(
                 merge_id=merge_id,
                 status="completed",
-                merged_file_url=f"/download/{file_path.name}",
+                merged_file_url=f"/api/v1/download/file/{file_path.name}",
                 message=f"Successfully merged {len(single_dfs)} files with mother file",
                 timestamp=datetime.utcnow()
             )
