@@ -4,20 +4,20 @@ globalThis.__BUILD_MANIFEST = {
   },
   "devFiles": [],
   "polyfillFiles": [
-    "static/chunks/7cb33_next_dist_build_polyfills_polyfill-nomodule.js"
+    "static/chunks/1715a_next_dist_build_polyfills_polyfill-nomodule.js"
   ],
   "lowPriorityFiles": [],
   "rootMainFiles": [
-    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_05e47321._.js",
-    "static/chunks/7cb33_next_dist_compiled_react-dom_3ed54c77._.js",
-    "static/chunks/7cb33_next_dist_compiled_react-server-dom-turbopack_a331602b._.js",
-    "static/chunks/7cb33_next_dist_compiled_next-devtools_index_1b4de703.js",
-    "static/chunks/7cb33_next_dist_compiled_ac3c34da._.js",
-    "static/chunks/7cb33_next_dist_client_83e277b0._.js",
-    "static/chunks/7cb33_next_dist_7cd82edc._.js",
-    "static/chunks/7cb33_@swc_helpers_cjs_bc65219e._.js",
-    "static/chunks/Documents_GitHub_SLA-FUSION_a0ff3932._.js",
-    "static/chunks/turbopack-Documents_GitHub_SLA-FUSION_2cdfde46._.js"
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_7e6f662c._.js",
+    "static/chunks/1715a_next_dist_compiled_react-dom_78fc7247._.js",
+    "static/chunks/1715a_next_dist_compiled_react-server-dom-turbopack_64c51e6c._.js",
+    "static/chunks/1715a_next_dist_compiled_next-devtools_index_10dde37a.js",
+    "static/chunks/1715a_next_dist_compiled_d05cad08._.js",
+    "static/chunks/1715a_next_dist_client_57f47bb3._.js",
+    "static/chunks/1715a_next_dist_1a57d557._.js",
+    "static/chunks/1715a_@swc_helpers_cjs_d2cb3a9a._.js",
+    "static/chunks/Documents_GitHub_SLA-VELOZZ_a0ff3932._.js",
+    "static/chunks/turbopack-Documents_GitHub_SLA-VELOZZ_5eabe5c0._.js"
   ]
 };
 globalThis.__BUILD_MANIFEST.lowPriorityFiles = [
