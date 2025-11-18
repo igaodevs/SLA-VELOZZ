@@ -1,61 +1,176 @@
 'use client'
 
-import { useCallback, useState } from 'react'
-import { Upload, FileSpreadsheet, CheckCircle2, AlertCircle, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import { Progress } from '@/components/ui/progress'
+import { memo, useCallback, useState } from 'react';
+import { Upload, FileSpreadsheet, CheckCircle2, AlertCircle, X } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { useFileDrop } from '@/hooks/useFileDrop';
+
+interface UploadCardProps {
+  title: string;
+  subtitle: string;
+  required?: boolean;
+  primary?: boolean;
+  file: File | null;
+  progress: number;
+  error?: string | null;
+  onDrop: (file: File) => void;
+  onFileSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onRemove: () => void;
+}
+
+const UploadCard = memo(({ 
+  title, 
+  subtitle, 
+  required = false, 
+  primary = false,
+  file,
+  progress,
+  error,
+  onDrop,
+  onFileSelect,
+  onRemove
+}: UploadCardProps) => {
+  const { isDragging, dragProps } = useFileDrop(onDrop);
+  const fileInputId = `file-upload-${title.toLowerCase().replace(/\s+/g, '-')}`;
+
+  return (
+    <Card 
+      className={`p-6 transition-all ${primary ? 'border-primary/50 bg-primary/5' : ''} ${
+        isDragging ? 'ring-2 ring-primary' : ''
+      }`}
+      {...dragProps}
+    >
+      <div className="flex flex-col h-full">
+        <div className="flex items-start justify-between mb-4">
+          <div>
+            <h3 className="font-medium flex items-center gap-2">
+              {title}
+              {required && <span className="text-xs text-red-500">*</span>}
+            </h3>
+            <p className="text-sm text-muted-foreground">{subtitle}</p>
+          </div>
+          {file && (
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="h-8 w-8" 
+              onClick={(e) => {
+                e.stopPropagation();
+                onRemove();
+              }}
+            >
+              <X className="h-4 w-4" />
+            </Button>
+          )}
+        </div>
+
+        {!file ? (
+          <div className="flex-1 flex flex-col items-center justify-center gap-3 p-6 border-2 border-dashed rounded-lg text-center">
+            <div className="p-3 rounded-full bg-primary/10 text-primary">
+              <Upload className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-sm font-medium">Arraste e solte o arquivo</p>
+              <p className="text-xs text-muted-foreground mt-1">
+                ou clique para selecionar
+              </p>
+            </div>
+            <input
+              type="file"
+              className="hidden"
+              accept=".xlsx,.xls"
+              onChange={onFileSelect}
+              id={fileInputId}
+            />
+            <Button
+              variant="outline"
+              size="sm"
+              className="mt-2"
+              onClick={() => document.getElementById(fileInputId)?.click()}
+            >
+              Selecionar Arquivo
+            </Button>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg">
+              <FileSpreadsheet className="h-5 w-5 text-primary flex-shrink-0" />
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium truncate">{file.name}</p>
+                <p className="text-xs text-muted-foreground">
+                  {(file.size / 1024 / 1024).toFixed(2)} MB
+                </p>
+              </div>
+              <CheckCircle2 className="h-5 w-5 text-green-500 flex-shrink-0" />
+            </div>
+            {progress < 100 && (
+              <Progress value={progress} className="h-2" />
+            )}
+          </div>
+        )}
+
+        {error && (
+          <div className="mt-3 text-sm text-red-500 flex items-center gap-2">
+            <AlertCircle className="h-4 w-4" />
+            {error}
+          </div>
+        )}
+      </div>
+    </Card>
+  );
+});
+
+UploadCard.displayName = 'UploadCard';
 
 interface UploadSectionProps {
   files: {
-    main: File | null
-    additional1: File | null
-    additional2: File | null
-  }
+    main: File | null;
+    additional1: File | null;
+    additional2: File | null;
+  };
   uploadProgress: {
-    main: number
-    additional1: number
-    additional2: number
-  }
-  onFileUpload: (type: 'main' | 'additional1' | 'additional2', file: File) => void
-  onMerge: () => void
+    main: number;
+    additional1: number;
+    additional2: number;
+  };
+  onFileUpload: (type: 'main' | 'additional1' | 'additional2', file: File | null) => void;
+  onMerge: () => void;
 }
 
-export function UploadSection({ files, uploadProgress, onFileUpload, onMerge }: UploadSectionProps) {
+function UploadSectionComponent({ files, uploadProgress, onFileUpload, onMerge }: UploadSectionProps) {
   const [errors, setErrors] = useState<{
-    main: string | null
-    additional1: string | null
-    additional2: string | null
+    main: string | null;
+    additional1: string | null;
+    additional2: string | null;
   }>({
     main: null,
     additional1: null,
     additional2: null,
-  })
+  });
 
-  const handleDrop = useCallback((
-    e: React.DragEvent,
-    type: 'main' | 'additional1' | 'additional2'
-  ) => {
-    e.preventDefault()
-    const file = e.dataTransfer.files[0]
-    if (!file) return
-    
+  const validateFile = useCallback((file: File): string | null => {
     if (!(file.name.endsWith('.xlsx') || file.name.endsWith('.xls'))) {
-      setErrors(prev => ({ ...prev, [type]: 'Formato inválido. Use arquivos .xlsx ou .xls' }))
-      return
+      return 'Formato inválido. Use arquivos .xlsx ou .xls';
     }
-    
-    // Check file size (example: max 100MB)
     if (file.size > 100 * 1024 * 1024) {
-      setErrors(prev => ({ ...prev, [type]: 'Arquivo muito grande. Máximo: 100MB' }))
-      return
+      return 'Arquivo muito grande. Máximo: 100MB';
     }
-    
-    setErrors(prev => ({ ...prev, [type]: null }))
-    onFileUpload(type, file)
-  }, [onFileUpload])
+    return null;
+  }, []);
 
-  const handleFileSelect = (
+  const handleDrop = useCallback((type: 'main' | 'additional1' | 'additional2', file: File) => {
+    const error = validateFile(file);
+    if (error) {
+      setErrors(prev => ({ ...prev, [type]: error }));
+      return;
+    }
+    setErrors(prev => ({ ...prev, [type]: null }));
+    onFileUpload(type, file);
+  }, [onFileUpload, validateFile]);
+
+  const handleFileSelect = useCallback((
     e: React.ChangeEvent<HTMLInputElement>,
     type: 'main' | 'additional1' | 'additional2'
   ) => {
@@ -74,14 +189,14 @@ export function UploadSection({ files, uploadProgress, onFileUpload, onMerge }: 
     
     setErrors(prev => ({ ...prev, [type]: null }))
     onFileUpload(type, file)
-  }
+  }, [onFileUpload]);
 
-  const handleRemoveFile = (type: 'main' | 'additional1' | 'additional2') => {
-    // This would need to be passed from parent, but for now we'll show the concept
-    setErrors(prev => ({ ...prev, [type]: null }))
-  }
+  const handleRemoveFile = useCallback((type: 'main' | 'additional1' | 'additional2') => {
+    setErrors(prev => ({ ...prev, [type]: null }));
+    onFileUpload(type, null);
+  }, [onFileUpload]);
 
-  const canMerge = files.main && files.additional1
+  const canMerge = Boolean(files.main && files.additional1);
 
   return (
     <section className="border-b bg-background">
@@ -103,8 +218,8 @@ export function UploadSection({ files, uploadProgress, onFileUpload, onMerge }: 
               primary
               file={files.main}
               progress={uploadProgress.main}
-              error={errors.main}
-              onDrop={(e) => handleDrop(e, 'main')}
+              error={errors.main || null}
+              onDrop={(file) => handleDrop('main', file)}
               onFileSelect={(e) => handleFileSelect(e, 'main')}
               onRemove={() => handleRemoveFile('main')}
             />
@@ -116,8 +231,8 @@ export function UploadSection({ files, uploadProgress, onFileUpload, onMerge }: 
               required
               file={files.additional1}
               progress={uploadProgress.additional1}
-              error={errors.additional1}
-              onDrop={(e) => handleDrop(e, 'additional1')}
+              error={errors.additional1 || null}
+              onDrop={(file) => handleDrop('additional1', file)}
               onFileSelect={(e) => handleFileSelect(e, 'additional1')}
               onRemove={() => handleRemoveFile('additional1')}
             />
@@ -128,8 +243,8 @@ export function UploadSection({ files, uploadProgress, onFileUpload, onMerge }: 
               subtitle="Opcional - dados extras"
               file={files.additional2}
               progress={uploadProgress.additional2}
-              error={errors.additional2}
-              onDrop={(e) => handleDrop(e, 'additional2')}
+              error={errors.additional2 || null}
+              onDrop={(file) => handleDrop('additional2', file)}
               onFileSelect={(e) => handleFileSelect(e, 'additional2')}
               onRemove={() => handleRemoveFile('additional2')}
             />
@@ -162,125 +277,4 @@ export function UploadSection({ files, uploadProgress, onFileUpload, onMerge }: 
   )
 }
 
-interface UploadCardProps {
-  title: string
-  subtitle: string
-  required?: boolean
-  primary?: boolean
-  file: File | null
-  progress: number
-  error?: string | null
-  onDrop: (e: React.DragEvent) => void
-  onFileSelect: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onRemove: () => void
-}
-
-function UploadCard({
-  title,
-  subtitle,
-  required,
-  primary,
-  file,
-  progress,
-  error,
-  onDrop,
-  onFileSelect,
-  onRemove
-}: UploadCardProps) {
-  const isUploading = progress > 0 && progress < 100
-  const isComplete = file && progress === 100
-  const [isDragging, setIsDragging] = useState(false)
-
-  return (
-    <Card 
-      className={`relative overflow-hidden transition-all duration-300 ${
-        primary ? 'ring-2 ring-primary shadow-lg' : 'hover:shadow-md'
-      } ${isDragging ? 'ring-2 ring-primary bg-primary/5 scale-105' : ''}`}
-      onDragOver={(e) => {
-        e.preventDefault()
-        setIsDragging(true)
-      }}
-      onDragLeave={() => setIsDragging(false)}
-      onDrop={(e) => {
-        setIsDragging(false)
-        onDrop(e)
-      }}
-    >
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-4">
-          <div>
-            <h3 className="font-semibold mb-1">{title}</h3>
-            <p className="text-sm text-muted-foreground">{subtitle}</p>
-          </div>
-          {required && (
-            <span className="text-xs font-medium text-destructive bg-destructive/10 px-2 py-1 rounded">
-              Obrigatório
-            </span>
-          )}
-        </div>
-
-        {!file ? (
-          <label className={`flex flex-col items-center justify-center h-32 border-2 border-dashed rounded-lg cursor-pointer transition-all duration-300 ${
-            isDragging 
-              ? 'border-primary bg-primary/10 scale-105' 
-              : 'hover:border-primary hover:bg-primary/5'
-          }`}>
-            <Upload className={`w-8 h-8 mb-2 transition-colors ${
-              isDragging ? 'text-primary' : 'text-muted-foreground'
-            }`} />
-            <span className="text-sm text-muted-foreground text-center px-2">
-              {isDragging ? 'Solte o arquivo aqui' : 'Arraste ou clique para selecionar'}
-            </span>
-            <span className="text-xs text-muted-foreground mt-1">
-              .xlsx ou .xls (máx. 100MB)
-            </span>
-            <input
-              type="file"
-              className="hidden"
-              accept=".xlsx,.xls"
-              onChange={onFileSelect}
-            />
-          </label>
-        ) : (
-          <div className="space-y-3">
-            <div className="flex items-start gap-3">
-              <FileSpreadsheet className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium truncate">{file.name}</p>
-                <p className="text-xs text-muted-foreground">
-                  {(file.size / (1024 * 1024)).toFixed(2)} MB
-                </p>
-              </div>
-              {isComplete && (
-                <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 animate-in zoom-in duration-300" />
-              )}
-            </div>
-
-            {isUploading && (
-              <div className="space-y-1">
-                <Progress value={progress} className="h-1.5" />
-                <p className="text-xs text-muted-foreground">
-                  Carregando... {progress}%
-                </p>
-              </div>
-            )}
-
-            {isComplete && (
-              <p className="text-xs text-green-600 dark:text-green-400 font-medium flex items-center gap-1 animate-in fade-in duration-500">
-                <CheckCircle2 className="w-3 h-3" />
-                Arquivo carregado com sucesso
-              </p>
-            )}
-          </div>
-        )}
-
-        {error && (
-          <div className="flex items-start gap-2 mt-3 p-3 bg-destructive/10 border border-destructive/20 rounded-lg animate-in fade-in duration-300">
-            <AlertCircle className="w-4 h-4 text-destructive flex-shrink-0 mt-0.5" />
-            <p className="text-xs text-destructive font-medium">{error}</p>
-          </div>
-        )}
-      </div>
-    </Card>
-  )
-}
+export const UploadSection = memo(UploadSectionComponent);

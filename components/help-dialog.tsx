@@ -19,7 +19,7 @@ export function HelpDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-2">
+        <Button id="help-dialog" variant="ghost" size="sm" className="gap-2 hidden">
           <HelpCircle className="w-4 h-4" />
           Ajuda
         </Button>
