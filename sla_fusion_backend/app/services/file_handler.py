@@ -3,6 +3,18 @@ import shutil
 import uuid
 from pathlib import Path
 from typing import Optional, BinaryIO, Dict, Any
+import sys
+
+# On Windows, python-magic's loader may not find the bundled libmagic DLL
+# because it looks in current working dir or system PATH. Add the package
+# libmagic folder to PATH before importing `magic` so the loader can find it.
+if sys.platform in ('win32', 'cygwin'):
+    for p in sys.path:
+        candidate = os.path.join(p, 'magic', 'libmagic')
+        if os.path.isdir(candidate):
+            os.environ['PATH'] = candidate + os.pathsep + os.environ.get('PATH', '')
+            break
+
 import magic
 import pandas as pd
 from datetime import datetime
