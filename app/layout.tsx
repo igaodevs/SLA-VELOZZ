@@ -1,20 +1,10 @@
-'use client'
+"use client"
 
-import { Inter } from 'next/font/google'
 import './globals.css'
 import ClientOnly from '@/components/ClientOnly'
 import { AnimatedLayout } from '@/components/providers/animated-layout'
 
-// Configure the Inter font with basic settings
-const inter = Inter({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-  fallback: ['system-ui', 'sans-serif'],
-  preload: true,
-  adjustFontFallback: false
-})
+// Using Google Fonts via CSS import instead of next/font
 
 export default function RootLayout({
   children,
@@ -23,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
-      <body className={inter.className} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <ClientOnly>
           <AnimatedLayout>
             {children}
