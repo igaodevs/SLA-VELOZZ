@@ -1,0 +1,52 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/Documents/GitHub/SLA-FUSION/components/upload-section.tsx [app-client] (ecmascript, next/dynamic entry, async loader)", ((__turbopack_context__) => {
+
+__turbopack_context__.v((parentImport) => {
+    return Promise.all([
+  "static/chunks/Documents_GitHub_SLA-FUSION_4b1daaec._.js",
+  "static/chunks/Documents_GitHub_SLA-FUSION_components_upload-section_tsx_062bc8b3._.js"
+].map((chunk) => __turbopack_context__.l(chunk))).then(() => {
+        return parentImport("[project]/Documents/GitHub/SLA-FUSION/components/upload-section.tsx [app-client] (ecmascript, next/dynamic entry)");
+    });
+});
+}),
+"[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx [app-client] (ecmascript, next/dynamic entry, async loader)", ((__turbopack_context__) => {
+
+__turbopack_context__.v((parentImport) => {
+    return Promise.all([
+  "static/chunks/Documents_GitHub_SLA-FUSION_475b0bb1._.js",
+  "static/chunks/Documents_GitHub_SLA-FUSION_components_preview-section_tsx_062bc8b3._.js"
+].map((chunk) => __turbopack_context__.l(chunk))).then(() => {
+        return parentImport("[project]/Documents/GitHub/SLA-FUSION/components/preview-section.tsx [app-client] (ecmascript, next/dynamic entry)");
+    });
+});
+}),
+"[project]/Documents/GitHub/SLA-FUSION/components/results-section.tsx [app-client] (ecmascript, next/dynamic entry, async loader)", ((__turbopack_context__) => {
+
+__turbopack_context__.v((parentImport) => {
+    return Promise.all([
+  "static/chunks/Documents_GitHub_SLA-FUSION_dc1388f8._.js",
+  "static/chunks/Documents_GitHub_SLA-FUSION_components_results-section_tsx_062bc8b3._.js"
+].map((chunk) => __turbopack_context__.l(chunk))).then(() => {
+        return parentImport("[project]/Documents/GitHub/SLA-FUSION/components/results-section.tsx [app-client] (ecmascript, next/dynamic entry)");
+    });
+});
+}),
+"[project]/Documents/GitHub/SLA-FUSION/components/charts-section.tsx [app-client] (ecmascript, next/dynamic entry, async loader)", ((__turbopack_context__) => {
+
+__turbopack_context__.v((parentImport) => {
+    return Promise.all([
+  "static/chunks/3c54a_recharts_es6_util_2f5be96d._.js",
+  "static/chunks/3c54a_recharts_es6_state_3e8f4b6a._.js",
+  "static/chunks/3c54a_recharts_es6_component_aa89f4bc._.js",
+  "static/chunks/3c54a_recharts_es6_cartesian_96b889d6._.js",
+  "static/chunks/3c54a_recharts_es6_1ab0aa5c._.js",
+  "static/chunks/7cb33__pnpm_e82f1ac7._.js",
+  "static/chunks/Documents_GitHub_SLA-FUSION_components_charts-section_tsx_626f024f._.js",
+  "static/chunks/Documents_GitHub_SLA-FUSION_components_charts-section_tsx_062bc8b3._.js"
+].map((chunk) => __turbopack_context__.l(chunk))).then(() => {
+        return parentImport("[project]/Documents/GitHub/SLA-FUSION/components/charts-section.tsx [app-client] (ecmascript, next/dynamic entry)");
+    });
+});
+}),
+]);
