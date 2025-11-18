@@ -11,12 +11,22 @@ class FileType(str, Enum):
 class UploadStatus(str, Enum):
     UPLOADED = "uploaded"
     PROCESSING = "processing"
-    ERROR = "error"
-    MERGED = "merged"
+    COMPLETED = "completed"
+    FAILED = "failed"
+
+class FileInfo(BaseModel):
+    id: str = Field(..., description="Unique identifier for the file")
+    filename: str = Field(..., description="Name of the file")
+    name: Optional[str] = Field(default=None, description="Optional display name for the file")
+    size: int = Field(..., description="Size of the file in bytes")
+    upload_time: datetime = Field(..., description="Timestamp when the file was uploaded")
+    status: UploadStatus = Field(..., description="Current status of the file")
+    file_type: FileType = Field(..., description="Type of the file")
 
 class FileUploadResponse(BaseModel):
     file_id: str = Field(..., description="Unique identifier for the uploaded file")
     filename: str = Field(..., description="Original filename")
+    name: Optional[str] = Field(default=None, description="Optional display name for the file")
     file_type: FileType = Field(..., description="Type of the uploaded file")
     status: UploadStatus = Field(..., description="Current status of the file")
     upload_time: datetime = Field(default_factory=datetime.utcnow)
@@ -49,11 +59,3 @@ class ErrorResponse(BaseModel):
     detail: str = Field(..., description="Error message")
     error_type: str = Field(..., description="Type of error")
     timestamp: datetime = Field(default_factory=datetime.utcnow)
-
-class FileInfo(BaseModel):
-    id: str
-    filename: str
-    size: int
-    upload_time: datetime
-    status: UploadStatus
-    file_type: FileType

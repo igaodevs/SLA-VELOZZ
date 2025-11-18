@@ -105,11 +105,20 @@ class FileHandler:
         self, 
         file: BinaryIO, 
         filename: str, 
-        file_type: FileType
+        file_type: FileType,
+        name: Optional[str] = None
     ) -> FileInfo:
         """
         Save an uploaded file to the configured storage.
-        Returns a FileInfo object with details about the saved file.
+        
+        Args:
+            file: The uploaded file (can be a file-like object or FastAPI's UploadFile)
+            filename: Original filename
+            file_type: Type of the file (mother, single_1, single_2)
+            name: Optional display name for the file (defaults to filename if not provided)
+            
+        Returns:
+            FileInfo: Information about the saved file
         """
         file_id = self._generate_file_id()
         file_extension = self._get_file_extension(filename)
@@ -123,7 +132,10 @@ class FileHandler:
         
         try:
             with open(file_path, 'wb') as buffer:
-                shutil.copyfileobj(file.file, buffer)
+                if hasattr(file, 'file'):  # Handle FastAPI's UploadFile
+                    shutil.copyfileobj(file.file, buffer)
+                else:  # Handle regular file-like objects
+                    shutil.copyfileobj(file, buffer)
             
             # Get file size
             file_size = os.path.getsize(file_path)
@@ -132,6 +144,7 @@ class FileHandler:
             file_info = FileInfo(
                 id=file_id,
                 filename=filename,
+                name=name or filename,  # Use provided name or fallback to filename
                 size=file_size,
                 upload_time=datetime.utcnow(),
                 status=UploadStatus.UPLOADED,
