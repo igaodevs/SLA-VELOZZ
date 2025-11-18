@@ -1,4 +1,6 @@
 ## Docker neutralizado
-# O projeto não vai usar Docker. Arquivo mantido somente como nota.
-# Removido para evitar deploy por imagem Docker no Render.
-# Para restaurar, recupere o arquivo do histórico Git.
+# O backend pode não usar Docker localmente. Arquivo mantido apenas como nota.
+# Adicionamos uma instrução mínima `FROM` para evitar o erro
+# "file with no instructions" em plataformas que esperam um Dockerfile.
+FROM scratch
+# Para restaurar o Dockerfile completo para builds, recupere do histórico Git.
