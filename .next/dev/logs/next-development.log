@@ -42,3 +42,14 @@
 [02:02:47.169] Browser DEBUG   #2 2283ms Starting renderer for element at 144,1732 with size 1152x462
 [02:02:47.169] Browser DEBUG   #2 2283ms Canvas renderer initialized (1152x462) with scale 2
 [02:02:47.169] Browser DEBUG   #2 3626ms Finished rendering
+[02:59:30.921] Server  LOG      ✓ Compiled in 1445ms
+[04:00:36.287] Browser DEBUG   #1 0ms Starting document clone with size 1440x739 scrolled to 0,-1574
+[04:00:38.775] Browser DEBUG   #1 2662ms Document cloned, element located at 144,1706 with size 1152x502 using computed rendering
+[04:00:38.775] Browser DEBUG   #1 2662ms Starting DOM parsing
+[04:00:38.776] Browser DEBUG   #1 2685ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22%25%20atrasos%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22dis
+[04:00:38.776] Browser DEBUG   #1 2690ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22Atrasos%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22display%3
+[04:00:38.776] Browser DEBUG   #1 2695ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22No%20prazo%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22displa
+[04:00:38.776] Browser DEBUG   #1 2956ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20role%3D%22application%22%20tabindex%3D%220%22%20class%3D%22recharts-surface%22%20width%3D%22514px%22%20height%3D%22340px%22%20viewBox%3D%220%200%20514%20340%22%20style%3D%22wi
+[04:00:38.776] Browser DEBUG   #1 3031ms Starting renderer for element at 144,1706 with size 1152x502
+[04:00:38.776] Browser DEBUG   #1 3032ms Canvas renderer initialized (1152x502) with scale 2
+[04:00:38.776] Browser DEBUG   #1 4712ms Finished rendering

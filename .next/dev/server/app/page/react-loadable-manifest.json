@@ -2,25 +2,25 @@
   "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/239ee_0392a0ff._.js",
-      "static/chunks/239ee_recharts_es6_util_11e2e9d7._.js",
-      "static/chunks/239ee_recharts_es6_state_f39ead4a._.js",
-      "static/chunks/239ee_recharts_es6_component_bbf31abe._.js",
-      "static/chunks/239ee_recharts_es6_cartesian_efce5c3e._.js",
-      "static/chunks/239ee_recharts_es6_a61899a0._.js",
+      "static/chunks/239ee_91836fbc._.js",
+      "static/chunks/239ee_recharts_es6_util_1c649cc6._.js",
+      "static/chunks/239ee_recharts_es6_state_93a612c9._.js",
+      "static/chunks/239ee_recharts_es6_component_23dad90d._.js",
+      "static/chunks/239ee_recharts_es6_cartesian_93d11502._.js",
+      "static/chunks/239ee_recharts_es6_e5efe9ed._.js",
       "static/chunks/239ee_7c78e34a._.js",
       "static/chunks/OneDrive_Documentos_GitHub_SLA-VELOZZ_components_charts-section_tsx_e4e73dcd._.js",
       "static/chunks/OneDrive_Documentos_GitHub_SLA-VELOZZ_components_charts-section_tsx_a414c1b1._.js",
       "static/chunks/239ee_html2canvas_dist_html2canvas_86913a22.js",
-      "static/chunks/239ee_html2canvas_dist_html2canvas_e36094ac.js",
-      "static/chunks/239ee_bbbbcf62._.js",
+      "static/chunks/239ee_html2canvas_dist_html2canvas_e2c0263d.js",
+      "static/chunks/239ee_8c20f755._.js",
       "static/chunks/239ee_083be73d._.js",
-      "static/chunks/239ee_jspdf_dist_jspdf_es_min_e36094ac.js",
+      "static/chunks/239ee_jspdf_dist_jspdf_es_min_e2c0263d.js",
       "static/chunks/239ee_d0e31d5e._.js",
-      "static/chunks/239ee_canvg_lib_index_es_fdfe049c.js",
-      "static/chunks/239ee_html2canvas_dist_html2canvas_fdfe049c.js",
+      "static/chunks/239ee_canvg_lib_index_es_d4f17dd8.js",
+      "static/chunks/239ee_html2canvas_dist_html2canvas_d4f17dd8.js",
       "static/chunks/239ee_dompurify_dist_purify_62cbad7f.js",
-      "static/chunks/239ee_dompurify_dist_purify_fdfe049c.js"
+      "static/chunks/239ee_dompurify_dist_purify_d4f17dd8.js"
     ]
   },
   "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/results-section.tsx [app-client] (ecmascript, next/dynamic entry)": {

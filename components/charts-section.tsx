@@ -4,11 +4,59 @@ import { useRef, useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { X, Download, TrendingDown } from 'lucide-react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts'
 
 interface ChartsSectionProps {
   data: any[]
   onClose: () => void
+}
+
+function CustomTooltip({ active, payload, label }: any) {
+  if (!active || !payload || !payload.length) return null
+
+  const atrasos = payload.find((p: any) => p.dataKey === 'atrasos')
+  const noPrazo = payload.find((p: any) => p.dataKey === 'noPrazo')
+  const percentual = payload.find((p: any) => p.dataKey === 'percentual')
+  const mediaDias = payload.find((p: any) => p.dataKey === 'mediaDias')
+
+  return (
+    <div className="rounded-lg border bg-background/95 px-3 py-2 text-xs shadow-lg">
+      <p className="mb-1 font-semibold">{label}</p>
+      {atrasos && (
+        <p className="flex items-center justify-between gap-4">
+          <span className="flex items-center gap-1">
+            <span className="h-2 w-2 rounded-full bg-red-500" />
+            Atrasos
+          </span>
+          <span className="font-medium">{atrasos.value}</span>
+        </p>
+      )}
+      {noPrazo && (
+        <p className="flex items-center justify-between gap-4">
+          <span className="flex items-center gap-1">
+            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+            No prazo
+          </span>
+          <span className="font-medium">{noPrazo.value}</span>
+        </p>
+      )}
+      {percentual && (
+        <p className="mt-1 flex items-center justify-between gap-4">
+          <span className="flex items-center gap-1">
+            <span className="h-2 w-2 rounded-full bg-amber-500" />
+            % de atrasos
+          </span>
+          <span className="font-semibold text-amber-600 dark:text-amber-400">{percentual.value}%</span>
+        </p>
+      )}
+      {mediaDias && mediaDias.value > 0 && (
+        <p className="mt-1 flex items-center justify-between gap-4 text-muted-foreground">
+          <span>Média de dias em atraso</span>
+          <span className="font-medium">{mediaDias.value}d</span>
+        </p>
+      )}
+    </div>
+  )
 }
 
 export function ChartsSection({ data, onClose }: ChartsSectionProps) {
@@ -91,30 +139,82 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
 
           <div ref={chartRef} className="grid md:grid-cols-2 gap-6 mb-8">
             <Card className="p-6 shadow-lg">
-              <h3 className="font-semibold mb-4 text-lg">Atrasos por Vendedor</h3>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={chartData}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" opacity={0.3} />
-                  <XAxis 
-                    dataKey="vendedor" 
-                    className="text-xs" 
-                    angle={-45}
+              <h3 className="font-semibold mb-1 text-lg">Atrasos por Vendedor</h3>
+              <p className="mb-4 text-xs text-muted-foreground">
+                Barras mostram quantidade absoluta, linha indica percentual de atrasos.
+              </p>
+              <ResponsiveContainer width="100%" height={340}>
+                <ComposedChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 40 }}>
+                  <defs>
+                    <linearGradient id="delayBar" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#ef4444" stopOpacity={0.95} />
+                      <stop offset="100%" stopColor="#b91c1c" stopOpacity={0.85} />
+                    </linearGradient>
+                    <linearGradient id="onTimeBar" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#22c55e" stopOpacity={0.95} />
+                      <stop offset="100%" stopColor="#15803d" stopOpacity={0.85} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" opacity={0.4} vertical={false} />
+                  <XAxis
+                    dataKey="vendedor"
+                    className="text-[10px] md:text-xs"
+                    angle={-40}
                     textAnchor="end"
-                    height={80}
+                    height={70}
+                    tickLine={false}
+                    axisLine={{ stroke: 'hsl(var(--border))' }}
                   />
-                  <YAxis />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: 'hsl(var(--background))',
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '8px',
-                      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
-                    }}
+                  <YAxis
+                    yAxisId="left"
+                    tickLine={false}
+                    axisLine={{ stroke: 'hsl(var(--border))' }}
+                    label={{ value: 'Qtd. registros', angle: -90, position: 'insideLeft', offset: 10 }}
                   />
-                  <Legend />
-                  <Bar dataKey="atrasos" fill="#ef4444" name="Atrasos" radius={[4, 4, 0, 0]} />
-                  <Bar dataKey="noPrazo" fill="#22c55e" name="No Prazo" radius={[4, 4, 0, 0]} />
-                </BarChart>
+                  <YAxis
+                    yAxisId="right"
+                    orientation="right"
+                    tickFormatter={(v) => `${v}%`}
+                    tickLine={false}
+                    axisLine={{ stroke: 'hsl(var(--border))' }}
+                    domain={[0, (dataMax: number) => Math.min(100, Math.max(30, Math.ceil(dataMax / 10) * 10))]}
+                    label={{ value: '% atrasos', angle: 90, position: 'insideRight', offset: 10 }}
+                  />
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted) / 0.4)' }} />
+                  <Legend wrapperStyle={{ fontSize: 11 }} />
+                  <Bar
+                    yAxisId="left"
+                    dataKey="noPrazo"
+                    name="No prazo"
+                    fill="url(#onTimeBar)"
+                    radius={[4, 4, 0, 0]}
+                    barSize={20}
+                    stackId="total"
+                  >
+                    <LabelList dataKey="noPrazo" position="top" className="text-[10px] fill-muted-foreground" />
+                  </Bar>
+                  <Bar
+                    yAxisId="left"
+                    dataKey="atrasos"
+                    name="Atrasos"
+                    fill="url(#delayBar)"
+                    radius={[4, 4, 0, 0]}
+                    barSize={20}
+                    stackId="total"
+                  >
+                    <LabelList dataKey="atrasos" position="top" className="text-[10px] fill-foreground" />
+                  </Bar>
+                  <Line
+                    yAxisId="right"
+                    type="monotone"
+                    dataKey="percentual"
+                    name="% atrasos"
+                    stroke="#f97316"
+                    strokeWidth={2}
+                    dot={{ r: 3, strokeWidth: 1, stroke: '#fff' }}
+                    activeDot={{ r: 5 }}
+                  />
+                </ComposedChart>
               </ResponsiveContainer>
             </Card>
 
