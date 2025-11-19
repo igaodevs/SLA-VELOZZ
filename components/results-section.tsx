@@ -101,11 +101,11 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
 
   return (
     <section className="bg-background border-b">
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-3 sm:px-4 py-8 md:py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 md:gap-4 mb-6 md:mb-8">
             <div>
-              <h2 className="text-3xl font-bold mb-2">Resultado da Mesclagem</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-1.5 md:mb-2">Resultado da Mesclagem</h2>
               <p className="text-muted-foreground">
                 {sortedData.length} registros encontrados
               </p>
@@ -127,8 +127,8 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
             </div>
           </div>
 
-          <Card className="mb-6 shadow-sm">
-            <div className="p-4 border-b bg-muted/30">
+          <Card className="mb-4 md:mb-6 shadow-sm">
+            <div className="p-3 md:p-4 border-b bg-muted/30">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
@@ -140,15 +140,15 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
               </div>
             </div>
 
-            <div className="overflow-x-auto">
-              <Table>
+            <div className="overflow-x-auto -mx-3 sm:mx-0">
+              <Table className="min-w-[640px] text-xs sm:text-sm">
                 <TableHeader>
                   <TableRow className="bg-muted/50">
                     <TableHead>
                       <Button 
                         variant="ghost" 
                         size="sm" 
-                        className="gap-1 -ml-3 font-semibold"
+                        className="gap-1 -ml-3 font-semibold text-xs sm:text-sm"
                         onClick={() => handleSort('id')}
                       >
                         ID
@@ -208,7 +208,7 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                       variants={rowVariants}
                       initial="hidden"
                       animate="visible"
-                      className="hover:bg-muted/30 transition-colors"
+                      className="hover:bg-muted/30 transition-colors text-xs sm:text-sm"
                       whileHover={{ scale: 1.005, transition: { duration: 0.15 } }}
                     >
                       <TableCell className="font-medium">{row.id}</TableCell>

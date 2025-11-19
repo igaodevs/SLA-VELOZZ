@@ -156,15 +156,15 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
 
   return (
     <section className="fixed inset-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 animate-in fade-in duration-300">
-      <div className="container mx-auto px-4 py-8 h-full overflow-y-auto">
+      <div className="container mx-auto px-3 sm:px-4 py-6 md:py-8 h-full overflow-y-auto">
         <div className="max-w-6xl mx-auto">
-          <div className="flex justify-between items-center mb-8 gap-4 flex-wrap">
+          <div className="flex justify-between items-start md:items-center mb-6 md:mb-8 gap-4 flex-wrap">
             <div>
-              <h2 className="text-3xl font-bold mb-2 flex items-center gap-3">
-                <TrendingDown className="w-8 h-8 text-destructive" />
+              <h2 className="text-2xl md:text-3xl font-bold mb-1.5 md:mb-2 flex items-center gap-2 md:gap-3">
+                <TrendingDown className="w-7 h-7 md:w-8 md:h-8 text-destructive" />
                 Análise de Atrasos
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-sm md:text-base text-muted-foreground">
                 Ranking automático e percentual de vendedores com mais atrasos e maior volume de pedidos
               </p>
             </div>
@@ -190,8 +190,8 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
             </Button>
           </div>
 
-          <div ref={chartRef} className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="p-6 shadow-lg">
+          <div ref={chartRef} className="grid md:grid-cols-2 gap-5 md:gap-6 mb-6 md:mb-8">
+            <Card className="p-4 md:p-6 shadow-lg">
               <h3 className="font-semibold mb-1 text-lg">Atrasos por Vendedor</h3>
               <p className="mb-4 text-xs text-muted-foreground">
                 Barras mostram quantidade de registros/pedidos, linha indica percentual de atrasos.
@@ -271,8 +271,8 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
               </ResponsiveContainer>
             </Card>
 
-            <Card className="p-6 shadow-lg">
-              <h3 className="font-semibold mb-4 text-lg">Ranking - Vendedores com Mais Atrasos</h3>
+            <Card className="p-4 md:p-6 shadow-lg">
+              <h3 className="font-semibold mb-3 md:mb-4 text-base md:text-lg">Ranking - Vendedores com Mais Atrasos</h3>
               <div className="space-y-4">
                 {chartData.slice(0, 5).map((seller, index) => (
                   <div key={seller.vendedor} className="space-y-2">

@@ -75,9 +75,9 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
 
   return (
     <section className="border-b bg-muted/30">
-      <div className="container mx-auto px-4 py-12 md:py-16">
+      <div className="container mx-auto px-3 sm:px-4 py-10 md:py-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Pré-Visualização e Automação</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Pré-Visualização e Automação</h2>
 
           <motion.div
             className="grid md:grid-cols-2 gap-6 mb-8"
@@ -95,7 +95,7 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
             <motion.div
               variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
             >
-            <Card className="p-6">
+            <Card className="p-5 md:p-6">
               <h3 className="font-semibold mb-4 flex items-center gap-2">
                 <FileSpreadsheet className="w-5 h-5 text-primary" />
                 Arquivos Carregados
@@ -125,7 +125,7 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                     </span>
                   </div>
                 )}
-                <div className="flex justify-between items-center p-3 bg-green-500/10 border border-green-500/20 rounded-lg mt-4">
+                <div className="flex justify-between items-center p-3 bg-green-500/10 border border-green-500/20 rounded-lg mt-4 text-sm">
                   <span className="text-sm font-semibold flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-green-600" />
                     Total de registros
@@ -141,8 +141,8 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
             <motion.div
               variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
             >
-            <Card className="p-6">
-              <h3 className="font-semibold mb-4">Opções de Mesclagem Inteligente</h3>
+            <Card className="p-5 md:p-6">
+              <h3 className="font-semibold mb-3 md:mb-4">Opções de Mesclagem Inteligente</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3 p-4 bg-primary/5 border border-primary/20 rounded-lg">
                   <Checkbox 
