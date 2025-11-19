@@ -1,8 +1,9 @@
-'use client';
+"use client";
 
 import { useState, useCallback, useMemo, lazy, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { Loader2 } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -84,7 +85,34 @@ const MemoizedFooter = memo(Footer);
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+} as const;
+
+const heroTextVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 0.12, 0.18, 0.98],
+    },
+  },
+} as const;
+
 export default function Home() {
+  const { scrollYProgress } = useScroll()
+  const heroTranslateY = useTransform(scrollYProgress, [0, 1], [0, 80])
+
   const [files, setFiles] = useState<FileState>({
     main: null,
     additional1: null,
@@ -206,65 +234,96 @@ export default function Home() {
         
         <main className="flex-1">
           {/* Hero Section */}
-          <section className="border-b bg-gradient-to-br from-background via-background to-primary/5">
+          <section className="border-b">
+            <motion.div
+              className="bg-gradient-to-br from-background via-background to-primary/5"
+              style={{ y: heroTranslateY }}
+            >
             <div className="container mx-auto px-4 py-16 md:py-24">
-              <div className="max-w-3xl mx-auto text-center">
+              <motion.div
+                className="max-w-3xl mx-auto text-center"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.4 }}
+                variants={heroTextVariants}
+              >
                 <h1 className="text-4xl md:text-6xl font-bold text-balance mb-6">
                   Mescle suas planilhas <span className="text-primary">em segundos</span>
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground text-balance leading-relaxed">
                   Plataforma profissional para fusão de planilhas Excel. Rápido, simples e intuitivo. Suporte a arquivos grandes.
                 </p>
-              </div>
+              </motion.div>
             </div>
+            </motion.div>
           </section>
 
           {/* Upload Section */}
-          <ErrorBoundary fallback={
-            <div className="container mx-auto px-4 py-12">
-              <div className="bg-destructive/10 border border-destructive/30 rounded-lg p-6 text-center">
-                <h3 className="text-lg font-medium text-destructive mb-2">Erro ao carregar o upload</h3>
-                <p className="text-sm text-muted-foreground">
-                  Ocorreu um erro ao carregar a seção de upload. Por favor, recarregue a página e tente novamente.
-                </p>
-              </div>
-            </div>
-          }>
-            <Suspense fallback={
-              <div className="flex items-center justify-center min-h-[400px]">
-                <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          <motion.section
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <ErrorBoundary fallback={
+              <div className="container mx-auto px-4 py-12">
+                <div className="bg-destructive/10 border border-destructive/30 rounded-lg p-6 text-center">
+                  <h3 className="text-lg font-medium text-destructive mb-2">Erro ao carregar o upload</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Ocorreu um erro ao carregar a seção de upload. Por favor, recarregue a página e tente novamente.
+                  </p>
+                </div>
               </div>
             }>
-              <UploadSection 
-                files={files}
-                uploadProgress={uploadProgress}
-                onFileUpload={handleFileUpload}
-                onMerge={handleMerge}
-                isMerging={isMerging}
-              />
-            </Suspense>
-          </ErrorBoundary>
-
-          {/* Preview Section */}
-          {(files.main || files.additional1) && (
-            <ErrorBoundary>
               <Suspense fallback={
-                <div className="flex items-center justify-center min-h-[200px]">
-                  <Loader2 className="w-6 h-6 animate-spin text-primary" />
+                <div className="flex items-center justify-center min-h-[400px]">
+                  <Loader2 className="w-8 h-8 animate-spin text-primary" />
                 </div>
               }>
-                <PreviewSection 
+                <UploadSection 
                   files={files}
-                  applyMeliFilter={applyMeliFilter}
-                  onFilterChange={setApplyMeliFilter}
+                  uploadProgress={uploadProgress}
+                  onFileUpload={handleFileUpload}
+                  onMerge={handleMerge}
+                  isMerging={isMerging}
                 />
               </Suspense>
             </ErrorBoundary>
+          </motion.section>
+
+          {/* Preview Section */}
+          {(files.main || files.additional1) && (
+            <motion.section
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <ErrorBoundary>
+                <Suspense fallback={
+                  <div className="flex items-center justify-center min-h-[200px]">
+                    <Loader2 className="w-6 h-6 animate-spin text-primary" />
+                  </div>
+                }>
+                  <PreviewSection 
+                    files={files}
+                    applyMeliFilter={applyMeliFilter}
+                    onFilterChange={setApplyMeliFilter}
+                  />
+                </Suspense>
+              </ErrorBoundary>
+            </motion.section>
           )}
 
           {/* Results Section */}
           {mergedData && (
-            <div id="results-section">
+            <motion.div
+              id="results-section"
+              variants={sectionVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
+            >
               <ErrorBoundary>
                 <Suspense fallback={
                   <div className="flex items-center justify-center min-h-[300px]">
@@ -277,23 +336,31 @@ export default function Home() {
                   />
                 </Suspense>
               </ErrorBoundary>
-            </div>
+            </motion.div>
           )}
 
           {/* Charts Section */}
           {showCharts && mergedData && (
-            <ErrorBoundary>
-              <Suspense fallback={
-                <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50">
-                  <Loader2 className="w-10 h-10 animate-spin text-primary" />
-                </div>
-              }>
-                <ChartsSection 
-                  data={mergedData}
-                  onClose={() => setShowCharts(false)}
-                />
-              </Suspense>
-            </ErrorBoundary>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm flex items-center justify-center"
+            >
+              <ErrorBoundary>
+                <Suspense fallback={
+                  <div className="flex items-center justify-center min-h-[200px]">
+                    <Loader2 className="w-10 h-10 animate-spin text-primary" />
+                  </div>
+                }>
+                  <ChartsSection 
+                    data={mergedData}
+                    onClose={() => setShowCharts(false)}
+                  />
+                </Suspense>
+              </ErrorBoundary>
+            </motion.div>
           )}
         </main>
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -77,6 +78,26 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
         return 'bg-muted text-muted-foreground'
     }
   }
+
+  const tableVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.04,
+        delayChildren: 0.1,
+      },
+    },
+  } as const
+
+  const rowVariants = {
+    hidden: { opacity: 0, y: 6 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.22, ease: [0.25, 0.1, 0.25, 1] },
+    },
+  } as const
 
   return (
     <section className="bg-background border-b">
@@ -182,9 +203,13 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                 </TableHeader>
                 <TableBody>
                   {sortedData.map((row) => (
-                    <TableRow 
+                    <motion.tr
                       key={row.id}
+                      variants={rowVariants}
+                      initial="hidden"
+                      animate="visible"
                       className="hover:bg-muted/30 transition-colors"
+                      whileHover={{ scale: 1.005, transition: { duration: 0.15 } }}
                     >
                       <TableCell className="font-medium">{row.id}</TableCell>
                       <TableCell className="font-medium">{row.vendedor}</TableCell>
@@ -211,7 +236,7 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                           </span>
                         )}
                       </TableCell>
-                    </TableRow>
+                    </motion.tr>
                   ))}
                 </TableBody>
               </Table>

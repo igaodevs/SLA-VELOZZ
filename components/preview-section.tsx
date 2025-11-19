@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
@@ -78,7 +79,22 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">Pré-Visualização e Automação</h2>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <motion.div
+            className="grid md:grid-cols-2 gap-6 mb-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.08, delayChildren: 0.1 },
+              },
+            }}
+          >
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+            >
             <Card className="p-6">
               <h3 className="font-semibold mb-4 flex items-center gap-2">
                 <FileSpreadsheet className="w-5 h-5 text-primary" />
@@ -120,7 +136,11 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                 </div>
               </div>
             </Card>
+            </motion.div>
 
+            <motion.div
+              variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+            >
             <Card className="p-6">
               <h3 className="font-semibold mb-4">Opções de Mesclagem Inteligente</h3>
               <div className="space-y-4">
@@ -171,7 +191,8 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                 </div>
               </div>
             </Card>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
