@@ -176,12 +176,16 @@ class MergeService:
             try:
                 df_preview = merged_df.copy()
 
-                # Try to map common backend column names to the ones expected by the frontend.
-                # These mappings are heuristic and can be adjusted to your real spreadsheet layout.
+                # Map real spreadsheet columns to the normalized fields expected by the frontend.
+                # We work with the cleaned column names (lowercase, spaces -> '_').
                 column_map = {
-                    'vendedor': ['vendedor', 'seller', 'nome_vendedor'],
-                    'data': ['data', 'data_pedido', 'data_venda'],
-                    'status': ['status', 'status_sla', 'sla_status'],
+                    # Vendedor / cliente (avulsas usam 'vendedor', mãe pode usar 'cliente' ou 'conta')
+                    'vendedor': ['vendedor', 'cliente', 'conta'],
+                    # Datas principais
+                    'data': ['data_pedido', 'criacao', 'data_status_dia', 'previsão_de_entrega'],
+                    # Status de SLA / do dia
+                    'status': ['status_do_dia', 'status_dia', 'sla', 'status', 'status_sla', 'sla_status'],
+                    # Colunas de dias de atraso, se existirem
                     'dias': ['dias', 'dias_atraso', 'dias_de_atraso'],
                 }
 
@@ -197,6 +201,33 @@ class MergeService:
                                 df_preview[target] = 0
                             else:
                                 df_preview[target] = ''
+
+                # Se tivermos previsão e entrega, tentamos calcular dias de atraso
+                previsao_cols = [c for c in df_preview.columns if c in ['previsão_de_entrega', 'previsao_de_entrega']]
+                entrega_cols = [c for c in df_preview.columns if c in ['entrega']]
+                if previsao_cols and entrega_cols:
+                    try:
+                        previsao = pd.to_datetime(df_preview[previsao_cols[0]], errors='coerce')
+                        entrega = pd.to_datetime(df_preview[entrega_cols[0]], errors='coerce')
+                        diff_days = (entrega - previsao).dt.days
+                        # Apenas consideramos atraso positivo; se não atrasou, 0
+                        df_preview['dias'] = diff_days.clip(lower=0).fillna(0).astype(int)
+                    except Exception as _:
+                        # Se der erro, mantemos o que já havia em 'dias'
+                        pass
+
+                # Normaliza status para valores padronizados usados no frontend
+                if 'status' in df_preview.columns:
+                    def _normalize_status(val: Any) -> Any:
+                        if isinstance(val, str):
+                            lower = val.lower()
+                            if 'atras' in lower or 'fora do prazo' in lower or 'fora_do_prazo' in lower:
+                                return 'Atrasado'
+                            if 'no prazo' in lower or 'no_prazo' in lower or 'dentro do prazo' in lower:
+                                return 'No Prazo'
+                        return val
+
+                    df_preview['status'] = df_preview['status'].apply(_normalize_status)
 
                 # Ensure there is an id column for stable keys in the frontend
                 if 'id' not in df_preview.columns:
