@@ -7,7 +7,7 @@ from pathlib import Path
 class Settings(BaseSettings):
     # Application settings
     APP_NAME: str = "SLA Fusion API"
-    DEBUG: bool = False
+    DEBUG: bool = True
 
     # File upload settings
     UPLOAD_FOLDER: str = "uploads"
@@ -15,7 +15,8 @@ class Settings(BaseSettings):
     ALLOWED_EXTENSIONS: set = {".xlsx", ".xls"}
 
     # CORS / allowed origins (provide a comma-separated list in PROD)
-    ALLOWED_ORIGINS: List[str] = []
+    # In development we default to '*' to simplify frontend-backend integration.
+    ALLOWED_ORIGINS: List[str] = ["*"]
 
     # JWT Settings (for future authentication) - must be provided in production
     SECRET_KEY: str = ""

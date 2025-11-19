@@ -105,8 +105,9 @@ class MergeService:
             if df.empty:
                 continue
                 
-            # Filter for Meli records
-            meli_df = self._filter_meli_records(df)
+            # Optionally filter for Meli records
+            apply_meli_filter = options.get("apply_meli_filter", True)
+            meli_df = self._filter_meli_records(df) if apply_meli_filter else df
             
             if not meli_df.empty:
                 # Align columns with mother DataFrame

@@ -89,21 +89,28 @@ class FileHandler:
                 })
                 return result
             
-            # Check MIME type (more reliable than extension)
-            mime = magic.Magic(mime=True)
-            file_bytes = file.read(2048)  # Read first 2KB for MIME detection
-            file.seek(0)  # Reset file pointer
-            
-            mime_type = magic.from_buffer(file_bytes, mime=True)
-            if mime_type not in [
-                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                'application/vnd.ms-excel'
-            ]:
-                result.update({
-                    'valid': False,
-                    'message': 'Invalid file type. Only Excel files are allowed.'
-                })
-                return result
+            # Check MIME type using python-magic. On Windows this can be unreliable,
+            # so we treat mismatches as a warning instead of a hard error as long
+            # as the extension is correct.
+            try:
+                mime = magic.Magic(mime=True)
+                file_bytes = file.read(2048)  # Read first 2KB for MIME detection
+                file.seek(0)  # Reset file pointer
+
+                mime_type = magic.from_buffer(file_bytes, mime=True)
+                allowed_mimes = [
+                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    'application/vnd.ms-excel',
+                ]
+                if mime_type not in allowed_mimes:
+                    # Log a warning but still accept if extension is valid.
+                    logger.warning(
+                        f"Suspicious MIME type for Excel file {filename}: {mime_type}. "
+                        "Accepting based on extension check."
+                    )
+            except Exception as mime_err:
+                # If MIME detection fails entirely, log and continue based on extension.
+                logger.warning(f"Failed to detect MIME type for {filename}: {mime_err}")
             
             # If we got here, file is valid
             return result
