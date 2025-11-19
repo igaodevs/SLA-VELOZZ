@@ -1,14 +1,44 @@
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Tuple
 import pandas as pd
 import os
+import time
+import math
 
 from ..models.schemas import AnalyticsResponse
 from ..config import settings
 from ..services.merge_service import merge_service
 
 router = APIRouter()
+
+
+_excel_cache: Dict[str, Tuple[float, pd.DataFrame]] = {}
+_EXCEL_CACHE_MAX_FILES = 50
+
+
+def _read_excel_cached(file_path: str) -> pd.DataFrame:
+    """Lê um arquivo Excel com cache em memória baseado no mtime do arquivo."""
+    try:
+        mtime = os.path.getmtime(file_path)
+    except OSError:
+        # Se não conseguir ler mtime, faz leitura direta sem cache
+        return pd.read_excel(file_path)
+
+    cache_key = file_path
+    cached = _excel_cache.get(cache_key)
+
+    if cached and cached[0] == mtime:
+        return cached[1]
+
+    df = pd.read_excel(file_path)
+
+    # Política simples de limpeza para não crescer demais na memória
+    if len(_excel_cache) >= _EXCEL_CACHE_MAX_FILES:
+        _excel_cache.clear()
+
+    _excel_cache[cache_key] = (mtime, df)
+    return df
 
 
 class AnalyticsRequest(BaseModel):
@@ -85,7 +115,7 @@ async def get_analytics(request: AnalyticsRequest):
                 continue
             file_path = os.path.join(settings.UPLOAD_FOLDER, matches[0])
             try:
-                df = pd.read_excel(file_path)
+                df = _read_excel_cached(file_path)
                 dfs.append(df)
             except Exception:
                 continue
@@ -206,7 +236,11 @@ async def get_analytics(request: AnalyticsRequest):
 
 
 @router.post("/analytics/meli-delayed")
-async def get_meli_delayed(request: AnalyticsRequest) -> Dict[str, Any]:
+async def get_meli_delayed(
+    request: AnalyticsRequest,
+    page: int = 1,
+    page_size: int = 100,
+) -> Dict[str, Any]:
     """Retorna todas as linhas Meli em atraso (tabela detalhada).
 
     - Lê as mesmas planilhas do endpoint /analytics
@@ -224,7 +258,7 @@ async def get_meli_delayed(request: AnalyticsRequest) -> Dict[str, Any]:
                 continue
             file_path = os.path.join(settings.UPLOAD_FOLDER, matches[0])
             try:
-                df = pd.read_excel(file_path)
+                df = _read_excel_cached(file_path)
                 dfs.append(df)
             except Exception:
                 continue
@@ -233,6 +267,9 @@ async def get_meli_delayed(request: AnalyticsRequest) -> Dict[str, Any]:
             return {
                 "total_meli": 0,
                 "total_delayed": 0,
+                "page": 1,
+                "page_size": page_size,
+                "total_pages": 0,
                 "rows": [],
             }
 
@@ -251,6 +288,9 @@ async def get_meli_delayed(request: AnalyticsRequest) -> Dict[str, Any]:
             return {
                 "total_meli": 0,
                 "total_delayed": 0,
+                "page": 1,
+                "page_size": page_size,
+                "total_pages": 0,
                 "rows": [],
             }
 
@@ -269,6 +309,9 @@ async def get_meli_delayed(request: AnalyticsRequest) -> Dict[str, Any]:
             return {
                 "total_meli": total_meli,
                 "total_delayed": 0,
+                "page": 1,
+                "page_size": page_size,
+                "total_pages": 0,
                 "rows": [],
             }
 
@@ -277,10 +320,23 @@ async def get_meli_delayed(request: AnalyticsRequest) -> Dict[str, Any]:
         # Inclui todas as colunas originais também, para máxima visibilidade
         rows = df_delayed.to_dict(orient="records")
 
+        # Paginação básica em memória para não enviar todas as linhas de uma vez
+        safe_page_size = max(1, min(page_size, 1000))
+        total_rows = len(rows)
+        total_pages = math.ceil(total_rows / safe_page_size) if total_rows > 0 else 0
+
+        current_page = max(1, min(page, total_pages)) if total_pages > 0 else 1
+        start_idx = (current_page - 1) * safe_page_size
+        end_idx = start_idx + safe_page_size
+        paginated_rows = rows[start_idx:end_idx]
+
         return {
             "total_meli": total_meli,
             "total_delayed": total_delayed,
-            "rows": rows,
+            "page": current_page,
+            "page_size": safe_page_size,
+            "total_pages": total_pages,
+            "rows": paginated_rows,
         }
 
 
