@@ -13,6 +13,7 @@ const UploadSection = dynamic<{
   uploadProgress: UploadProgressState;
   onFileUpload: (type: FileType, file: File | null) => void;
   onMerge: () => void;
+  isMerging: boolean;
 }>(() => import('@/components/upload-section').then(mod => mod.UploadSection), {
   loading: () => (
     <div className="flex items-center justify-center min-h-[400px]">
@@ -239,6 +240,7 @@ export default function Home() {
                 uploadProgress={uploadProgress}
                 onFileUpload={handleFileUpload}
                 onMerge={handleMerge}
+                isMerging={isMerging}
               />
             </Suspense>
           </ErrorBoundary>

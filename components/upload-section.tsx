@@ -137,9 +137,10 @@ interface UploadSectionProps {
   };
   onFileUpload: (type: 'main' | 'additional1' | 'additional2', file: File | null) => void;
   onMerge: () => void;
+  isMerging: boolean;
 }
 
-function UploadSectionComponent({ files, uploadProgress, onFileUpload, onMerge }: UploadSectionProps) {
+function UploadSectionComponent({ files, uploadProgress, onFileUpload, onMerge, isMerging }: UploadSectionProps) {
   const [errors, setErrors] = useState<{
     main: string | null;
     additional1: string | null;
@@ -254,11 +255,11 @@ function UploadSectionComponent({ files, uploadProgress, onFileUpload, onMerge }
             <Button 
               size="lg" 
               className="gap-2 px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              disabled={!canMerge}
+              disabled={!canMerge || isMerging}
               onClick={onMerge}
             >
               <FileSpreadsheet className="w-5 h-5" />
-              Mesclar Planilhas
+              {isMerging ? 'Mesclando...' : 'Mesclar Planilhas'}
             </Button>
           </div>
           
