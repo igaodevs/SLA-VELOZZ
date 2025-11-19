@@ -187,6 +187,10 @@ class MergeService:
                     'status': ['status_do_dia', 'status_dia', 'sla', 'status', 'status_sla', 'sla_status'],
                     # Colunas de dias de atraso, se existirem
                     'dias': ['dias', 'dias_atraso', 'dias_de_atraso'],
+                    # Zona / região de atendimento, se existir na planilha mãe
+                    'zona': ['zona', 'regiao', 'regio', 'region'],
+                    # Identificador de pedido/pacote (m pode usar 'pedido', avulsas podem usar 'pacote')
+                    'pedido': ['pedido', 'id_pedido', 'pedido_id', 'pacote', 'id_pacote', 'pacote_id'],
                 }
 
                 for target, candidates in column_map.items():

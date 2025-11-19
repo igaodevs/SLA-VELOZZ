@@ -60,14 +60,48 @@ function CustomTooltip({ active, payload, label }: any) {
 }
 
 export function ChartsSection({ data, onClose }: ChartsSectionProps) {
-  const sellerDelays = data.reduce((acc, row) => {
-    if (!acc[row.vendedor]) {
-      acc[row.vendedor] = { vendedor: row.vendedor, atrasos: 0, total: 0, totalDiasAtraso: 0 }
+  const [selectedZona, setSelectedZona] = useState<string>('Todas')
+
+  const zonas = Array.from(
+    new Set(
+      data.map((row: any) => {
+        const raw = row.zona ?? row.zona_matriz
+        const value = typeof raw === 'string' ? raw.trim() : raw
+        return value || 'Sem zona'
+      })
+    )
+  )
+    .filter(Boolean)
+    .sort()
+
+  const filteredData = selectedZona === 'Todas'
+    ? data
+    : data.filter((row: any) => {
+        const raw = row.zona ?? row.zona_matriz
+        const value = typeof raw === 'string' ? raw.trim() : raw
+        const normalized = value || 'Sem zona'
+        return normalized === selectedZona
+      })
+
+  const sellerDelays = filteredData.reduce((acc, row) => {
+    const vendedor = row.vendedor || row.cliente || row.conta || 'Sem vendedor'
+    if (!acc[vendedor]) {
+      acc[vendedor] = { vendedor, atrasos: 0, total: 0, totalDiasAtraso: 0, totalPedidos: 0 }
     }
-    acc[row.vendedor].total++
+
+    acc[vendedor].total++
+
+    // Conta volume de pedidos/pacotes usando a coluna normalizada 'pedido' quando existir
+    if (row.pedido) {
+      acc[vendedor].totalPedidos++
+    } else {
+      // fallback: considera cada linha como um pedido
+      acc[vendedor].totalPedidos++
+    }
+
     if (row.status === 'Atrasado') {
-      acc[row.vendedor].atrasos++
-      acc[row.vendedor].totalDiasAtraso += row.dias
+      acc[vendedor].atrasos++
+      acc[vendedor].totalDiasAtraso += row.dias
     }
     return acc
   }, {} as Record<string, any>)
@@ -77,8 +111,9 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
       vendedor: seller.vendedor,
       atrasos: seller.atrasos,
       noPrazo: seller.total - seller.atrasos,
-      percentual: Math.round((seller.atrasos / seller.total) * 100),
-      mediaDias: seller.atrasos > 0 ? Math.round(seller.totalDiasAtraso / seller.atrasos) : 0
+      percentual: seller.total > 0 ? Math.round((seller.atrasos / seller.total) * 100) : 0,
+      mediaDias: seller.atrasos > 0 ? Math.round(seller.totalDiasAtraso / seller.atrasos) : 0,
+      totalPedidos: seller.totalPedidos,
     }))
     .sort((a, b) => b.percentual - a.percentual)
 
@@ -122,16 +157,33 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
     <section className="fixed inset-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 animate-in fade-in duration-300">
       <div className="container mx-auto px-4 py-8 h-full overflow-y-auto">
         <div className="max-w-6xl mx-auto">
-          <div className="flex justify-between items-center mb-8">
+          <div className="flex justify-between items-center mb-8 gap-4 flex-wrap">
             <div>
               <h2 className="text-3xl font-bold mb-2 flex items-center gap-3">
                 <TrendingDown className="w-8 h-8 text-destructive" />
                 Análise de Atrasos
               </h2>
               <p className="text-muted-foreground">
-                Ranking automático e percentual de vendedores com mais atrasos
+                Ranking automático e percentual de vendedores com mais atrasos e maior volume de pedidos
               </p>
             </div>
+            {zonas.length > 0 && (
+              <div className="flex items-center gap-2 text-sm">
+                <span className="text-muted-foreground">Filtrar por zona:</span>
+                <select
+                  className="h-9 rounded-md border bg-background px-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  value={selectedZona}
+                  onChange={(e) => setSelectedZona(e.target.value)}
+                >
+                  <option value="Todas">Todas</option>
+                  {zonas.map((zona) => (
+                    <option key={zona} value={zona}>
+                      {zona}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
             <Button variant="ghost" size="icon" onClick={onClose} className="hover:bg-destructive/10">
               <X className="w-5 h-5" />
             </Button>
@@ -141,7 +193,7 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
             <Card className="p-6 shadow-lg">
               <h3 className="font-semibold mb-1 text-lg">Atrasos por Vendedor</h3>
               <p className="mb-4 text-xs text-muted-foreground">
-                Barras mostram quantidade absoluta, linha indica percentual de atrasos.
+                Barras mostram quantidade de registros/pedidos, linha indica percentual de atrasos.
               </p>
               <ResponsiveContainer width="100%" height={340}>
                 <ComposedChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 40 }}>
