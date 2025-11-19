@@ -24,3 +24,21 @@
 [01:02:24.655] Browser DEBUG   #1 1188ms Canvas renderer initialized (1152x418) with scale 2
 [01:02:24.655] Browser DEBUG   #1 1260ms Finished rendering
 [01:20:40.085] Browser ERROR   {}
+[01:41:41.419] Browser DEBUG   #1 0ms Starting document clone with size 1440x739 scrolled to 0,-1300
+[01:41:43.974] Browser DEBUG   #1 2311ms Document cloned, element located at 144,1432 with size 1152x462 using computed rendering
+[01:41:43.974] Browser DEBUG   #1 2311ms Starting DOM parsing
+[01:41:43.974] Browser DEBUG   #1 2331ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22Atrasos%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22display%3
+[01:41:43.974] Browser DEBUG   #1 2336ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22No%20Prazo%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22displa
+[01:41:43.974] Browser DEBUG   #1 2566ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20role%3D%22application%22%20tabindex%3D%220%22%20class%3D%22recharts-surface%22%20width%3D%22514px%22%20height%3D%22300px%22%20viewBox%3D%220%200%20514%20300%22%20style%3D%22wi
+[01:41:43.974] Browser DEBUG   #1 2618ms Starting renderer for element at 144,1432 with size 1152x462
+[01:41:43.974] Browser DEBUG   #1 2619ms Canvas renderer initialized (1152x462) with scale 2
+[01:41:43.974] Browser DEBUG   #1 3933ms Finished rendering
+[02:02:43.470] Browser DEBUG   #2 0ms Starting document clone with size 1440x739 scrolled to 0,-1600
+[02:02:47.169] Browser DEBUG   #2 1951ms Document cloned, element located at 144,1732 with size 1152x462 using computed rendering
+[02:02:47.169] Browser DEBUG   #2 1952ms Starting DOM parsing
+[02:02:47.169] Browser DEBUG   #2 1962ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22Atrasos%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22display%3
+[02:02:47.169] Browser DEBUG   #2 1967ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22No%20Prazo%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22displa
+[02:02:47.169] Browser DEBUG   #2 2222ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20role%3D%22application%22%20tabindex%3D%220%22%20class%3D%22recharts-surface%22%20width%3D%22514px%22%20height%3D%22300px%22%20viewBox%3D%220%200%20514%20300%22%20style%3D%22wi
+[02:02:47.169] Browser DEBUG   #2 2283ms Starting renderer for element at 144,1732 with size 1152x462
+[02:02:47.169] Browser DEBUG   #2 2283ms Canvas renderer initialized (1152x462) with scale 2
+[02:02:47.169] Browser DEBUG   #2 3626ms Finished rendering
