@@ -158,12 +158,47 @@ class MergeService:
                 single_dfs,
                 options=merge_request.options or {}
             )
-            
+
+            # Prepare a preview for the frontend (used by table and charts)
+            preview_data = None
+            try:
+                df_preview = merged_df.copy()
+
+                # Try to map common backend column names to the ones expected by the frontend.
+                # These mappings are heuristic and can be adjusted to your real spreadsheet layout.
+                column_map = {
+                    'vendedor': ['vendedor', 'seller', 'nome_vendedor'],
+                    'data': ['data', 'data_pedido', 'data_venda'],
+                    'status': ['status', 'status_sla', 'sla_status'],
+                    'dias': ['dias', 'dias_atraso', 'dias_de_atraso'],
+                }
+
+                for target, candidates in column_map.items():
+                    if target not in df_preview.columns:
+                        for col in candidates:
+                            if col in df_preview.columns:
+                                df_preview[target] = df_preview[col]
+                                break
+                        # If still not present, create an empty/default column
+                        if target not in df_preview.columns:
+                            if target in ['dias']:
+                                df_preview[target] = 0
+                            else:
+                                df_preview[target] = ''
+
+                # Ensure there is an id column for stable keys in the frontend
+                if 'id' not in df_preview.columns:
+                    df_preview['id'] = range(1, len(df_preview) + 1)
+
+                preview_data = df_preview.head(500).to_dict(orient="records")
+            except Exception as preview_err:
+                logger.warning(f"Failed to build preview data: {preview_err}")
+
             # Save the merged result
             timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
             filename = f"merged_result_{timestamp}.xlsx"
             file_path = file_handler.save_dataframe(merged_df, filename)
-            
+
             # Create response
             # Expose a download URL for the merged file (served by reports router)
             response = MergeResponse(
@@ -171,7 +206,8 @@ class MergeService:
                 status="completed",
                 merged_file_url=f"/api/v1/download/file/{file_path.name}",
                 message=f"Successfully merged {len(single_dfs)} files with mother file",
-                timestamp=datetime.utcnow()
+                timestamp=datetime.utcnow(),
+                preview_data=preview_data,
             )
             
             # Store the merge result

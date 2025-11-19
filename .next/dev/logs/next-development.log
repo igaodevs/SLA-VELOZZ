@@ -5,3 +5,12 @@
 [00:54:56.006] Server  LOG      ✓ Compiled in 380ms
 [00:54:56.667] Server  LOG      ✓ Compiled in 302ms
 [00:55:08.493] Server  LOG      ✓ Compiled in 436ms
+[00:57:38.379] Browser DEBUG   #1 0ms Starting document clone with size 1440x739 scrolled to 0,-1511
+[00:57:38.640] Browser DEBUG   #1 653ms Document cloned, element located at 144,1643 with size 1152x418 using computed rendering
+[00:57:38.640] Browser DEBUG   #1 653ms Starting DOM parsing
+[00:57:38.640] Browser DEBUG   #1 689ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22Atrasos%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22display%3
+[00:57:38.640] Browser DEBUG   #1 695ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20aria-label%3D%22No%20Prazo%20legend%20icon%22%20class%3D%22recharts-surface%22%20width%3D%2214px%22%20height%3D%2214px%22%20viewBox%3D%220%200%2032%2032%22%20style%3D%22displa
+[00:57:38.640] Browser DEBUG   #1 711ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20role%3D%22application%22%20tabindex%3D%220%22%20class%3D%22recharts-surface%22%20width%3D%22514px%22%20height%3D%22300px%22%20viewBox%3D%220%200%20514%20300%22%20style%3D%22wi
+[00:57:38.640] Browser DEBUG   #1 716ms Starting renderer for element at 144,1643 with size 1152x418
+[00:57:38.640] Browser DEBUG   #1 717ms Canvas renderer initialized (1152x418) with scale 2
+[00:57:38.640] Browser DEBUG   #1 762ms Finished rendering
