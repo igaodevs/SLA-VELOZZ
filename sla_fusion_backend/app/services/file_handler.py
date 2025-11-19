@@ -5,6 +5,8 @@ from pathlib import Path
 from typing import Optional, BinaryIO, Dict, Any
 import sys
 
+from fastapi import HTTPException
+
 # On Windows, python-magic's loader may not find the bundled libmagic DLL
 # because it looks in current working dir or system PATH. Add the package
 # libmagic folder to PATH before importing `magic` so the loader can find it.

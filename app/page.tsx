@@ -81,6 +81,8 @@ import { memo } from 'react';
 const MemoizedHeader = memo(Header);
 const MemoizedFooter = memo(Footer);
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+
 export default function Home() {
   const [files, setFiles] = useState<FileState>({
     main: null,
@@ -97,6 +99,7 @@ export default function Home() {
   const [mergedData, setMergedData] = useState<any[] | null>(null);
   const [showCharts, setShowCharts] = useState(false);
   const [applyMeliFilter, setApplyMeliFilter] = useState(true);
+  const [isMerging, setIsMerging] = useState(false);
 
   // Handle file upload
   const handleFileUpload = useCallback((type: FileType, file: File | null) => {
@@ -104,18 +107,92 @@ export default function Home() {
     setUploadProgress(prev => ({ ...prev, [type]: file ? 100 : 0 }));
   }, []);
 
-  // Handle merge functionality
-  const handleMerge = useCallback(() => {
-    // This function will be implemented with actual file processing logic
-    // For now, we'll set an empty array to indicate no data is available
-    setMergedData([]);
-    
-    // Scroll to results section
-    const resultsSection = document.getElementById('results-section');
-    if (resultsSection) {
-      resultsSection.scrollIntoView({ behavior: 'smooth' });
+  // Helper para fazer upload de um arquivo individual
+  const uploadSingleFile = useCallback(async (file: File, type: 'main' | 'additional1' | 'additional2'): Promise<string> => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    // Mapeia o tipo de arquivo do frontend para o enum do backend
+    const backendType =
+      type === 'main'
+        ? 'mother'
+        : type === 'additional1'
+          ? 'single_1'
+          : 'single_2';
+
+    const res = await fetch(`${API_BASE_URL}/api/v1/upload/${backendType}`, {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!res.ok) {
+      const errorBody = await res.json().catch(() => ({}));
+      throw new Error(errorBody.detail || 'Erro ao enviar arquivo');
     }
-  }, [applyMeliFilter]);
+
+    const data = await res.json();
+    return data.file_id as string;
+  }, []);
+
+  // Handle merge functionality (faz upload e chama o backend)
+  const handleMerge = useCallback(async () => {
+    if (!files.main || !files.additional1) return;
+
+    setIsMerging(true);
+    setMergedData(null);
+
+    try {
+      // 1) Upload dos arquivos necessários
+      const motherId = await uploadSingleFile(files.main, 'main');
+
+      const singleIds: string[] = [];
+      if (files.additional1) {
+        const id1 = await uploadSingleFile(files.additional1, 'additional1');
+        singleIds.push(id1);
+      }
+      if (files.additional2) {
+        const id2 = await uploadSingleFile(files.additional2, 'additional2');
+        singleIds.push(id2);
+      }
+
+      // 2) Chama o endpoint de merge
+      const mergeRes = await fetch(`${API_BASE_URL}/api/v1/merge`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          mother_file_id: motherId,
+          single_file_ids: singleIds,
+          options: {
+            apply_meli_filter: applyMeliFilter,
+          },
+        }),
+      });
+
+      if (!mergeRes.ok) {
+        const errorBody = await mergeRes.json().catch(() => ({}));
+        throw new Error(errorBody.detail || 'Erro ao mesclar arquivos');
+      }
+
+      const mergeData = await mergeRes.json();
+
+      // Usa preview_data se disponível, senão mantém estrutura vazia
+      const preview = Array.isArray(mergeData.preview_data) ? mergeData.preview_data : [];
+      setMergedData(preview);
+
+      // Scroll para a seção de resultados
+      const resultsSection = document.getElementById('results-section');
+      if (resultsSection) {
+        resultsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } catch (error) {
+      console.error(error);
+      alert(error instanceof Error ? error.message : 'Falha ao mesclar planilhas');
+    } finally {
+      setIsMerging(false);
+    }
+  }, [API_BASE_URL, files, applyMeliFilter, uploadSingleFile]);
 
   // Memoize the header and footer to prevent unnecessary re-renders
   const memoizedHeader = <MemoizedHeader />;

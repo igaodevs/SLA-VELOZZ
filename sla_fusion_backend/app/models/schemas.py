@@ -44,9 +44,13 @@ class MergeRequest(BaseModel):
 class MergeResponse(BaseModel):
     merge_id: str = Field(..., description="Unique identifier for the merge operation")
     status: str = Field(..., description="Status of the merge operation")
-    merged_file_url: Optional[HttpUrl] = Field(None, description="URL to download the merged file")
+    merged_file_url: Optional[str] = Field(None, description="URL to download the merged file")
     message: Optional[str] = Field(None, description="Additional status message")
     timestamp: datetime = Field(default_factory=datetime.utcnow)
+    preview_data: Optional[List[Dict[str, Any]]] = Field(
+        default=None,
+        description="Optional preview of merged rows as JSON records for the frontend table"
+    )
 
 class AnalyticsResponse(BaseModel):
     seller_ranking: List[Dict[str, Any]] = Field(..., description="Ranking of sellers by delays")

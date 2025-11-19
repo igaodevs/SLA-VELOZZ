@@ -60,11 +60,18 @@ async def merge_files(request: MergeRequest):
         else:
             download_url = f"/uploads/{output_filename}"
 
+        # Gera um preview em JSON para o frontend (limitado para não pesar)
+        try:
+            preview_records = merged_df.head(500).to_dict(orient="records")
+        except Exception:
+            preview_records = None
+
         return MergeResponse(
             merge_id=merge_id,
             status="completed",
             merged_file_url=download_url,
-            message="Arquivos mesclados com sucesso"
+            message="Arquivos mesclados com sucesso",
+            preview_data=preview_records
         )
         
     except Exception as e:
