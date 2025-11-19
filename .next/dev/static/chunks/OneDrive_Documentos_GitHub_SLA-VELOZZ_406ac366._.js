@@ -319,7 +319,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                     }, void 0, true, {
                                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
                                                         lineNumber: 117,
-                                                        columnNumber: 21
+                                                        columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
@@ -372,7 +372,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Label"], {
                                                                 htmlFor: "meli-filter",
                                                                 className: "text-sm font-semibold cursor-pointer",
-                                                                children: "Aplicar filtro Meli automaticamente"
+                                                                children: "Aplicar filtro Mercado Livre (Meli)"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
                                                                 lineNumber: 135,
@@ -380,7 +380,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                 className: "text-xs text-muted-foreground mt-1.5",
-                                                                children: "Filtra apenas registros relacionados ao Mercado Livre por nome ou código"
+                                                                children: "Mantém apenas registros relacionados ao Mercado Livre com base em nome, descrição ou códigos (MLXXXXXXXXXX) encontrados nas planilhas enviadas"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
                                                                 lineNumber: 141,

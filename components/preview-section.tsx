@@ -114,7 +114,7 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                     <CheckCircle2 className="w-4 h-4 text-green-600" />
                     Total de registros
                   </span>
-                    <span className="text-sm font-bold text-green-600 dark:text-green-400">
+                  <span className="text-sm font-bold text-green-600 dark:text-green-400">
                     {totalRecords} registros
                   </span>
                 </div>
@@ -136,10 +136,10 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                       htmlFor="meli-filter" 
                       className="text-sm font-semibold cursor-pointer"
                     >
-                      Aplicar filtro Meli automaticamente
+                      Aplicar filtro Mercado Livre (Meli)
                     </Label>
                     <p className="text-xs text-muted-foreground mt-1.5">
-                      Filtra apenas registros relacionados ao Mercado Livre por nome ou código
+                      Mantém apenas registros relacionados ao Mercado Livre com base em nome, descrição ou códigos (MLXXXXXXXXXX) encontrados nas planilhas enviadas
                     </p>
                   </div>
                 </div>

@@ -22,9 +22,12 @@ class MergeService:
         self.merged_files: Dict[str, MergeResponse] = {}
     
     def _is_meli_record(self, row: pd.Series) -> bool:
-        """
-        Check if a row contains Meli-related information.
-        Looks for 'meli' in text fields or specific Meli codes.
+        """Check if a row contains Meli-related information.
+
+        A detecção considera:
+        - Palavras-chave relacionadas ao Mercado Livre
+        - Códigos com padrão ML + 10 dígitos (ex.: ML1234567890)
+        - Códigos somente numéricos com 10 dígitos (ex.: 1234567890)
         """
         # Common ways Meli appears in spreadsheets
         meli_keywords = [
@@ -34,17 +37,24 @@ class MergeService:
             'mercadolibre',
             'ml.com',
         ]
-        
+
+        # Regex para códigos do Mercado Livre:
+        # - "ML" opcional (case-insensitive)
+        # - seguido de exatamente 10 dígitos
+        meli_code_pattern = re.compile(r'\b(?:ML)?\d{10}\b', re.IGNORECASE)
+
         for _, value in row.items():
             if not pd.isna(value) and isinstance(value, str):
+                lower_val = value.lower()
+
                 # Check for Meli keywords (case-insensitive)
-                if any(keyword in value.lower() for keyword in meli_keywords):
+                if any(keyword in lower_val for keyword in meli_keywords):
                     return True
-                
-                # Check for Meli codes (e.g., ML1234567890)
-                if re.search(r'\bML\d{10}\b', value, re.IGNORECASE):
+
+                # Check for Meli codes (com ou sem o prefixo ML)
+                if meli_code_pattern.search(value):
                     return True
-                    
+
         return False
     
     def _filter_meli_records(self, df: pd.DataFrame) -> pd.DataFrame:
