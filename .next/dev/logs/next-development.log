@@ -23,3 +23,4 @@
 [01:02:24.655] Browser DEBUG   #1 1188ms Starting renderer for element at 144,1432 with size 1152x418
 [01:02:24.655] Browser DEBUG   #1 1188ms Canvas renderer initialized (1152x418) with scale 2
 [01:02:24.655] Browser DEBUG   #1 1260ms Finished rendering
+[01:20:40.085] Browser ERROR   {}
