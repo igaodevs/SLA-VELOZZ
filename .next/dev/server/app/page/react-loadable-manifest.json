@@ -37,8 +37,12 @@
   "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
+      "static/chunks/239ee_xlsx_xlsx_mjs_4bc4e14a._.js",
       "static/chunks/OneDrive_Documentos_GitHub_SLA-VELOZZ_406ac366._.js",
-      "static/chunks/OneDrive_Documentos_GitHub_SLA-VELOZZ_components_preview-section_tsx_a414c1b1._.js"
+      "static/chunks/OneDrive_Documentos_GitHub_SLA-VELOZZ_components_preview-section_tsx_a414c1b1._.js",
+      "static/chunks/239ee_xlsx_xlsx_mjs_06486e63._.js",
+      "static/chunks/239ee_next_dist_compiled_buffer_index_c5554c56.js",
+      "static/chunks/239ee_xlsx_xlsx_mjs_3ee61058._.js"
     ]
   },
   "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/upload-section.tsx [app-client] (ecmascript, next/dynamic entry)": {

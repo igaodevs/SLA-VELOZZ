@@ -128,7 +128,7 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                   <Checkbox 
                     id="meli-filter" 
                     checked={applyMeliFilter}
-                    onCheckedChange={onFilterChange}
+                    onCheckedChange={(checked) => onFilterChange(checked === true)}
                     className="mt-0.5"
                   />
                   <div className="flex-1">
