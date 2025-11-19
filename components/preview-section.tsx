@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
@@ -14,16 +15,62 @@ interface PreviewSectionProps {
 }
 
 export function PreviewSection({ files, applyMeliFilter, onFilterChange }: PreviewSectionProps) {
-  const getRecordCount = (file: File | null) => {
-    if (!file) return 0
-    // Record counts should come from server-side processing.
-    // Until server provides counts, display 0 as placeholder.
-    return 0
+  const [recordCounts, setRecordCounts] = useState<{
+    main: number
+    additional1: number
+    additional2: number
+  }>({
+    main: 0,
+    additional1: 0,
+    additional2: 0,
+  })
+
+  // Calcula a quantidade real de registros em cada planilha usando a biblioteca xlsx.
+  useEffect(() => {
+    const computeCounts = async () => {
+      if (!files.main && !files.additional1 && !files.additional2) {
+        setRecordCounts({ main: 0, additional1: 0, additional2: 0 })
+        return
+      }
+
+      const XLSX = await import('xlsx')
+
+      const countRows = async (file: File | null): Promise<number> => {
+        if (!file) return 0
+        try {
+          const arrayBuffer = await file.arrayBuffer()
+          const workbook = XLSX.read(arrayBuffer, { type: 'array' })
+          const sheetName = workbook.SheetNames[0]
+          const sheet = workbook.Sheets[sheetName]
+          const json = XLSX.utils.sheet_to_json(sheet, { defval: null }) as any[]
+          return json.length
+        } catch {
+          return 0
+        }
+      }
+
+      const [mainCount, add1Count, add2Count] = await Promise.all([
+        countRows(files.main),
+        countRows(files.additional1),
+        countRows(files.additional2),
+      ])
+
+      setRecordCounts({
+        main: mainCount,
+        additional1: add1Count,
+        additional2: add2Count,
+      })
+    }
+
+    computeCounts()
+  }, [files])
+
+  const getRecordCount = (type: 'main' | 'additional1' | 'additional2') => {
+    return recordCounts[type] ?? 0
   }
 
-  const totalRecords = [files.main, files.additional1, files.additional2]
-    .filter(Boolean)
-    .reduce((acc, file) => acc + getRecordCount(file), 0)
+  const totalRecords =
+    getRecordCount('main') + getRecordCount('additional1') + getRecordCount('additional2')
 
   return (
     <section className="border-b bg-muted/30">
@@ -42,15 +89,15 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                   <div className="flex justify-between items-center p-3 bg-primary/10 border border-primary/20 rounded-lg">
                     <span className="text-sm font-medium">Planilha Mãe</span>
                     <span className="text-sm text-muted-foreground">
-                        {getRecordCount(files.main) || 'Indisponível'} registros
-                      </span>
+                      {getRecordCount('main')} registros
+                    </span>
                   </div>
                 )}
                 {files.additional1 && (
                   <div className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
                     <span className="text-sm font-medium">Planilha Avulsa 1</span>
                     <span className="text-sm text-muted-foreground">
-                      {getRecordCount(files.additional1) || 'Indisponível'} registros
+                      {getRecordCount('additional1')} registros
                     </span>
                   </div>
                 )}
@@ -58,7 +105,7 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                   <div className="flex justify-between items-center p-3 bg-muted/50 rounded-lg">
                     <span className="text-sm font-medium">Planilha Avulsa 2</span>
                     <span className="text-sm text-muted-foreground">
-                      {getRecordCount(files.additional2) || 'Indisponível'} registros
+                      {getRecordCount('additional2')} registros
                     </span>
                   </div>
                 )}
@@ -68,7 +115,7 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
                     Total de registros
                   </span>
                     <span className="text-sm font-bold text-green-600 dark:text-green-400">
-                    {totalRecords || 'Indisponível'} registros
+                    {totalRecords} registros
                   </span>
                 </div>
               </div>
