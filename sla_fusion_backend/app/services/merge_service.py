@@ -26,7 +26,14 @@ class MergeService:
         Check if a row contains Meli-related information.
         Looks for 'meli' in text fields or specific Meli codes.
         """
-        meli_keywords = ['meli', 'mercadolivre', 'mercadolibre', 'ml.com']
+        # Common ways Meli appears in spreadsheets
+        meli_keywords = [
+            'meli',
+            'mercado livre',  # with space
+            'mercadolivre',   # without space
+            'mercadolibre',
+            'ml.com',
+        ]
         
         for _, value in row.items():
             if not pd.isna(value) and isinstance(value, str):
@@ -97,16 +104,21 @@ class MergeService:
         if options is None:
             options = {}
             
-        # Start with a copy of the mother DataFrame
-        result_df = mother_df.copy()
+        # Decide once whether we apply the Meli filter
+        apply_meli_filter = options.get("apply_meli_filter", True)
+
+        # Start with the mother DataFrame, optionally filtered by Meli
+        if apply_meli_filter:
+            result_df = self._filter_meli_records(mother_df)
+        else:
+            result_df = mother_df.copy()
         
         # Process each single DataFrame
         for df in single_dfs:
             if df.empty:
                 continue
                 
-            # Optionally filter for Meli records
-            apply_meli_filter = options.get("apply_meli_filter", True)
+            # Optionally filter for Meli records on the single sheets as well
             meli_df = self._filter_meli_records(df) if apply_meli_filter else df
             
             if not meli_df.empty:
