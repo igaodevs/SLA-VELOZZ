@@ -6,6 +6,7 @@ import os
 
 from ..models.schemas import AnalyticsResponse
 from ..config import settings
+from ..services.merge_service import merge_service
 
 router = APIRouter()
 
@@ -100,17 +101,28 @@ async def get_analytics(request: AnalyticsRequest):
 
         df_all = pd.concat(dfs, ignore_index=True, sort=False)
         df_all = _normalize_columns(df_all)
-        total_records = int(len(df_all))
 
-        # Conta registros que contenham 'meli' em qualquer coluna textual
+        # Aplica filtro para considerar APENAS registros relacionados ao Mercado Livre (Meli),
+        # reutilizando a mesma lógica de detecção usada no serviço de merge.
         try:
-            meli_mask = df_all.apply(
-                lambda row: row.astype(str).str.contains("meli", case=False, na=False).any(),
-                axis=1,
-            )
-            meli_records = int(meli_mask.sum())
+            meli_mask = df_all.apply(merge_service._is_meli_record, axis=1)
+            df_all = df_all[meli_mask].copy()
+            meli_records = int(len(df_all))
         except Exception:
+            # Se algo der errado no filtro, consideramos que não há registros Meli válidos
+            df_all = df_all.iloc[0:0].copy()
             meli_records = 0
+
+        # Se após o filtro não restar nenhum registro Meli, devolve resposta vazia
+        if meli_records == 0:
+            return AnalyticsResponse(
+                seller_ranking=[],
+                sla_compliance={"on_time": 0.0, "delayed": 0.0, "total_orders": 0},
+                total_records=0,
+                meli_records=0,
+            )
+
+        total_records = int(len(df_all))
 
         # Ranking de vendedores considerando volume e atraso
         seller_ranking: List[Dict[str, Any]] = []
@@ -186,6 +198,91 @@ async def get_analytics(request: AnalyticsRequest):
             total_records=total_records,
             meli_records=meli_records,
         )
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erro ao processar analytics: {exc}",
+        )
+
+
+@router.post("/analytics/meli-delayed")
+async def get_meli_delayed(request: AnalyticsRequest) -> Dict[str, Any]:
+    """Retorna todas as linhas Meli em atraso (tabela detalhada).
+
+    - Lê as mesmas planilhas do endpoint /analytics
+    - Normaliza colunas principais
+    - Filtra somente registros Mercado Livre (Meli)
+    - Considera em atraso registros com:
+      - status == "Atrasado", OU
+      - dias > 0 quando a coluna existe
+    """
+    try:
+        dfs: List[pd.DataFrame] = []
+        for fid in request.file_ids:
+            matches = [f for f in os.listdir(settings.UPLOAD_FOLDER) if f.startswith(f"{fid}_")]
+            if not matches:
+                continue
+            file_path = os.path.join(settings.UPLOAD_FOLDER, matches[0])
+            try:
+                df = pd.read_excel(file_path)
+                dfs.append(df)
+            except Exception:
+                continue
+
+        if not dfs:
+            return {
+                "total_meli": 0,
+                "total_delayed": 0,
+                "rows": [],
+            }
+
+        df_all = pd.concat(dfs, ignore_index=True, sort=False)
+        df_all = _normalize_columns(df_all)
+
+        # Filtra apenas registros Mercado Livre (Meli)
+        try:
+            meli_mask = df_all.apply(merge_service._is_meli_record, axis=1)
+            df_all = df_all[meli_mask].copy()
+        except Exception:
+            df_all = df_all.iloc[0:0].copy()
+
+        total_meli = int(len(df_all))
+        if total_meli == 0:
+            return {
+                "total_meli": 0,
+                "total_delayed": 0,
+                "rows": [],
+            }
+
+        # Identifica atrasados
+        if "status" in df_all.columns:
+            delayed_mask = df_all["status"] == "Atrasado"
+        elif "dias" in df_all.columns:
+            delayed_mask = df_all["dias"].fillna(0).astype(float) > 0
+        else:
+            delayed_mask = pd.Series([False] * len(df_all))
+
+        df_delayed = df_all[delayed_mask].copy()
+        total_delayed = int(len(df_delayed))
+
+        if total_delayed == 0:
+            return {
+                "total_meli": total_meli,
+                "total_delayed": 0,
+                "rows": [],
+            }
+
+        # Campos principais para retorno
+        base_cols = [c for c in ["pedido", "vendedor", "zona", "status", "dias"] if c in df_delayed.columns]
+        # Inclui todas as colunas originais também, para máxima visibilidade
+        rows = df_delayed.to_dict(orient="records")
+
+        return {
+            "total_meli": total_meli,
+            "total_delayed": total_delayed,
+            "rows": rows,
+        }
+
 
     except Exception as e:
         raise HTTPException(
