@@ -1,2 +1,9 @@
-[00:00:02.770] Server  LOG      ✓ Ready in 1758ms
-[00:00:11.322] Server  LOG      ○ Compiling / ...
+[00:00:06.929] Server  LOG      ✓ Ready in 3.9s
+[00:02:51.645] Server  LOG      ○ Compiling / ...
+[00:06:31.614] Browser DEBUG   #1 0ms Starting document clone with size 1440x739 scrolled to 0,-1922
+[00:06:33.972] Browser DEBUG   #1 2141ms Document cloned, element located at 136.5,1968 with size 1152x593 using computed rendering
+[00:06:33.972] Browser DEBUG   #1 2141ms Starting DOM parsing
+[00:06:33.972] Browser DEBUG   #1 2447ms Added image data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20role%3D%22application%22%20tabindex%3D%220%22%20class%3D%22recharts-surface%22%20width%3D%22514px%22%20height%3D%22380px%22%20viewBox%3D%220%200%20514%20380%22%20style%3D%22wi
+[00:06:33.972] Browser DEBUG   #1 2496ms Starting renderer for element at 136.5,1968 with size 1152x593
+[00:06:33.972] Browser DEBUG   #1 2496ms Canvas renderer initialized (1152x593) with scale 2
+[00:06:33.972] Browser DEBUG   #1 4104ms Finished rendering
