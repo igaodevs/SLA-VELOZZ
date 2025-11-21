@@ -1106,10 +1106,6 @@ img, video {
   background-clip: text;
 }
 
-.fill-foreground {
-  fill: var(--color-foreground);
-}
-
 .fill-white {
   fill: #fff;
 }
