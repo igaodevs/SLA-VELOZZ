@@ -5,7 +5,20 @@ import { useRef, useState } from 'react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { X, Download, TrendingDown } from 'lucide-react'
-import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LabelList } from 'recharts'
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  LabelList,
+  ReferenceLine,
+  Brush,
+  Cell,
+} from 'recharts'
 
 interface ChartsSectionProps {
   data: any[]
@@ -15,47 +28,60 @@ interface ChartsSectionProps {
 function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload || !payload.length) return null
 
-  const atrasos = payload.find((p: any) => p.dataKey === 'atrasos')
-  const noPrazo = payload.find((p: any) => p.dataKey === 'noPrazo')
-  const percentual = payload.find((p: any) => p.dataKey === 'percentual')
-  const mediaDias = payload.find((p: any) => p.dataKey === 'mediaDias')
+  const data = payload[0]?.payload
+  if (!data) return null
 
   return (
-    <div className="rounded-lg border bg-background/95 px-3 py-2 text-xs shadow-lg">
-      <p className="mb-1 font-semibold">{label}</p>
-      {atrasos && (
-        <p className="flex items-center justify-between gap-4">
-          <span className="flex items-center gap-1">
-            <span className="h-2 w-2 rounded-full bg-red-500" />
-            Atrasos
-          </span>
-          <span className="font-medium">{atrasos.value}</span>
-        </p>
-      )}
-      {noPrazo && (
-        <p className="flex items-center justify-between gap-4">
-          <span className="flex items-center gap-1">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            No prazo
-          </span>
-          <span className="font-medium">{noPrazo.value}</span>
-        </p>
-      )}
-      {percentual && (
-        <p className="mt-1 flex items-center justify-between gap-4">
-          <span className="flex items-center gap-1">
-            <span className="h-2 w-2 rounded-full bg-amber-500" />
+    <div className="rounded-xl border bg-background/95 px-4 py-3 text-xs shadow-xl">
+      <p className="mb-1 text-sm font-semibold">{label}</p>
+      <div className="space-y-1.5 text-muted-foreground">
+        <p className="flex items-center justify-between">
+          <span className="flex items-center gap-2 text-foreground">
+            <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-primary/60" />
             % de atrasos
           </span>
-          <span className="font-semibold text-amber-600 dark:text-amber-400">{percentual.value}%</span>
+          <span className="font-semibold text-foreground">{data.percentual}%</span>
         </p>
-      )}
-      {mediaDias && mediaDias.value > 0 && (
-        <p className="mt-1 flex items-center justify-between gap-4 text-muted-foreground">
-          <span>Média de dias em atraso</span>
-          <span className="font-medium">{mediaDias.value}d</span>
+        <p className="flex items-center justify-between">
+          <span className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
+            Atrasos
+          </span>
+          <span className="font-medium">{data.atrasos} pedidos</span>
         </p>
-      )}
+        <p className="flex items-center justify-between">
+          <span className="flex items-center gap-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            No prazo
+          </span>
+          <span className="font-medium">{data.noPrazo} pedidos</span>
+        </p>
+        <p className="flex items-center justify-between">
+          <span>Média de atraso</span>
+          <span className="font-medium text-foreground">
+            {data.mediaDias > 0 ? `${data.mediaDias} dias` : 'Sem atraso'}
+          </span>
+        </p>
+        <p className="flex items-center justify-between">
+          <span>Total analisado</span>
+          <span className="font-medium text-foreground">{data.atrasos + data.noPrazo} pedidos</span>
+        </p>
+      </div>
+    </div>
+  )
+}
+
+function LegendContent() {
+  return (
+    <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
+      <div className="flex items-center gap-2">
+        <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-primary/60" />
+        % de pedidos atrasados
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="h-2 w-6 rounded-full border border-dashed border-primary/60" />
+        Média geral
+      </div>
     </div>
   )
 }
@@ -117,6 +143,39 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
       totalPedidos: seller.totalPedidos,
     }))
     .sort((a, b) => b.percentual - a.percentual)
+
+  const colorPalette = [
+    '#f97316',
+    '#f43f5e',
+    '#a855f7',
+    '#6366f1',
+    '#0ea5e9',
+    '#14b8a6',
+    '#22c55e',
+    '#84cc16',
+    '#eab308',
+    '#ef4444',
+  ]
+
+  const chartDisplayData = chartData.map((seller, index) => ({
+    ...seller,
+    color: colorPalette[index % colorPalette.length],
+  }))
+
+  const topSellers = chartDisplayData.slice(0, 10)
+  const totalSellers = chartDisplayData.length
+
+  const metrics = chartDisplayData.reduce(
+    (acc, seller) => {
+      acc.totalAtrasos += seller.atrasos
+      acc.totalPedidos += seller.atrasos + seller.noPrazo
+      acc.mediaPercentual += seller.percentual
+      return acc
+    },
+    { totalAtrasos: 0, totalPedidos: 0, mediaPercentual: 0 }
+  )
+
+  const avgPercentual = totalSellers ? Math.round(metrics.mediaPercentual / totalSellers) : 0
 
   const chartRef = useRef<HTMLDivElement | null>(null)
   const [exporting, setExporting] = useState(false)
@@ -192,135 +251,133 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
 
           <div ref={chartRef} className="grid md:grid-cols-2 gap-5 md:gap-6 mb-6 md:mb-8">
             <Card className="p-4 md:p-6 shadow-lg">
-              <h3 className="font-semibold mb-1 text-lg">Atrasos por Vendedor</h3>
-              <p className="mb-4 text-xs text-muted-foreground">
-                Barras mostram quantidade de registros/pedidos, linha indica percentual de atrasos.
-              </p>
-              <ResponsiveContainer width="100%" height={340}>
-                <ComposedChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 40 }}>
-                  <defs>
-                    <linearGradient id="delayBar" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#ef4444" stopOpacity={0.95} />
-                      <stop offset="100%" stopColor="#b91c1c" stopOpacity={0.85} />
-                    </linearGradient>
-                    <linearGradient id="onTimeBar" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#22c55e" stopOpacity={0.95} />
-                      <stop offset="100%" stopColor="#15803d" stopOpacity={0.85} />
-                    </linearGradient>
-                  </defs>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-muted" opacity={0.4} vertical={false} />
+              <div className="flex flex-col gap-1 mb-4">
+                <h3 className="text-lg font-semibold">Percentual de atrasos por vendedor</h3>
+                <p className="text-xs text-muted-foreground">
+                  Barras verticais ordenadas por maior percentual de atrasos considerando os pedidos analisados.
+                </p>
+              </div>
+              <ResponsiveContainer width="100%" height={380}>
+                <BarChart data={chartDisplayData} margin={{ top: 20, right: 16, left: -10, bottom: 20 }}>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" opacity={0.25} />
                   <XAxis
                     dataKey="vendedor"
-                    className="text-[10px] md:text-xs"
-                    angle={-40}
+                    tickLine={false}
+                    axisLine={{ stroke: 'hsl(var(--border))' }}
+                    className="text-[11px] md:text-xs"
+                    height={60}
+                    angle={-25}
                     textAnchor="end"
-                    height={70}
-                    tickLine={false}
-                    axisLine={{ stroke: 'hsl(var(--border))' }}
                   />
                   <YAxis
-                    yAxisId="left"
                     tickLine={false}
                     axisLine={{ stroke: 'hsl(var(--border))' }}
-                    label={{ value: 'Qtd. registros', angle: -90, position: 'insideLeft', offset: 10 }}
+                    tickFormatter={(value) => `${value}%`}
+                    domain={[0, 100]}
                   />
-                  <YAxis
-                    yAxisId="right"
-                    orientation="right"
-                    tickFormatter={(v) => `${v}%`}
-                    tickLine={false}
-                    axisLine={{ stroke: 'hsl(var(--border))' }}
-                    domain={[0, (dataMax: number) => Math.min(100, Math.max(30, Math.ceil(dataMax / 10) * 10))]}
-                    label={{ value: '% atrasos', angle: 90, position: 'insideRight', offset: 10 }}
+                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted) / 0.3)' }} />
+                  <Legend verticalAlign="top" align="right" content={<LegendContent />} wrapperStyle={{ paddingBottom: 16 }} />
+                  <ReferenceLine
+                    y={avgPercentual}
+                    stroke="hsl(var(--primary))"
+                    strokeDasharray="3 3"
+                    strokeOpacity={0.6}
+                    label={{
+                      value: `Média ${avgPercentual}%`,
+                      position: 'right',
+                      fill: 'hsl(var(--primary))',
+                      fontSize: 10,
+                      fontWeight: 600,
+                    }}
                   />
-                  <Tooltip content={<CustomTooltip />} cursor={{ fill: 'hsl(var(--muted) / 0.4)' }} />
-                  <Legend wrapperStyle={{ fontSize: 11 }} />
-                  <Bar
-                    yAxisId="left"
-                    dataKey="noPrazo"
-                    name="No prazo"
-                    fill="url(#onTimeBar)"
-                    radius={[4, 4, 0, 0]}
-                    barSize={20}
-                    stackId="total"
-                  >
-                    <LabelList dataKey="noPrazo" position="top" className="text-[10px] fill-muted-foreground" />
+                  <Bar dataKey="percentual" name="% atrasos" radius={[8, 8, 0, 0]} barSize={26}>
+                    {chartDisplayData.map((entry, index) => (
+                      <Cell key={`cell-${entry.vendedor}`} fill={entry.color} />
+                    ))}
+                    <LabelList
+                      dataKey="percentual"
+                      position="top"
+                      formatter={(value: number) => `${value}%`}
+                      className="text-[10px] md:text-xs fill-foreground font-semibold"
+                    />
                   </Bar>
-                  <Bar
-                    yAxisId="left"
-                    dataKey="atrasos"
-                    name="Atrasos"
-                    fill="url(#delayBar)"
-                    radius={[4, 4, 0, 0]}
-                    barSize={20}
-                    stackId="total"
-                  >
-                    <LabelList dataKey="atrasos" position="top" className="text-[10px] fill-foreground" />
-                  </Bar>
-                  <Line
-                    yAxisId="right"
-                    type="monotone"
-                    dataKey="percentual"
-                    name="% atrasos"
-                    stroke="#f97316"
-                    strokeWidth={2}
-                    dot={{ r: 3, strokeWidth: 1, stroke: '#fff' }}
-                    activeDot={{ r: 5 }}
-                  />
-                </ComposedChart>
+                  {chartDisplayData.length > 12 && (
+                    <Brush
+                      dataKey="vendedor"
+                      height={18}
+                      travellerWidth={12}
+                      stroke="hsl(var(--primary))"
+                      fill="hsl(var(--muted))"
+                      className="[&>rect]:rounded-full"
+                    />
+                  )}
+                </BarChart>
               </ResponsiveContainer>
             </Card>
 
             <Card className="p-4 md:p-6 shadow-lg">
-              <h3 className="font-semibold mb-3 md:mb-4 text-base md:text-lg">Ranking - Vendedores com Mais Atrasos</h3>
-              <div className="space-y-4">
-                {chartData.slice(0, 5).map((seller, index) => (
-                  <div key={seller.vendedor} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-sm ${
-                          index === 0 ? 'bg-red-500 text-white' :
-                          index === 1 ? 'bg-orange-500 text-white' :
-                          index === 2 ? 'bg-amber-500 text-white' :
-                          'bg-muted text-muted-foreground'
-                        }`}>
-                          {index + 1}
-                        </div>
-                        <div>
-                          <span className="font-semibold">{seller.vendedor}</span>
-                          <p className="text-xs text-muted-foreground">
-                            {seller.atrasos} atrasos de {seller.atrasos + seller.noPrazo} registros
-                          </p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <span className={`text-sm font-bold ${
-                          seller.percentual > 50 ? 'text-red-600 dark:text-red-400' : 
-                          seller.percentual > 30 ? 'text-orange-600 dark:text-orange-400' :
-                          'text-amber-600 dark:text-amber-400'
-                        }`}>
-                          {seller.percentual}%
-                        </span>
-                        {seller.mediaDias > 0 && (
-                          <p className="text-xs text-muted-foreground">
-                            Média: {seller.mediaDias}d
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                    <div className="h-2 bg-muted rounded-full overflow-hidden">
-                      <div 
-                        className={`h-full transition-all duration-500 ${
-                          seller.percentual > 50 ? 'bg-gradient-to-r from-red-500 to-red-600' :
-                          seller.percentual > 30 ? 'bg-gradient-to-r from-orange-500 to-orange-600' :
-                          'bg-gradient-to-r from-amber-500 to-amber-600'
-                        }`}
-                        style={{ width: `${seller.percentual}%` }}
-                      />
-                    </div>
+              <div className="flex flex-col gap-4">
+                <div>
+                  <h3 className="text-base md:text-lg font-semibold mb-1.5">Panorama dos atrasos</h3>
+                  <p className="text-xs text-muted-foreground">
+                    Métricas consolidadas após aplicar o filtro Mercado Livre.
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-3 text-center text-sm">
+                  <div className="rounded-xl border bg-muted/30 p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Pedidos analisados</p>
+                    <p className="mt-1 text-2xl font-bold">{metrics.totalPedidos}</p>
                   </div>
-                ))}
-              </div>
+                  <div className="rounded-xl border bg-muted/30 p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Pedidos atrasados</p>
+                    <p className="mt-1 text-2xl font-bold text-destructive">{metrics.totalAtrasos}</p>
+                  </div>
+                  <div className="rounded-xl border bg-muted/30 p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Média geral</p>
+                    <p className="mt-1 text-2xl font-bold">{avgPercentual}%</p>
+                  </div>
+                  <div className="rounded-xl border bg-muted/30 p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">Vendedores avaliados</p>
+                    <p className="mt-1 text-2xl font-bold">{totalSellers}</p>
+                  </div>
+                </div>
+                <div className="border-t pt-4">
+                  <h4 className="text-sm font-semibold mb-3">Ranking detalhado</h4>
+                  <div className="space-y-3">
+                    {topSellers.slice(0, 5).map((seller, index) => (
+                      <div key={seller.vendedor} className="flex items-center justify-between gap-3">
+                        <div className="flex items-center gap-3">
+                          <span
+                            className={`h-8 w-8 rounded-full text-sm font-bold flex items-center justify-center ${
+                              index === 0
+                                ? 'bg-red-500 text-white'
+                                : index === 1
+                                  ? 'bg-orange-500 text-white'
+                                  : index === 2
+                                    ? 'bg-amber-500 text-white'
+                                    : 'bg-muted text-foreground'
+                            }`}
+                          >
+                            {index + 1}
+                          </span>
+                          <div>
+                            <p className="text-sm font-semibold">{seller.vendedor}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {seller.atrasos} atrasos de {seller.atrasos + seller.noPrazo} pedidos
+                            </p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-bold text-foreground">{seller.percentual}%</p>
+                          {seller.mediaDias > 0 && (
+                            <p className="text-xs text-muted-foreground">Média {seller.mediaDias} dias</p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+          </div>
             </Card>
           </div>
 

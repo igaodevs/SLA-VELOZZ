@@ -13,9 +13,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$Gi
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$download$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Download$3e$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/lucide-react/dist/esm/icons/download.js [app-client] (ecmascript) <export default as Download>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trending$2d$down$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__TrendingDown$3e$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/lucide-react/dist/esm/icons/trending-down.js [app-client] (ecmascript) <export default as TrendingDown>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$chart$2f$ComposedChart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/chart/ComposedChart.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$chart$2f$BarChart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/chart/BarChart.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Bar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/cartesian/Bar.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Line$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/cartesian/Line.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$XAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/cartesian/XAxis.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$YAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/cartesian/YAxis.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$CartesianGrid$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/cartesian/CartesianGrid.js [app-client] (ecmascript)");
@@ -23,6 +22,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$Gi
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Legend$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/component/Legend.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$ResponsiveContainer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/component/ResponsiveContainer.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$LabelList$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/component/LabelList.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$ReferenceLine$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/cartesian/ReferenceLine.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Brush$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/cartesian/Brush.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Cell$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/recharts/es6/component/Cell.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -33,161 +35,244 @@ var _s = __turbopack_context__.k.signature();
 ;
 function CustomTooltip({ active, payload, label }) {
     if (!active || !payload || !payload.length) return null;
-    const atrasos = payload.find((p)=>p.dataKey === 'atrasos');
-    const noPrazo = payload.find((p)=>p.dataKey === 'noPrazo');
-    const percentual = payload.find((p)=>p.dataKey === 'percentual');
-    const mediaDias = payload.find((p)=>p.dataKey === 'mediaDias');
+    const data = payload[0]?.payload;
+    if (!data) return null;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "rounded-lg border bg-background/95 px-3 py-2 text-xs shadow-lg",
+        className: "rounded-xl border bg-background/95 px-4 py-3 text-xs shadow-xl",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "mb-1 font-semibold",
+                className: "mb-1 text-sm font-semibold",
                 children: label
             }, void 0, false, {
                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                lineNumber: 25,
+                lineNumber: 36,
                 columnNumber: 7
             }, this),
-            atrasos && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "flex items-center justify-between gap-4",
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "space-y-1.5 text-muted-foreground",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "flex items-center gap-1",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "flex items-center justify-between",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "h-2 w-2 rounded-full bg-red-500"
-                            }, void 0, false, {
+                                className: "flex items-center gap-2 text-foreground",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-primary/60"
+                                    }, void 0, false, {
+                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                        lineNumber: 40,
+                                        columnNumber: 13
+                                    }, this),
+                                    "% de atrasos"
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 29,
-                                columnNumber: 13
+                                lineNumber: 39,
+                                columnNumber: 11
                             }, this),
-                            "Atrasos"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "font-semibold text-foreground",
+                                children: [
+                                    data.percentual,
+                                    "%"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                lineNumber: 43,
+                                columnNumber: 11
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 28,
-                        columnNumber: 11
+                        lineNumber: 38,
+                        columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "font-medium",
-                        children: atrasos.value
-                    }, void 0, false, {
-                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 32,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                lineNumber: 27,
-                columnNumber: 9
-            }, this),
-            noPrazo && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "flex items-center justify-between gap-4",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "flex items-center gap-1",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "flex items-center justify-between",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "h-2 w-2 rounded-full bg-emerald-500"
-                            }, void 0, false, {
+                                className: "flex items-center gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "h-2.5 w-2.5 rounded-full bg-red-500"
+                                    }, void 0, false, {
+                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                        lineNumber: 47,
+                                        columnNumber: 13
+                                    }, this),
+                                    "Atrasos"
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 38,
-                                columnNumber: 13
+                                lineNumber: 46,
+                                columnNumber: 11
                             }, this),
-                            "No prazo"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "font-medium",
+                                children: [
+                                    data.atrasos,
+                                    " pedidos"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                lineNumber: 50,
+                                columnNumber: 11
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 37,
-                        columnNumber: 11
+                        lineNumber: 45,
+                        columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "font-medium",
-                        children: noPrazo.value
-                    }, void 0, false, {
-                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 41,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                lineNumber: 36,
-                columnNumber: 9
-            }, this),
-            percentual && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "mt-1 flex items-center justify-between gap-4",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "flex items-center gap-1",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "flex items-center justify-between",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                className: "h-2 w-2 rounded-full bg-amber-500"
+                                className: "flex items-center gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "h-2.5 w-2.5 rounded-full bg-emerald-500"
+                                    }, void 0, false, {
+                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                        lineNumber: 54,
+                                        columnNumber: 13
+                                    }, this),
+                                    "No prazo"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                lineNumber: 53,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "font-medium",
+                                children: [
+                                    data.noPrazo,
+                                    " pedidos"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                lineNumber: 57,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                        lineNumber: 52,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "flex items-center justify-between",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: "Média de atraso"
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 47,
-                                columnNumber: 13
+                                lineNumber: 60,
+                                columnNumber: 11
                             }, this),
-                            "% de atrasos"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "font-medium text-foreground",
+                                children: data.mediaDias > 0 ? `${data.mediaDias} dias` : 'Sem atraso'
+                            }, void 0, false, {
+                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                lineNumber: 61,
+                                columnNumber: 11
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 46,
-                        columnNumber: 11
+                        lineNumber: 59,
+                        columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "font-semibold text-amber-600 dark:text-amber-400",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "flex items-center justify-between",
                         children: [
-                            percentual.value,
-                            "%"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: "Total analisado"
+                            }, void 0, false, {
+                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                lineNumber: 66,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "font-medium text-foreground",
+                                children: [
+                                    data.atrasos + data.noPrazo,
+                                    " pedidos"
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                lineNumber: 67,
+                                columnNumber: 11
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 50,
-                        columnNumber: 11
+                        lineNumber: 65,
+                        columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                lineNumber: 45,
-                columnNumber: 9
-            }, this),
-            mediaDias && mediaDias.value > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "mt-1 flex items-center justify-between gap-4 text-muted-foreground",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        children: "Média de dias em atraso"
-                    }, void 0, false, {
-                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 55,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                        className: "font-medium",
-                        children: [
-                            mediaDias.value,
-                            "d"
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 56,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                lineNumber: 54,
-                columnNumber: 9
+                lineNumber: 37,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-        lineNumber: 24,
+        lineNumber: 35,
         columnNumber: 5
     }, this);
 }
 _c = CustomTooltip;
+function LegendContent() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex flex-wrap gap-4 text-xs text-muted-foreground",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-center gap-2",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-primary/60"
+                    }, void 0, false, {
+                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                        lineNumber: 78,
+                        columnNumber: 9
+                    }, this),
+                    "% de pedidos atrasados"
+                ]
+            }, void 0, true, {
+                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                lineNumber: 77,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex items-center gap-2",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "h-2 w-6 rounded-full border border-dashed border-primary/60"
+                    }, void 0, false, {
+                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                        lineNumber: 82,
+                        columnNumber: 9
+                    }, this),
+                    "Média geral"
+                ]
+            }, void 0, true, {
+                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                lineNumber: 81,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+        lineNumber: 76,
+        columnNumber: 5
+    }, this);
+}
+_c1 = LegendContent;
 function ChartsSection({ data, onClose }) {
     _s();
     const [selectedZona, setSelectedZona] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('Todas');
@@ -235,6 +320,35 @@ function ChartsSection({ data, onClose }) {
             mediaDias: seller.atrasos > 0 ? Math.round(seller.totalDiasAtraso / seller.atrasos) : 0,
             totalPedidos: seller.totalPedidos
         })).sort((a, b)=>b.percentual - a.percentual);
+    const colorPalette = [
+        '#f97316',
+        '#f43f5e',
+        '#a855f7',
+        '#6366f1',
+        '#0ea5e9',
+        '#14b8a6',
+        '#22c55e',
+        '#84cc16',
+        '#eab308',
+        '#ef4444'
+    ];
+    const chartDisplayData = chartData.map((seller, index)=>({
+            ...seller,
+            color: colorPalette[index % colorPalette.length]
+        }));
+    const topSellers = chartDisplayData.slice(0, 10);
+    const totalSellers = chartDisplayData.length;
+    const metrics = chartDisplayData.reduce((acc, seller)=>{
+        acc.totalAtrasos += seller.atrasos;
+        acc.totalPedidos += seller.atrasos + seller.noPrazo;
+        acc.mediaPercentual += seller.percentual;
+        return acc;
+    }, {
+        totalAtrasos: 0,
+        totalPedidos: 0,
+        mediaPercentual: 0
+    });
+    const avgPercentual = totalSellers ? Math.round(metrics.mediaPercentual / totalSellers) : 0;
     const chartRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const [exporting, setExporting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const handleExport = async (format)=>{
@@ -293,14 +407,14 @@ function ChartsSection({ data, onClose }) {
                                                 className: "w-7 h-7 md:w-8 md:h-8 text-destructive"
                                             }, void 0, false, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                lineNumber: 164,
+                                                lineNumber: 223,
                                                 columnNumber: 17
                                             }, this),
                                             "Análise de Atrasos"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 163,
+                                        lineNumber: 222,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -308,13 +422,13 @@ function ChartsSection({ data, onClose }) {
                                         children: "Ranking automático e percentual de vendedores com mais atrasos e maior volume de pedidos"
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 167,
+                                        lineNumber: 226,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 162,
+                                lineNumber: 221,
                                 columnNumber: 13
                             }, this),
                             zonas.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -325,7 +439,7 @@ function ChartsSection({ data, onClose }) {
                                         children: "Filtrar por zona:"
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 173,
+                                        lineNumber: 232,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -338,7 +452,7 @@ function ChartsSection({ data, onClose }) {
                                                 children: "Todas"
                                             }, void 0, false, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                lineNumber: 179,
+                                                lineNumber: 238,
                                                 columnNumber: 19
                                             }, this),
                                             zonas.map((zona)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -346,19 +460,19 @@ function ChartsSection({ data, onClose }) {
                                                     children: zona
                                                 }, zona, false, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 181,
+                                                    lineNumber: 240,
                                                     columnNumber: 21
                                                 }, this))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 174,
+                                        lineNumber: 233,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 172,
+                                lineNumber: 231,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -370,18 +484,18 @@ function ChartsSection({ data, onClose }) {
                                     className: "w-5 h-5"
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                    lineNumber: 189,
+                                    lineNumber: 248,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 188,
+                                lineNumber: 247,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 161,
+                        lineNumber: 220,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -391,424 +505,460 @@ function ChartsSection({ data, onClose }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                 className: "p-4 md:p-6 shadow-lg",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                        className: "font-semibold mb-1 text-lg",
-                                        children: "Atrasos por Vendedor"
-                                    }, void 0, false, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex flex-col gap-1 mb-4",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                className: "text-lg font-semibold",
+                                                children: "Percentual de atrasos por vendedor"
+                                            }, void 0, false, {
+                                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                lineNumber: 255,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-xs text-muted-foreground",
+                                                children: "Barras verticais ordenadas por maior percentual de atrasos considerando os pedidos analisados."
+                                            }, void 0, false, {
+                                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                lineNumber: 256,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 195,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "mb-4 text-xs text-muted-foreground",
-                                        children: "Barras mostram quantidade de registros/pedidos, linha indica percentual de atrasos."
-                                    }, void 0, false, {
-                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 196,
+                                        lineNumber: 254,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$ResponsiveContainer$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ResponsiveContainer"], {
                                         width: "100%",
-                                        height: 340,
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$chart$2f$ComposedChart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ComposedChart"], {
-                                            data: chartData,
+                                        height: 380,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$chart$2f$BarChart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BarChart"], {
+                                            data: chartDisplayData,
                                             margin: {
-                                                top: 10,
-                                                right: 30,
-                                                left: 0,
-                                                bottom: 40
+                                                top: 20,
+                                                right: 16,
+                                                left: -10,
+                                                bottom: 20
                                             },
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("linearGradient", {
-                                                            id: "delayBar",
-                                                            x1: "0",
-                                                            y1: "0",
-                                                            x2: "0",
-                                                            y2: "1",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
-                                                                    offset: "0%",
-                                                                    stopColor: "#ef4444",
-                                                                    stopOpacity: 0.95
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                    lineNumber: 203,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
-                                                                    offset: "100%",
-                                                                    stopColor: "#b91c1c",
-                                                                    stopOpacity: 0.85
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                    lineNumber: 204,
-                                                                    columnNumber: 23
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                            lineNumber: 202,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("linearGradient", {
-                                                            id: "onTimeBar",
-                                                            x1: "0",
-                                                            y1: "0",
-                                                            x2: "0",
-                                                            y2: "1",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
-                                                                    offset: "0%",
-                                                                    stopColor: "#22c55e",
-                                                                    stopOpacity: 0.95
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                    lineNumber: 207,
-                                                                    columnNumber: 23
-                                                                }, this),
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("stop", {
-                                                                    offset: "100%",
-                                                                    stopColor: "#15803d",
-                                                                    stopOpacity: 0.85
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                    lineNumber: 208,
-                                                                    columnNumber: 23
-                                                                }, this)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                            lineNumber: 206,
-                                                            columnNumber: 21
-                                                        }, this)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 201,
-                                                    columnNumber: 19
-                                                }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$CartesianGrid$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CartesianGrid"], {
                                                     strokeDasharray: "3 3",
-                                                    className: "stroke-muted",
-                                                    opacity: 0.4,
-                                                    vertical: false
+                                                    vertical: false,
+                                                    stroke: "hsl(var(--border))",
+                                                    opacity: 0.25
                                                 }, void 0, false, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 211,
+                                                    lineNumber: 262,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$XAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["XAxis"], {
                                                     dataKey: "vendedor",
-                                                    className: "text-[10px] md:text-xs",
-                                                    angle: -40,
-                                                    textAnchor: "end",
-                                                    height: 70,
-                                                    tickLine: false,
-                                                    axisLine: {
-                                                        stroke: 'hsl(var(--border))'
-                                                    }
-                                                }, void 0, false, {
-                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 212,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$YAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["YAxis"], {
-                                                    yAxisId: "left",
                                                     tickLine: false,
                                                     axisLine: {
                                                         stroke: 'hsl(var(--border))'
                                                     },
-                                                    label: {
-                                                        value: 'Qtd. registros',
-                                                        angle: -90,
-                                                        position: 'insideLeft',
-                                                        offset: 10
-                                                    }
+                                                    className: "text-[11px] md:text-xs",
+                                                    height: 60,
+                                                    angle: -25,
+                                                    textAnchor: "end"
                                                 }, void 0, false, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 221,
+                                                    lineNumber: 263,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$YAxis$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["YAxis"], {
-                                                    yAxisId: "right",
-                                                    orientation: "right",
-                                                    tickFormatter: (v)=>`${v}%`,
                                                     tickLine: false,
                                                     axisLine: {
                                                         stroke: 'hsl(var(--border))'
                                                     },
+                                                    tickFormatter: (value)=>`${value}%`,
                                                     domain: [
                                                         0,
-                                                        (dataMax)=>Math.min(100, Math.max(30, Math.ceil(dataMax / 10) * 10))
-                                                    ],
-                                                    label: {
-                                                        value: '% atrasos',
-                                                        angle: 90,
-                                                        position: 'insideRight',
-                                                        offset: 10
-                                                    }
+                                                        100
+                                                    ]
                                                 }, void 0, false, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 227,
+                                                    lineNumber: 272,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Tooltip$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Tooltip"], {
                                                     content: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(CustomTooltip, {}, void 0, false, {
                                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                        lineNumber: 236,
+                                                        lineNumber: 278,
                                                         columnNumber: 37
                                                     }, void 0),
                                                     cursor: {
-                                                        fill: 'hsl(var(--muted) / 0.4)'
+                                                        fill: 'hsl(var(--muted) / 0.3)'
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 236,
+                                                    lineNumber: 278,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Legend$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Legend"], {
+                                                    verticalAlign: "top",
+                                                    align: "right",
+                                                    content: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(LegendContent, {}, void 0, false, {
+                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                        lineNumber: 279,
+                                                        columnNumber: 70
+                                                    }, void 0),
                                                     wrapperStyle: {
-                                                        fontSize: 11
+                                                        paddingBottom: 16
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 237,
+                                                    lineNumber: 279,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$ReferenceLine$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ReferenceLine"], {
+                                                    y: avgPercentual,
+                                                    stroke: "hsl(var(--primary))",
+                                                    strokeDasharray: "3 3",
+                                                    strokeOpacity: 0.6,
+                                                    label: {
+                                                        value: `Média ${avgPercentual}%`,
+                                                        position: 'right',
+                                                        fill: 'hsl(var(--primary))',
+                                                        fontSize: 10,
+                                                        fontWeight: 600
+                                                    }
+                                                }, void 0, false, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 280,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Bar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Bar"], {
-                                                    yAxisId: "left",
-                                                    dataKey: "noPrazo",
-                                                    name: "No prazo",
-                                                    fill: "url(#onTimeBar)",
-                                                    radius: [
-                                                        4,
-                                                        4,
-                                                        0,
-                                                        0
-                                                    ],
-                                                    barSize: 20,
-                                                    stackId: "total",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$LabelList$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LabelList"], {
-                                                        dataKey: "noPrazo",
-                                                        position: "top",
-                                                        className: "text-[10px] fill-muted-foreground"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                        lineNumber: 247,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 238,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Bar$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Bar"], {
-                                                    yAxisId: "left",
-                                                    dataKey: "atrasos",
-                                                    name: "Atrasos",
-                                                    fill: "url(#delayBar)",
-                                                    radius: [
-                                                        4,
-                                                        4,
-                                                        0,
-                                                        0
-                                                    ],
-                                                    barSize: 20,
-                                                    stackId: "total",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$LabelList$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LabelList"], {
-                                                        dataKey: "atrasos",
-                                                        position: "top",
-                                                        className: "text-[10px] fill-foreground"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                        lineNumber: 258,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                }, void 0, false, {
-                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 249,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Line$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Line"], {
-                                                    yAxisId: "right",
-                                                    type: "monotone",
                                                     dataKey: "percentual",
                                                     name: "% atrasos",
-                                                    stroke: "#f97316",
-                                                    strokeWidth: 2,
-                                                    dot: {
-                                                        r: 3,
-                                                        strokeWidth: 1,
-                                                        stroke: '#fff'
-                                                    },
-                                                    activeDot: {
-                                                        r: 5
-                                                    }
+                                                    radius: [
+                                                        8,
+                                                        8,
+                                                        0,
+                                                        0
+                                                    ],
+                                                    barSize: 26,
+                                                    children: [
+                                                        chartDisplayData.map((entry, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$Cell$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Cell"], {
+                                                                fill: entry.color
+                                                            }, `cell-${entry.vendedor}`, false, {
+                                                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                lineNumber: 295,
+                                                                columnNumber: 23
+                                                            }, this)),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$component$2f$LabelList$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["LabelList"], {
+                                                            dataKey: "percentual",
+                                                            position: "top",
+                                                            formatter: (value)=>`${value}%`,
+                                                            className: "text-[10px] md:text-xs fill-foreground font-semibold"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 297,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 293,
+                                                    columnNumber: 19
+                                                }, this),
+                                                chartDisplayData.length > 12 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$recharts$2f$es6$2f$cartesian$2f$Brush$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Brush"], {
+                                                    dataKey: "vendedor",
+                                                    height: 18,
+                                                    travellerWidth: 12,
+                                                    stroke: "hsl(var(--primary))",
+                                                    fill: "hsl(var(--muted))",
+                                                    className: "[&>rect]:rounded-full"
                                                 }, void 0, false, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                    lineNumber: 260,
+                                                    lineNumber: 305,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                            lineNumber: 261,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                        lineNumber: 260,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                lineNumber: 253,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                                className: "p-4 md:p-6 shadow-lg",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex flex-col gap-4",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                    className: "text-base md:text-lg font-semibold mb-1.5",
+                                                    children: "Panorama dos atrasos"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 321,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-xs text-muted-foreground",
+                                                    children: "Métricas consolidadas após aplicar o filtro Mercado Livre."
+                                                }, void 0, false, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 322,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                            lineNumber: 200,
+                                            lineNumber: 320,
                                             columnNumber: 17
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 199,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 194,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
-                                className: "p-4 md:p-6 shadow-lg",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                        className: "font-semibold mb-3 md:mb-4 text-base md:text-lg",
-                                        children: "Ranking - Vendedores com Mais Atrasos"
-                                    }, void 0, false, {
-                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 275,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "space-y-4",
-                                        children: chartData.slice(0, 5).map((seller, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "space-y-2",
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex justify-between items-center",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex items-center gap-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        className: `w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shadow-sm ${index === 0 ? 'bg-red-500 text-white' : index === 1 ? 'bg-orange-500 text-white' : index === 2 ? 'bg-amber-500 text-white' : 'bg-muted text-muted-foreground'}`,
-                                                                        children: index + 1
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                        lineNumber: 281,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                        children: [
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                                className: "font-semibold",
-                                                                                children: seller.vendedor
-                                                                            }, void 0, false, {
-                                                                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                                lineNumber: 290,
-                                                                                columnNumber: 27
-                                                                            }, this),
-                                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                                className: "text-xs text-muted-foreground",
-                                                                                children: [
-                                                                                    seller.atrasos,
-                                                                                    " atrasos de ",
-                                                                                    seller.atrasos + seller.noPrazo,
-                                                                                    " registros"
-                                                                                ]
-                                                                            }, void 0, true, {
-                                                                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                                lineNumber: 291,
-                                                                                columnNumber: 27
-                                                                            }, this)
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                        lineNumber: 289,
-                                                                        columnNumber: 25
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                lineNumber: 280,
-                                                                columnNumber: 23
-                                                            }, this),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "text-right",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                                        className: `text-sm font-bold ${seller.percentual > 50 ? 'text-red-600 dark:text-red-400' : seller.percentual > 30 ? 'text-orange-600 dark:text-orange-400' : 'text-amber-600 dark:text-amber-400'}`,
-                                                                        children: [
-                                                                            seller.percentual,
-                                                                            "%"
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                        lineNumber: 297,
-                                                                        columnNumber: 25
-                                                                    }, this),
-                                                                    seller.mediaDias > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        className: "text-xs text-muted-foreground",
-                                                                        children: [
-                                                                            "Média: ",
-                                                                            seller.mediaDias,
-                                                                            "d"
-                                                                        ]
-                                                                    }, void 0, true, {
-                                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                        lineNumber: 305,
-                                                                        columnNumber: 27
-                                                                    }, this)
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                                lineNumber: 296,
-                                                                columnNumber: 23
-                                                            }, this)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                        lineNumber: 279,
-                                                        columnNumber: 21
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "h-2 bg-muted rounded-full overflow-hidden",
-                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                            className: `h-full transition-all duration-500 ${seller.percentual > 50 ? 'bg-gradient-to-r from-red-500 to-red-600' : seller.percentual > 30 ? 'bg-gradient-to-r from-orange-500 to-orange-600' : 'bg-gradient-to-r from-amber-500 to-amber-600'}`,
-                                                            style: {
-                                                                width: `${seller.percentual}%`
-                                                            }
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "grid grid-cols-2 gap-3 text-center text-sm",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "rounded-xl border bg-muted/30 p-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-xs uppercase tracking-wide text-muted-foreground",
+                                                            children: "Pedidos analisados"
                                                         }, void 0, false, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                            lineNumber: 312,
-                                                            columnNumber: 23
+                                                            lineNumber: 328,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "mt-1 text-2xl font-bold",
+                                                            children: metrics.totalPedidos
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 329,
+                                                            columnNumber: 21
                                                         }, this)
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                        lineNumber: 311,
-                                                        columnNumber: 21
-                                                    }, this)
-                                                ]
-                                            }, seller.vendedor, true, {
-                                                fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                                lineNumber: 278,
-                                                columnNumber: 19
-                                            }, this))
-                                    }, void 0, false, {
-                                        fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 276,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 327,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "rounded-xl border bg-muted/30 p-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-xs uppercase tracking-wide text-muted-foreground",
+                                                            children: "Pedidos atrasados"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 332,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "mt-1 text-2xl font-bold text-destructive",
+                                                            children: metrics.totalAtrasos
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 333,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 331,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "rounded-xl border bg-muted/30 p-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-xs uppercase tracking-wide text-muted-foreground",
+                                                            children: "Média geral"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 336,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "mt-1 text-2xl font-bold",
+                                                            children: [
+                                                                avgPercentual,
+                                                                "%"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 337,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 335,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "rounded-xl border bg-muted/30 p-4",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "text-xs uppercase tracking-wide text-muted-foreground",
+                                                            children: "Vendedores avaliados"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 340,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                            className: "mt-1 text-2xl font-bold",
+                                                            children: totalSellers
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 341,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 339,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                            lineNumber: 326,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "border-t pt-4",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                    className: "text-sm font-semibold mb-3",
+                                                    children: "Ranking detalhado"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 345,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "space-y-3",
+                                                    children: topSellers.slice(0, 5).map((seller, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-center justify-between gap-3",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex items-center gap-3",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: `h-8 w-8 rounded-full text-sm font-bold flex items-center justify-center ${index === 0 ? 'bg-red-500 text-white' : index === 1 ? 'bg-orange-500 text-white' : index === 2 ? 'bg-amber-500 text-white' : 'bg-muted text-foreground'}`,
+                                                                            children: index + 1
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                            lineNumber: 350,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                            children: [
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                    className: "text-sm font-semibold",
+                                                                                    children: seller.vendedor
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                                    lineNumber: 364,
+                                                                                    columnNumber: 29
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                                    className: "text-xs text-muted-foreground",
+                                                                                    children: [
+                                                                                        seller.atrasos,
+                                                                                        " atrasos de ",
+                                                                                        seller.atrasos + seller.noPrazo,
+                                                                                        " pedidos"
+                                                                                    ]
+                                                                                }, void 0, true, {
+                                                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                                    lineNumber: 365,
+                                                                                    columnNumber: 29
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                            lineNumber: 363,
+                                                                            columnNumber: 27
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                    lineNumber: 349,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "text-right",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-sm font-bold text-foreground",
+                                                                            children: [
+                                                                                seller.percentual,
+                                                                                "%"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                            lineNumber: 371,
+                                                                            columnNumber: 27
+                                                                        }, this),
+                                                                        seller.mediaDias > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-xs text-muted-foreground",
+                                                                            children: [
+                                                                                "Média ",
+                                                                                seller.mediaDias,
+                                                                                " dias"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                            lineNumber: 373,
+                                                                            columnNumber: 29
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                                    lineNumber: 370,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, seller.vendedor, true, {
+                                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                            lineNumber: 348,
+                                                            columnNumber: 23
+                                                        }, this))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                                    lineNumber: 346,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                            lineNumber: 344,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
+                                    lineNumber: 319,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 274,
+                                lineNumber: 318,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 193,
+                        lineNumber: 252,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -824,14 +974,14 @@ function ChartsSection({ data, onClose }) {
                                         className: "w-4 h-4"
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 334,
+                                        lineNumber: 391,
                                         columnNumber: 15
                                     }, this),
                                     exporting ? 'Exportando...' : 'Exportar PNG'
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 328,
+                                lineNumber: 385,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -844,44 +994,45 @@ function ChartsSection({ data, onClose }) {
                                         className: "w-4 h-4"
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                        lineNumber: 343,
+                                        lineNumber: 400,
                                         columnNumber: 15
                                     }, this),
                                     exporting ? 'Exportando...' : 'Exportar PDF'
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                                lineNumber: 337,
+                                lineNumber: 394,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                        lineNumber: 327,
+                        lineNumber: 384,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-                lineNumber: 160,
+                lineNumber: 219,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-            lineNumber: 159,
+            lineNumber: 218,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx",
-        lineNumber: 158,
+        lineNumber: 217,
         columnNumber: 5
     }, this);
 }
 _s(ChartsSection, "iDNNMZPTsjZZJ6q9RlBTYl/hmNU=");
-_c1 = ChartsSection;
-var _c, _c1;
+_c2 = ChartsSection;
+var _c, _c1, _c2;
 __turbopack_context__.k.register(_c, "CustomTooltip");
-__turbopack_context__.k.register(_c1, "ChartsSection");
+__turbopack_context__.k.register(_c1, "LegendContent");
+__turbopack_context__.k.register(_c2, "ChartsSection");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }

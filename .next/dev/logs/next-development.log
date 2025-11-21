@@ -1,8 +1,1995 @@
-[00:00:02.984] Server  LOG      ✓ Ready in 1854ms
-[00:02:00.387] Server  LOG      ○ Compiling / ...
-[00:02:31.495] Server  LOG      ✓ Compiled in 363ms
-[00:03:34.094] Server  LOG      ✓ Compiled in 2.1s
-[00:04:44.294] Server  LOG      ✓ Compiled in 1639ms
-[00:10:38.783] Server  LOG      ✓ Compiled in 371ms
-[00:10:44.276] Server  LOG      ✓ Compiled in 175ms
-[00:10:52.099] Server  LOG      ✓ Compiled in 137ms
+[00:00:02.541] Server  LOG      ✓ Ready in 1662ms
+[00:00:24.917] Server  LOG      ○ Compiling / ...
+[00:02:41.867] Browser ERROR   {}
+[00:22:41.229] Server  LOG      ✓ Compiled in 122ms
+[00:23:06.033] Server  LOG      ✓ Compiled in 921ms
+[00:28:34.598] Server  LOG      ✓ Compiled in 256ms
+[00:34:05.089] Server  LOG      ✓ Compiled in 241ms
+[00:34:05.902] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:07.994] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:08.230] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:08.230] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:08.349] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:08.349] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:08.524] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:10.233] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:10.233] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:10.233] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:10.439] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:10.439] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:10.548] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:10.982] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:10.982] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:11.170] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:11.345] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:11.345] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:12.517] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:12.517] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:12.517] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:12.632] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:12.829] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:12.829] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.019] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.020] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.646] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.646] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.646] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.646] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.646] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.646] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.646] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:13.646] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.031] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.140] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.280] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.280] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.786] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.786] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.786] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.786] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.786] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.786] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.786] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.965] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:16.965] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.130] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.130] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.371] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.371] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.371] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.371] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.489] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.649] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.649] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.758] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.983] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.984] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:17.984] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.390] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.390] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.390] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.390] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.390] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.390] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.503] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.783] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.783] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.783] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:18.783] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.164] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.164] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.164] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.164] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.164] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:19.939] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:20.099] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:20.099] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:20.384] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:20.384] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:20.384] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:21.015] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:21.015] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:21.015] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:21.015] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:21.015] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:21.015] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:21.015] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:34:21.015] Browser ERROR   ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx:358:19
+Parsing ecmascript source code failed
+  356 |                   </div>
+  357 |                 </div>
+> 358 |               </p>
+      |                   ^
+> 359 |             </Card>
+      | ^^^^^^^^^^^^^
+  360 |           </div>
+  361 |
+  362 |           <div className="flex justify-center gap-3">
+
+Expected '</', got 'jsx text (
+            )'
+
+Import trace:
+  Client Component Browser:
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/components/charts-section.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Client Component Browser]
+    ./OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx [Server Component]
+[00:36:36.494] Server  LOG      ✓ Compiled in 242ms
+[00:43:01.492] Server  LOG      ✓ Compiled in 473ms
+[00:57:55.529] Server  LOG      ✓ Compiled in 245ms
+[00:58:11.453] Server  LOG      ✓ Compiled in 356ms
+[00:58:17.981] Server  LOG      ✓ Compiled in 315ms
+[00:58:30.060] Server  LOG      ✓ Compiled in 235ms
+[00:58:44.489] Server  LOG      ✓ Compiled in 115ms
+[00:58:55.895] Server  LOG      ✓ Compiled in 81ms

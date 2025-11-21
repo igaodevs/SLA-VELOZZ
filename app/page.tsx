@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useCallback, useMemo, lazy, Suspense } from 'react';
+import { useState, useCallback, useMemo, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import { Loader2 } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { isMeliRecord } from '@/lib/utils';
 
 // Lazy load heavy components with proper typing
 const UploadSection = dynamic<{
@@ -129,6 +130,21 @@ export default function Home() {
   const [showCharts, setShowCharts] = useState(false);
   const [applyMeliFilter, setApplyMeliFilter] = useState(true);
   const [isMerging, setIsMerging] = useState(false);
+
+  const displayedData = useMemo(() => {
+    if (!mergedData) return null;
+    const baseData = applyMeliFilter
+      ? mergedData.filter((row) => isMeliRecord(row as Record<string, unknown>))
+      : mergedData;
+
+    return baseData.filter((row) => {
+      if (!row || typeof row !== 'object') return false;
+      const typedRow = row as Record<string, any>;
+      if (typedRow.fora_do_prazo === true) return true;
+      const statusValue = String(typedRow.status ?? '').toLowerCase();
+      return statusValue.includes('atras');
+    });
+  }, [mergedData, applyMeliFilter]);
 
   // Handle file upload
   const handleFileUpload = useCallback((type: FileType, file: File | null) => {
@@ -331,7 +347,7 @@ export default function Home() {
                   </div>
                 }>
                   <ResultsSection 
-                    data={mergedData}
+                    data={displayedData ?? []}
                     onShowCharts={() => setShowCharts(true)}
                   />
                 </Suspense>
@@ -355,7 +371,7 @@ export default function Home() {
                   </div>
                 }>
                   <ChartsSection 
-                    data={mergedData}
+                    data={displayedData ?? []}
                     onClose={() => setShowCharts(false)}
                   />
                 </Suspense>

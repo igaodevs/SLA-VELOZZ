@@ -132,7 +132,7 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
                 <Input
-                  placeholder="Pesquisar por vendedor, data, status..."
+                  placeholder="Pesquisar por vendedor, fonte, prazo..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -141,7 +141,7 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
             </div>
 
             <div className="overflow-x-auto -mx-3 sm:mx-0">
-              <Table className="min-w-[640px] text-xs sm:text-sm">
+              <Table className="min-w-[1024px] text-xs sm:text-sm">
                 <TableHeader>
                   <TableRow className="bg-muted/50">
                     <TableHead>
@@ -171,9 +171,31 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                         variant="ghost" 
                         size="sm" 
                         className="gap-1 -ml-3 font-semibold"
-                        onClick={() => handleSort('data')}
+                        onClick={() => handleSort('fonte_planilha')}
                       >
-                        Data
+                        Fonte
+                        <ArrowUpDown className="w-3 h-3" />
+                      </Button>
+                    </TableHead>
+                    <TableHead>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="gap-1 -ml-3 font-semibold"
+                        onClick={() => handleSort('prazo_previsto')}
+                      >
+                        Prazo Previsto
+                        <ArrowUpDown className="w-3 h-3" />
+                      </Button>
+                    </TableHead>
+                    <TableHead>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="gap-1 -ml-3 font-semibold"
+                        onClick={() => handleSort('data_entrega_confirmada')}
+                      >
+                        Entrega Real
                         <ArrowUpDown className="w-3 h-3" />
                       </Button>
                     </TableHead>
@@ -199,6 +221,17 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                         <ArrowUpDown className="w-3 h-3" />
                       </Button>
                     </TableHead>
+                    <TableHead>
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="gap-1 -ml-3 font-semibold"
+                        onClick={() => handleSort('motivo_atraso')}
+                      >
+                        Motivo
+                        <ArrowUpDown className="w-3 h-3" />
+                      </Button>
+                    </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -212,8 +245,10 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                       whileHover={{ scale: 1.005, transition: { duration: 0.15 } }}
                     >
                       <TableCell className="font-medium">{row.id}</TableCell>
-                      <TableCell className="font-medium">{row.vendedor}</TableCell>
-                      <TableCell>{row.data}</TableCell>
+                      <TableCell className="font-medium">{row.vendedor || 'Sem vendedor'}</TableCell>
+                      <TableCell>{row.fonte_planilha || 'Planilha não identificada'}</TableCell>
+                      <TableCell>{row.prazo_previsto || 'Sem previsão'}</TableCell>
+                      <TableCell>{row.data_entrega_confirmada || 'Pendente'}</TableCell>
                       <TableCell>
                         <span 
                           className={`inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold ${getStatusBadge(row.status)}`}
@@ -235,6 +270,11 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                             No prazo
                           </span>
                         )}
+                      </TableCell>
+                      <TableCell className="max-w-[220px]">
+                        <p className="text-xs text-muted-foreground">
+                          {row.motivo_atraso || 'Atraso identificado automaticamente'}
+                        </p>
                       </TableCell>
                     </motion.tr>
                   ))}

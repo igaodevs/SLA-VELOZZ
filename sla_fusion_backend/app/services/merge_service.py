@@ -66,7 +66,7 @@ class MergeService:
         meli_mask = df.apply(self._is_meli_record, axis=1)
         return df[meli_mask].copy()
     
-    def _clean_dataframe(self, df: pd.DataFrame) -> pd.DataFrame:
+    def _clean_dataframe(self, df: pd.DataFrame, base_columns: Optional[List[str]] = None) -> pd.DataFrame:
         """
         Clean and standardize the DataFrame.
         - Remove duplicate rows
@@ -99,8 +99,28 @@ class MergeService:
         # Remove duplicate rows
         df_clean = df_clean.drop_duplicates()
         
+        if base_columns:
+            for col in base_columns:
+                if col not in df_clean.columns:
+                    df_clean[col] = None
+
         return df_clean
+
+    def _reorder_columns(self, df: pd.DataFrame, mother_df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Reorder DataFrame columns so that the mother's schema comes first,
+        preserving any additional columns from avulsas at the end.
+        """
+        mother_columns = list(mother_df.columns)
+        remaining_columns = [col for col in df.columns if col not in mother_columns]
+        ordered_columns = mother_columns + remaining_columns
+        return df.reindex(columns=ordered_columns)
     
+    def _get_display_name(self, file_info: Optional[Any], fallback: str) -> str:
+        if not file_info:
+            return fallback
+        return file_info.name or file_info.filename or fallback
+
     def _merge_dataframes(
         self, 
         mother_df: pd.DataFrame, 
@@ -109,44 +129,194 @@ class MergeService:
     ) -> pd.DataFrame:
         """
         Merge multiple DataFrames into a single DataFrame.
-        The mother DataFrame's structure is preserved.
+        Preserves every column coming from mother and single sheets.
         """
         if options is None:
             options = {}
             
-        # Decide once whether we apply the Meli filter
         apply_meli_filter = options.get("apply_meli_filter", True)
 
-        # Start with the mother DataFrame, optionally filtered by Meli
-        if apply_meli_filter:
-            result_df = self._filter_meli_records(mother_df)
-        else:
-            result_df = mother_df.copy()
+        frames: List[pd.DataFrame] = []
+
+        base_df = self._filter_meli_records(mother_df) if apply_meli_filter else mother_df.copy()
+        if not base_df.empty:
+            frames.append(base_df)
         
-        # Process each single DataFrame
         for df in single_dfs:
             if df.empty:
                 continue
-                
-            # Optionally filter for Meli records on the single sheets as well
-            meli_df = self._filter_meli_records(df) if apply_meli_filter else df
-            
-            if not meli_df.empty:
-                # Align columns with mother DataFrame
-                for col in result_df.columns:
-                    if col not in meli_df.columns:
-                        meli_df[col] = None
-                
-                # Reorder columns to match mother DataFrame
-                meli_df = meli_df[result_df.columns]
-                
-                # Append to result
-                result_df = pd.concat([result_df, meli_df], ignore_index=True)
-        
-        # Clean the final merged DataFrame
-        result_df = self._clean_dataframe(result_df)
-        
-        return result_df
+            filtered = self._filter_meli_records(df) if apply_meli_filter else df
+            if not filtered.empty:
+                frames.append(filtered)
+
+        if not frames:
+            return pd.DataFrame()
+
+        merged = pd.concat(frames, ignore_index=True, sort=False)
+        merged = self._clean_dataframe(merged, base_columns=list(mother_df.columns))
+        merged = self._reorder_columns(merged, mother_df)
+        merged = self._enrich_with_deadline_info(merged)
+        return merged
+
+    def _first_non_empty_value(self, row: pd.Series, candidates: List[str]) -> Any:
+        for col in candidates:
+            if col in row and not pd.isna(row[col]):
+                value = row[col]
+                if isinstance(value, str) and not value.strip():
+                    continue
+                return value
+        return None
+
+    def _parse_date_value(self, value: Any) -> Optional[pd.Timestamp]:
+        if value is None or (isinstance(value, str) and not value.strip()):
+            return None
+        if isinstance(value, pd.Timestamp):
+            return value
+        if isinstance(value, datetime):
+            return pd.Timestamp(value)
+        if isinstance(value, (int, float)) and not pd.isna(value):
+            try:
+                base = datetime(1899, 12, 30)
+                return pd.Timestamp(base) + pd.to_timedelta(float(value), unit='D')
+            except Exception:
+                pass
+        try:
+            ts = pd.to_datetime(value, errors='coerce', dayfirst=True)
+            if pd.isna(ts):
+                return None
+            return ts
+        except Exception:
+            return None
+
+    def _normalize_status_from_text(self, value: Any) -> Optional[str]:
+        if value is None:
+            return None
+        string_value = str(value).strip().lower()
+        if not string_value:
+            return None
+
+        late_keywords = ['fora do prazo', 'fora_do_prazo', 'atras', 'overdue', 'expirado', 'late']
+        on_time_keywords = ['no prazo', 'no_prazo', 'dentro do prazo', 'no schedule', 'ok']
+
+        if any(keyword in string_value for keyword in late_keywords):
+            return 'Atrasado'
+        if any(keyword in string_value for keyword in on_time_keywords):
+            return 'No Prazo'
+        return None
+
+    def _format_date_output(self, value: Any) -> str:
+        if value is None or (isinstance(value, float) and pd.isna(value)):
+            return ''
+        if isinstance(value, pd.Timestamp):
+            if pd.isna(value):
+                return ''
+            return value.strftime('%d/%m/%Y')
+        if isinstance(value, datetime):
+            return pd.Timestamp(value).strftime('%d/%m/%Y')
+        if isinstance(value, str):
+            return value
+        return ''
+
+    def _enrich_with_deadline_info(self, df: pd.DataFrame) -> pd.DataFrame:
+        if df.empty:
+            return df
+
+        df_enriched = df.copy()
+
+        previsao_candidates = [
+            'previsao_de_entrega',
+            'previsao_entrega',
+            'data_prevista',
+            'previsao',
+            'prazo_final',
+            'deadline',
+            'sla_previsto',
+            'data_prometida',
+            'prazo_prometido'
+        ]
+
+        entrega_candidates = [
+            'data_entrega',
+            'entrega',
+            'data_entregue',
+            'data_real_entrega',
+            'entregue_em',
+            'confirmacao_entrega',
+            'data_status_dia'
+        ]
+
+        status_candidates = [
+            'status', 'status_do_dia', 'status_dia', 'sla', 'status_sla', 'situacao', 'situacao_sla'
+        ]
+
+        referencia_candidates = [
+            'data_atualizacao',
+            'atualizacao',
+            'data_referencia',
+            'ultima_atualizacao',
+            'data_status_dia'
+        ]
+
+        def process_row(row: pd.Series) -> pd.Series:
+            expected_raw = self._first_non_empty_value(row, previsao_candidates)
+            delivered_raw = self._first_non_empty_value(row, entrega_candidates)
+            reference_raw = self._first_non_empty_value(row, referencia_candidates)
+            status_raw = self._first_non_empty_value(row, status_candidates)
+
+            expected_date = self._parse_date_value(expected_raw)
+            delivered_date = self._parse_date_value(delivered_raw)
+            reference_date = self._parse_date_value(reference_raw) or delivered_date or pd.Timestamp.utcnow()
+
+            normalized_status = self._normalize_status_from_text(status_raw)
+
+            days_delay = 0
+            is_late_due_to_delivery = False
+            is_late_due_to_absence = False
+
+            if expected_date is not None:
+                comparison_date = delivered_date or reference_date
+                if comparison_date is not None:
+                    diff_days = (comparison_date - expected_date).days
+                    if diff_days > 0:
+                        days_delay = diff_days
+                        is_late_due_to_delivery = delivered_date is not None
+                        is_late_due_to_absence = delivered_date is None
+
+            is_late = False
+            if normalized_status == 'Atrasado':
+                is_late = True
+            elif normalized_status == 'No Prazo':
+                is_late = False
+            elif expected_date is not None:
+                comparison_date = delivered_date or reference_date
+                if comparison_date and comparison_date > expected_date:
+                    is_late = True
+            elif delivered_date and status_raw:
+                is_late = normalized_status == 'Atrasado'
+
+            motivo = ''
+            if is_late:
+                if is_late_due_to_delivery and delivered_date and expected_date:
+                    motivo = 'Entrega confirmada após o prazo'
+                elif is_late_due_to_absence and expected_date:
+                    motivo = 'Entrega pendente após o prazo previsto'
+                else:
+                    motivo = 'Status indica atraso'
+
+            row['data_prevista_normalizada'] = expected_date
+            row['data_entrega_normalizada'] = delivered_date
+            row['dias'] = int(days_delay) if days_delay else 0
+            row['fora_do_prazo'] = bool(is_late)
+            row['fora_da_data_de_entrega'] = bool(is_late_due_to_delivery or is_late_due_to_absence)
+            row['motivo_atraso'] = motivo
+            if normalized_status:
+                row['status'] = normalized_status
+            else:
+                row['status'] = 'Atrasado' if is_late else row.get('status', 'No Prazo')
+            return row
+
+        df_enriched = df_enriched.apply(process_row, axis=1)
+        return df_enriched
     
     async def merge_files(self, merge_request: MergeRequest) -> MergeResponse:
         """
@@ -162,16 +332,22 @@ class MergeService:
                 raise ValueError(f"Mother file {merge_request.mother_file_id} not found")
                 
             mother_df = file_handler.read_excel_file(merge_request.mother_file_id)
+            mother_df = mother_df.copy()
+            mother_df['fonte_planilha'] = self._get_display_name(mother_file, "Planilha Mãe")
+            mother_df['tipo_planilha'] = 'mae'
             
             # Read all single files
             single_dfs = []
-            for file_id in merge_request.single_file_ids:
+            for idx, file_id in enumerate(merge_request.single_file_ids, start=1):
                 single_file = file_handler.get_file_info(file_id)
                 if not single_file:
                     logger.warning(f"Single file {file_id} not found, skipping")
                     continue
                     
                 df = file_handler.read_excel_file(file_id)
+                df = df.copy()
+                df['fonte_planilha'] = self._get_display_name(single_file, f"Planilha Avulsa {idx}")
+                df['tipo_planilha'] = 'avulsa'
                 single_dfs.append(df)
             
             # Merge the DataFrames
@@ -186,21 +362,11 @@ class MergeService:
             try:
                 df_preview = merged_df.copy()
 
-                # Map real spreadsheet columns to the normalized fields expected by the frontend.
-                # We work with the cleaned column names (lowercase, spaces -> '_').
                 column_map = {
-                    # Vendedor / cliente (avulsas usam 'vendedor', mãe pode usar 'cliente' ou 'conta')
                     'vendedor': ['vendedor', 'cliente', 'conta'],
-                    # Datas principais
-                    'data': ['data_pedido', 'criacao', 'data_status_dia', 'previsão_de_entrega'],
-                    # Status de SLA / do dia
-                    'status': ['status_do_dia', 'status_dia', 'sla', 'status', 'status_sla', 'sla_status'],
-                    # Colunas de dias de atraso, se existirem
-                    'dias': ['dias', 'dias_atraso', 'dias_de_atraso'],
-                    # Zona / região de atendimento, se existir na planilha mãe
                     'zona': ['zona', 'regiao', 'regio', 'region'],
-                    # Identificador de pedido/pacote (m pode usar 'pedido', avulsas podem usar 'pacote')
                     'pedido': ['pedido', 'id_pedido', 'pedido_id', 'pacote', 'id_pacote', 'pacote_id'],
+                    'dias': ['dias', 'dias_atraso', 'dias_de_atraso'],
                 }
 
                 for target, candidates in column_map.items():
@@ -209,45 +375,51 @@ class MergeService:
                             if col in df_preview.columns:
                                 df_preview[target] = df_preview[col]
                                 break
-                        # If still not present, create an empty/default column
                         if target not in df_preview.columns:
-                            if target in ['dias']:
-                                df_preview[target] = 0
-                            else:
-                                df_preview[target] = ''
+                            df_preview[target] = 0 if target == 'dias' else ''
 
-                # Se tivermos previsão e entrega, tentamos calcular dias de atraso
-                previsao_cols = [c for c in df_preview.columns if c in ['previsão_de_entrega', 'previsao_de_entrega']]
-                entrega_cols = [c for c in df_preview.columns if c in ['entrega']]
-                if previsao_cols and entrega_cols:
-                    try:
-                        previsao = pd.to_datetime(df_preview[previsao_cols[0]], errors='coerce')
-                        entrega = pd.to_datetime(df_preview[entrega_cols[0]], errors='coerce')
-                        diff_days = (entrega - previsao).dt.days
-                        # Apenas consideramos atraso positivo; se não atrasou, 0
-                        df_preview['dias'] = diff_days.clip(lower=0).fillna(0).astype(int)
-                    except Exception as _:
-                        # Se der erro, mantemos o que já havia em 'dias'
-                        pass
+                if 'data_prevista_normalizada' in df_preview.columns:
+                    df_preview['prazo_previsto'] = df_preview['data_prevista_normalizada'].apply(self._format_date_output)
+                else:
+                    df_preview['prazo_previsto'] = ''
 
-                # Normaliza status para valores padronizados usados no frontend
-                if 'status' in df_preview.columns:
-                    def _normalize_status(val: Any) -> Any:
-                        if isinstance(val, str):
-                            lower = val.lower()
-                            if 'atras' in lower or 'fora do prazo' in lower or 'fora_do_prazo' in lower:
-                                return 'Atrasado'
-                            if 'no prazo' in lower or 'no_prazo' in lower or 'dentro do prazo' in lower:
-                                return 'No Prazo'
-                        return val
+                if 'data_entrega_normalizada' in df_preview.columns:
+                    df_preview['data_entrega_confirmada'] = df_preview['data_entrega_normalizada'].apply(self._format_date_output)
+                else:
+                    df_preview['data_entrega_confirmada'] = ''
 
-                    df_preview['status'] = df_preview['status'].apply(_normalize_status)
+                if 'fonte_planilha' not in df_preview.columns:
+                    df_preview['fonte_planilha'] = 'Planilha não identificada'
 
-                # Ensure there is an id column for stable keys in the frontend
-                if 'id' not in df_preview.columns:
-                    df_preview['id'] = range(1, len(df_preview) + 1)
+                if 'motivo_atraso' not in df_preview.columns:
+                    df_preview['motivo_atraso'] = ''
 
-                preview_data = df_preview.head(500).to_dict(orient="records")
+                if 'fora_do_prazo' not in df_preview.columns:
+                    df_preview['fora_do_prazo'] = False
+
+                delayed_preview = df_preview[df_preview['fora_do_prazo'] == True].copy()
+                if delayed_preview.empty:
+                    delayed_preview = df_preview.copy()
+
+                delayed_preview = delayed_preview.drop(
+                    columns=['data_prevista_normalizada', 'data_entrega_normalizada'],
+                    errors='ignore'
+                )
+
+                if 'dias' not in delayed_preview.columns:
+                    delayed_preview['dias'] = 0
+
+                delayed_preview['dias'] = (
+                    pd.to_numeric(delayed_preview['dias'], errors='coerce')
+                    .fillna(0)
+                    .astype(int)
+                )
+
+                delayed_preview = delayed_preview.reset_index(drop=True)
+                if 'id' not in delayed_preview.columns:
+                    delayed_preview['id'] = range(1, len(delayed_preview) + 1)
+
+                preview_data = delayed_preview.head(1000).to_dict(orient="records")
             except Exception as preview_err:
                 logger.warning(f"Failed to build preview data: {preview_err}")
 
