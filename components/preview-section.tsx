@@ -1,9 +1,34 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { AlertCircle, FileSpreadsheet, CheckCircle2 } from 'lucide-react'
+
+const scheduleIdleTask = (task: () => void) => {
+  if (typeof window === 'undefined') {
+    task()
+    return () => {}
+  }
+
+  const win = window as Window & typeof globalThis & {
+    requestIdleCallback?: (cb: IdleRequestCallback, options?: IdleRequestOptions) => number
+    cancelIdleCallback?: (handle: number) => void
+  }
+
+  if (typeof win.requestIdleCallback === 'function') {
+    const handle = win.requestIdleCallback(
+      () => {
+        task()
+      },
+      { timeout: 1200 }
+    )
+    return () => win.cancelIdleCallback?.(handle)
+  }
+
+  const timeout = window.setTimeout(task, 120)
+  return () => window.clearTimeout(timeout)
+}
 
 interface PreviewSectionProps {
   files: {
@@ -25,6 +50,7 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
     additional1: 0,
     additional2: 0,
   })
+  const countsCache = useRef(new WeakMap<File, number>())
 
   // Calcula a quantidade real de registros em cada planilha usando a biblioteca xlsx.
   useEffect(() => {
@@ -38,13 +64,26 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
 
       const countRows = async (file: File | null): Promise<number> => {
         if (!file) return 0
+
+        const cachedValue = countsCache.current.get(file)
+        if (typeof cachedValue === 'number') {
+          return cachedValue
+        }
+
         try {
           const arrayBuffer = await file.arrayBuffer()
           const workbook = XLSX.read(arrayBuffer, { type: 'array' })
           const sheetName = workbook.SheetNames[0]
           const sheet = workbook.Sheets[sheetName]
-          const json = XLSX.utils.sheet_to_json(sheet, { defval: null }) as any[]
-          return json.length
+          const range = sheet?.['!ref'] ? XLSX.utils.decode_range(sheet['!ref']) : null
+          if (!range) {
+            countsCache.current.set(file, 0)
+            return 0
+          }
+          const totalRows = Math.max(0, range.e.r - range.s.r)
+          const adjusted = totalRows > 0 ? totalRows : 0
+          countsCache.current.set(file, adjusted)
+          return adjusted
         } catch {
           return 0
         }
@@ -63,8 +102,18 @@ export function PreviewSection({ files, applyMeliFilter, onFilterChange }: Previ
       })
     }
 
-    computeCounts()
-  }, [files])
+    let cancelled = false
+    const cancelIdle = scheduleIdleTask(() => {
+      if (!cancelled) {
+        computeCounts()
+      }
+    })
+
+    return () => {
+      cancelled = true
+      cancelIdle()
+    }
+  }, [files.main, files.additional1, files.additional2])
 
   const getRecordCount = (type: 'main' | 'additional1' | 'additional2') => {
     return recordCounts[type] ?? 0

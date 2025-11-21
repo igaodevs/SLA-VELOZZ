@@ -1993,3 +1993,14 @@ Import trace:
 [00:58:30.060] Server  LOG      ✓ Compiled in 235ms
 [00:58:44.489] Server  LOG      ✓ Compiled in 115ms
 [00:58:55.895] Server  LOG      ✓ Compiled in 81ms
+[00:00:40.661] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:38.551] Server  LOG      ✓ Compiled in 337ms
+[00:08:51.328] Server  LOG      ✓ Compiled in 394ms
+[00:09:06.993] Server  LOG      ✓ Compiled in 266ms
+[00:09:20.197] Server  LOG      ✓ Compiled in 100ms
+[00:09:46.024] Server  LOG      ✓ Compiled in 100ms
+[00:09:52.809] Server  LOG      ✓ Compiled in 82ms
+[00:11:06.061] Server  LOG      ✓ Compiled in 76ms
+[00:11:21.320] Server  LOG      ✓ Compiled in 136ms
+[00:54:13.090] Server  LOG      ✓ Compiled in 76ms
+[00:59:10.481] Server  LOG      ✓ Compiled in 108ms

@@ -106,6 +106,21 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+const scheduleIdleTask = (task)=>{
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    const win = window;
+    if (typeof win.requestIdleCallback === 'function') {
+        const handle = win.requestIdleCallback(()=>{
+            task();
+        }, {
+            timeout: 1200
+        });
+        return ()=>win.cancelIdleCallback?.(handle);
+    }
+    const timeout = window.setTimeout(task, 120);
+    return ()=>window.clearTimeout(timeout);
+};
 function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
     _s();
     const [recordCounts, setRecordCounts] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
@@ -113,6 +128,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
         additional1: 0,
         additional2: 0
     });
+    const countsCache = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(new WeakMap());
     // Calcula a quantidade real de registros em cada planilha usando a biblioteca xlsx.
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "PreviewSection.useEffect": ()=>{
@@ -130,6 +146,10 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                     const countRows = {
                         "PreviewSection.useEffect.computeCounts.countRows": async (file)=>{
                             if (!file) return 0;
+                            const cachedValue = countsCache.current.get(file);
+                            if (typeof cachedValue === 'number') {
+                                return cachedValue;
+                            }
                             try {
                                 const arrayBuffer = await file.arrayBuffer();
                                 const workbook = XLSX.read(arrayBuffer, {
@@ -137,10 +157,15 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                 });
                                 const sheetName = workbook.SheetNames[0];
                                 const sheet = workbook.Sheets[sheetName];
-                                const json = XLSX.utils.sheet_to_json(sheet, {
-                                    defval: null
-                                });
-                                return json.length;
+                                const range = sheet?.['!ref'] ? XLSX.utils.decode_range(sheet['!ref']) : null;
+                                if (!range) {
+                                    countsCache.current.set(file, 0);
+                                    return 0;
+                                }
+                                const totalRows = Math.max(0, range.e.r - range.s.r);
+                                const adjusted = totalRows > 0 ? totalRows : 0;
+                                countsCache.current.set(file, adjusted);
+                                return adjusted;
                             } catch  {
                                 return 0;
                             }
@@ -158,10 +183,25 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                     });
                 }
             }["PreviewSection.useEffect.computeCounts"];
-            computeCounts();
+            let cancelled = false;
+            const cancelIdle = scheduleIdleTask({
+                "PreviewSection.useEffect.cancelIdle": ()=>{
+                    if (!cancelled) {
+                        computeCounts();
+                    }
+                }
+            }["PreviewSection.useEffect.cancelIdle"]);
+            return ({
+                "PreviewSection.useEffect": ()=>{
+                    cancelled = true;
+                    cancelIdle();
+                }
+            })["PreviewSection.useEffect"];
         }
     }["PreviewSection.useEffect"], [
-        files
+        files.main,
+        files.additional1,
+        files.additional2
     ]);
     const getRecordCount = (type)=>{
         return recordCounts[type] ?? 0;
@@ -179,7 +219,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                         children: "Pré-Visualização e Automação"
                     }, void 0, false, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                        lineNumber: 80,
+                        lineNumber: 129,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -224,14 +264,14 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                     className: "w-5 h-5 text-primary"
                                                 }, void 0, false, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                    lineNumber: 100,
+                                                    lineNumber: 149,
                                                     columnNumber: 17
                                                 }, this),
                                                 "Arquivos Carregados"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                            lineNumber: 99,
+                                            lineNumber: 148,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -245,7 +285,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             children: "Planilha Mãe"
                                                         }, void 0, false, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 106,
+                                                            lineNumber: 155,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -256,13 +296,13 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 107,
+                                                            lineNumber: 156,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                    lineNumber: 105,
+                                                    lineNumber: 154,
                                                     columnNumber: 19
                                                 }, this),
                                                 files.additional1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -273,7 +313,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             children: "Planilha Avulsa 1"
                                                         }, void 0, false, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 114,
+                                                            lineNumber: 163,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -284,13 +324,13 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 115,
+                                                            lineNumber: 164,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                    lineNumber: 113,
+                                                    lineNumber: 162,
                                                     columnNumber: 19
                                                 }, this),
                                                 files.additional2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -301,7 +341,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             children: "Planilha Avulsa 2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 122,
+                                                            lineNumber: 171,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -312,13 +352,13 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 123,
+                                                            lineNumber: 172,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                    lineNumber: 121,
+                                                    lineNumber: 170,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -331,14 +371,14 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                     className: "w-4 h-4 text-green-600"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                    lineNumber: 130,
+                                                                    lineNumber: 179,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 "Total de registros"
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 129,
+                                                            lineNumber: 178,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -349,30 +389,30 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 133,
+                                                            lineNumber: 182,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                    lineNumber: 128,
+                                                    lineNumber: 177,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                            lineNumber: 103,
+                                            lineNumber: 152,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                    lineNumber: 98,
+                                    lineNumber: 147,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                lineNumber: 95,
+                                lineNumber: 144,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -394,7 +434,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                             children: "Opções de Mesclagem Inteligente"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                            lineNumber: 145,
+                                            lineNumber: 194,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -410,7 +450,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             className: "mt-0.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 148,
+                                                            lineNumber: 197,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -422,7 +462,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                     children: "Aplicar filtro Mercado Livre (Meli)"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                    lineNumber: 155,
+                                                                    lineNumber: 204,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -430,19 +470,19 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                     children: "Mantém apenas registros relacionados ao Mercado Livre com base em nome, descrição ou códigos (MLXXXXXXXXXX) encontrados nas planilhas enviadas"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                    lineNumber: 161,
+                                                                    lineNumber: 210,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 154,
+                                                            lineNumber: 203,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                    lineNumber: 147,
+                                                    lineNumber: 196,
                                                     columnNumber: 17
                                                 }, this),
                                                 !files.additional2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -452,7 +492,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             className: "w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 169,
+                                                            lineNumber: 218,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -463,7 +503,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                     children: "Terceira planilha não enviada"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                    lineNumber: 171,
+                                                                    lineNumber: 220,
                                                                     columnNumber: 23
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -471,19 +511,19 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                     children: "A fusão será realizada com os arquivos disponíveis."
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                    lineNumber: 174,
+                                                                    lineNumber: 223,
                                                                     columnNumber: 23
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 170,
+                                                            lineNumber: 219,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                    lineNumber: 168,
+                                                    lineNumber: 217,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -493,7 +533,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                             className: "w-5 h-5 text-primary flex-shrink-0 mt-0.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 182,
+                                                            lineNumber: 231,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -504,7 +544,7 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                     children: "Automação Ativa"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                    lineNumber: 184,
+                                                                    lineNumber: 233,
                                                                     columnNumber: 21
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -514,82 +554,82 @@ function PreviewSection({ files, applyMeliFilter, onFilterChange }) {
                                                                             children: "• Alinhamento automático de colunas"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                            lineNumber: 186,
+                                                                            lineNumber: 235,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                             children: "• Manutenção do padrão da planilha mãe"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                            lineNumber: 187,
+                                                                            lineNumber: 236,
                                                                             columnNumber: 23
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                             children: "• Detecção de inconsistências"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                            lineNumber: 188,
+                                                                            lineNumber: 237,
                                                                             columnNumber: 23
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                                    lineNumber: 185,
+                                                                    lineNumber: 234,
                                                                     columnNumber: 21
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                            lineNumber: 183,
+                                                            lineNumber: 232,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                                    lineNumber: 181,
+                                                    lineNumber: 230,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                            lineNumber: 146,
+                                            lineNumber: 195,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                    lineNumber: 144,
+                                    lineNumber: 193,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                                lineNumber: 141,
+                                lineNumber: 190,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                        lineNumber: 82,
+                        lineNumber: 131,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-                lineNumber: 79,
+                lineNumber: 128,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-            lineNumber: 78,
+            lineNumber: 127,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/preview-section.tsx",
-        lineNumber: 77,
+        lineNumber: 126,
         columnNumber: 5
     }, this);
 }
-_s(PreviewSection, "4BGakI3D1PmFJk5zmPim0VqRIxc=");
+_s(PreviewSection, "Gl23AYJLy+dj6GVerzF0RHqzoh4=");
 _c = PreviewSection;
 var _c;
 __turbopack_context__.k.register(_c, "PreviewSection");

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, Suspense } from 'react';
+import { useState, useCallback, useMemo, Suspense, useTransition } from 'react';
 import dynamic from 'next/dynamic';
 import { Loader2 } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -111,8 +111,8 @@ const heroTextVariants = {
 } as const;
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
-  const heroTranslateY = useTransform(scrollYProgress, [0, 1], [0, 80])
+  const { scrollYProgress } = useScroll();
+  const heroTranslateY = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   const [files, setFiles] = useState<FileState>({
     main: null,
@@ -130,6 +130,8 @@ export default function Home() {
   const [showCharts, setShowCharts] = useState(false);
   const [applyMeliFilter, setApplyMeliFilter] = useState(true);
   const [isMerging, setIsMerging] = useState(false);
+  const [isFilteringPending, startFilteringTransition] = useTransition();
+  const isMergeBusy = isMerging || isFilteringPending;
 
   const displayedData = useMemo(() => {
     if (!mergedData) return null;
@@ -137,70 +139,116 @@ export default function Home() {
       ? mergedData.filter((row) => isMeliRecord(row as Record<string, unknown>))
       : mergedData;
 
-    return baseData.filter((row) => {
+    const delayedOnly = baseData.filter((row) => {
       if (!row || typeof row !== 'object') return false;
       const typedRow = row as Record<string, any>;
       if (typedRow.fora_do_prazo === true) return true;
       const statusValue = String(typedRow.status ?? '').toLowerCase();
       return statusValue.includes('atras');
     });
+
+    return delayedOnly.length > 0 ? delayedOnly : baseData;
   }, [mergedData, applyMeliFilter]);
 
   // Handle file upload
   const handleFileUpload = useCallback((type: FileType, file: File | null) => {
     setFiles(prev => ({ ...prev, [type]: file }));
-    setUploadProgress(prev => ({ ...prev, [type]: file ? 100 : 0 }));
+    setUploadProgress(prev => ({ ...prev, [type]: 0 }));
   }, []);
 
   // Helper para fazer upload de um arquivo individual
-  const uploadSingleFile = useCallback(async (file: File, type: 'main' | 'additional1' | 'additional2'): Promise<string> => {
-    const formData = new FormData();
-    formData.append('file', file);
+  const uploadSingleFile = useCallback(
+    async (file: File, type: FileType): Promise<string> => {
+      const formData = new FormData();
+      formData.append('file', file);
 
-    // Mapeia o tipo de arquivo do frontend para o enum do backend
-    const backendType =
-      type === 'main'
-        ? 'mother'
-        : type === 'additional1'
-          ? 'single_1'
-          : 'single_2';
+      const backendType =
+        type === 'main'
+          ? 'mother'
+          : type === 'additional1'
+            ? 'single_1'
+            : 'single_2';
 
-    const res = await fetch(`${API_BASE_URL}/api/v1/upload/${backendType}`, {
-      method: 'POST',
-      body: formData,
-    });
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', `${API_BASE_URL}/api/v1/upload/${backendType}`, true);
 
-    if (!res.ok) {
-      const errorBody = await res.json().catch(() => ({}));
-      throw new Error(errorBody.detail || 'Erro ao enviar arquivo');
-    }
+        setUploadProgress(prev => ({ ...prev, [type]: Math.max(prev[type], 5) }));
 
-    const data = await res.json();
-    return data.file_id as string;
-  }, []);
+        xhr.upload.onprogress = (event) => {
+          if (!event.lengthComputable) return;
+          const percentage = Math.round((event.loaded / event.total) * 100);
+          setUploadProgress(prev => ({ ...prev, [type]: percentage }));
+        };
+
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState !== XMLHttpRequest.DONE) return;
+          if (xhr.status >= 200 && xhr.status < 300) {
+            try {
+              const parsed = JSON.parse(xhr.responseText);
+              setUploadProgress(prev => ({ ...prev, [type]: 100 }));
+              resolve(parsed.file_id as string);
+            } catch (error) {
+              reject(new Error('Resposta inválida do servidor'));
+            }
+          } else {
+            let detail = 'Erro ao enviar arquivo';
+            try {
+              const parsed = JSON.parse(xhr.responseText);
+              detail = parsed.detail ?? detail;
+            } catch {
+              // ignore JSON parse errors
+            }
+            reject(new Error(detail));
+          }
+        };
+
+        xhr.onerror = () => {
+          reject(new Error('Falha na conexão durante o upload.'));
+        };
+
+        xhr.send(formData);
+      });
+    },
+    []
+  );
 
   // Handle merge functionality (faz upload e chama o backend)
   const handleMerge = useCallback(async () => {
-    if (!files.main || !files.additional1) return;
+    if (!files.main || !files.additional1) {
+      alert('Faça upload da Planilha Mãe e da Planilha Avulsa 1 para continuar.');
+      return;
+    }
 
     setIsMerging(true);
     setMergedData(null);
 
+    const filesToUpload: Array<{ file: File; type: FileType }> = [
+      { file: files.main, type: 'main' },
+      { file: files.additional1, type: 'additional1' },
+    ];
+
+    if (files.additional2) {
+      filesToUpload.push({ file: files.additional2, type: 'additional2' });
+    }
+
     try {
-      // 1) Upload dos arquivos necessários
-      const motherId = await uploadSingleFile(files.main, 'main');
+      const uploadResults = await Promise.all(
+        filesToUpload.map(async ({ file, type }) => {
+          const id = await uploadSingleFile(file, type);
+          return { id, type };
+        })
+      );
 
-      const singleIds: string[] = [];
-      if (files.additional1) {
-        const id1 = await uploadSingleFile(files.additional1, 'additional1');
-        singleIds.push(id1);
-      }
-      if (files.additional2) {
-        const id2 = await uploadSingleFile(files.additional2, 'additional2');
-        singleIds.push(id2);
+      const motherId = uploadResults.find(result => result.type === 'main')?.id;
+      if (!motherId) {
+        throw new Error('Não foi possível identificar a planilha mãe.');
       }
 
-      // 2) Chama o endpoint de merge
+      const singleIds = uploadResults
+        .filter(result => result.type !== 'main')
+        .map(result => result.id);
+
       const mergeRes = await fetch(`${API_BASE_URL}/api/v1/merge`, {
         method: 'POST',
         headers: {
@@ -221,12 +269,13 @@ export default function Home() {
       }
 
       const mergeData = await mergeRes.json();
-
-      // Usa preview_data se disponível, senão mantém estrutura vazia
       const preview = Array.isArray(mergeData.preview_data) ? mergeData.preview_data : [];
-      setMergedData(preview);
 
-      // Scroll para a seção de resultados
+      startFilteringTransition(() => {
+        setMergedData(preview);
+        setShowCharts(false);
+      });
+
       const resultsSection = document.getElementById('results-section');
       if (resultsSection) {
         resultsSection.scrollIntoView({ behavior: 'smooth' });
@@ -237,7 +286,7 @@ export default function Home() {
     } finally {
       setIsMerging(false);
     }
-  }, [API_BASE_URL, files, applyMeliFilter, uploadSingleFile]);
+  }, [files, applyMeliFilter, uploadSingleFile, startFilteringTransition]);
 
   // Memoize the header and footer to prevent unnecessary re-renders
   const memoizedHeader = <MemoizedHeader />;
@@ -301,7 +350,7 @@ export default function Home() {
                   uploadProgress={uploadProgress}
                   onFileUpload={handleFileUpload}
                   onMerge={handleMerge}
-                  isMerging={isMerging}
+                  isMerging={isMergeBusy}
                 />
               </Suspense>
             </ErrorBoundary>

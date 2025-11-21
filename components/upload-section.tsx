@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, useCallback, useState } from 'react';
-import { Upload, FileSpreadsheet, CheckCircle2, AlertCircle, X } from 'lucide-react';
+import { Upload, FileSpreadsheet, CheckCircle2, AlertCircle, X, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -103,10 +103,29 @@ const UploadCard = memo(({
                   {(file.size / 1024 / 1024).toFixed(2)} MB
                 </p>
               </div>
-              <CheckCircle2 className="h-5 w-5 text-green-500 flex-shrink-0" />
+              {progress > 0 && progress < 100 ? (
+                <Loader2 className="h-5 w-5 text-primary flex-shrink-0 animate-spin" />
+              ) : (
+                <CheckCircle2 className="h-5 w-5 text-green-500 flex-shrink-0" />
+              )}
             </div>
-            {progress < 100 && (
-              <Progress value={progress} className="h-2" />
+            {progress > 0 && progress < 100 && (
+              <>
+                <Progress value={progress} className="h-2" />
+                <p className="text-xs text-muted-foreground text-right">
+                  Enviando... {progress}%
+                </p>
+              </>
+            )}
+            {progress === 0 && (
+              <p className="text-xs text-muted-foreground text-right">
+                Aguardando envio
+              </p>
+            )}
+            {progress === 100 && (
+              <p className="text-xs text-green-600 text-right font-medium">
+                Upload concluído
+              </p>
             )}
           </div>
         )}
@@ -136,7 +155,7 @@ interface UploadSectionProps {
     additional2: number;
   };
   onFileUpload: (type: 'main' | 'additional1' | 'additional2', file: File | null) => void;
-  onMerge: () => void;
+  onMerge: () => void | Promise<void>;
   isMerging: boolean;
 }
 
@@ -258,7 +277,11 @@ function UploadSectionComponent({ files, uploadProgress, onFileUpload, onMerge, 
               disabled={!canMerge || isMerging}
               onClick={onMerge}
             >
-              <FileSpreadsheet className="w-5 h-5" />
+              {isMerging ? (
+                <Loader2 className="w-5 h-5 animate-spin" />
+              ) : (
+                <FileSpreadsheet className="w-5 h-5" />
+              )}
               {isMerging ? 'Mesclando...' : 'Mesclar Planilhas'}
             </Button>
           </div>

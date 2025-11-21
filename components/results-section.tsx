@@ -1,11 +1,11 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Download, BarChart3, Search, ArrowUpDown } from 'lucide-react'
+import { Download, BarChart3, Search, ArrowUpDown, Loader2 } from 'lucide-react'
 import {
   Table,
   TableBody,
@@ -25,24 +25,82 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
   const [sortField, setSortField] = useState<string | null>(null)
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc')
   const [exporting, setExporting] = useState(false)
+  const deferredSearch = useDeferredValue(searchTerm)
+  const INITIAL_BATCH = 200
+  const BATCH_SIZE = 150
+  const [visibleRows, setVisibleRows] = useState(INITIAL_BATCH)
+  const loadMoreRef = useRef<HTMLTableRowElement | null>(null)
 
-  const filteredData = data.filter(row => 
-    Object.values(row).some(val => 
-      String(val).toLowerCase().includes(searchTerm.toLowerCase())
+  const processedData = useMemo(() => {
+    const safeData = Array.isArray(data) ? data : []
+    const normalizedSearch = deferredSearch.trim().toLowerCase()
+
+    const filtered = !normalizedSearch
+      ? safeData
+      : safeData.filter((row) =>
+          Object.values(row).some((val) =>
+            String(val ?? '')
+              .toLowerCase()
+              .includes(normalizedSearch)
+          )
+        )
+
+    if (!sortField) {
+      return filtered
+    }
+
+    return [...filtered].sort((a, b) => {
+      const aVal = a[sortField as keyof typeof a]
+      const bVal = b[sortField as keyof typeof b]
+      if (aVal === bVal) return 0
+      const direction = sortDirection === 'asc' ? 1 : -1
+
+      if (aVal === undefined || aVal === null) return -direction
+      if (bVal === undefined || bVal === null) return direction
+
+      if (typeof aVal === 'number' && typeof bVal === 'number') {
+        return aVal > bVal ? direction : -direction
+      }
+
+      return String(aVal).localeCompare(String(bVal), 'pt-BR', { numeric: true }) * direction
+    })
+  }, [data, deferredSearch, sortField, sortDirection])
+
+  useEffect(() => {
+    setVisibleRows(INITIAL_BATCH)
+  }, [processedData])
+
+  const hasMoreRows = visibleRows < processedData.length
+
+  useEffect(() => {
+    if (!hasMoreRows) return
+    const sentinel = loadMoreRef.current
+    if (!sentinel) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries
+        if (entry.isIntersecting) {
+          setVisibleRows((prev) => Math.min(processedData.length, prev + BATCH_SIZE))
+        }
+      },
+      { rootMargin: '200px' }
     )
-  )
 
-  const sortedData = [...filteredData].sort((a, b) => {
-    if (!sortField) return 0
-    const aVal = a[sortField]
-    const bVal = b[sortField]
-    const direction = sortDirection === 'asc' ? 1 : -1
-    return aVal > bVal ? direction : -direction
-  })
+    observer.observe(sentinel)
+    return () => {
+      observer.disconnect()
+    }
+  }, [hasMoreRows, processedData.length])
+
+  const visibleData = useMemo(
+    () => processedData.slice(0, visibleRows),
+    [processedData, visibleRows]
+  )
 
   const handleSort = (field: string) => {
     if (sortField === field) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
+      setSortDirection(prev => (prev === 'asc' ? 'desc' : 'asc'))
     } else {
       setSortField(field)
       setSortDirection('asc')
@@ -107,7 +165,7 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-1.5 md:mb-2">Resultado da Mesclagem</h2>
               <p className="text-muted-foreground">
-                {sortedData.length} registros encontrados
+                {processedData.length} registros encontrados
               </p>
             </div>
             <div className="flex gap-3">
@@ -235,7 +293,24 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {sortedData.map((row) => (
+                  {visibleData.length === 0 && (
+                    <TableRow>
+                      <TableCell colSpan={8} className="py-12">
+                        <div className="flex flex-col items-center justify-center gap-3 text-center">
+                          <div className="rounded-full bg-muted p-3">
+                            <BarChart3 className="w-5 h-5 text-muted-foreground" />
+                          </div>
+                          <div>
+                            <p className="text-sm font-semibold text-foreground">Nenhum registro disponível</p>
+                            <p className="text-xs text-muted-foreground mt-1">
+                              A mesclagem foi concluída, mas nenhum registro corresponde aos filtros atuais.
+                            </p>
+                          </div>
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  )}
+                  {visibleData.map((row) => (
                     <motion.tr
                       key={row.id}
                       variants={rowVariants}
@@ -278,6 +353,16 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                       </TableCell>
                     </motion.tr>
                   ))}
+                  {visibleData.length > 0 && hasMoreRows && (
+                    <tr ref={loadMoreRef}>
+                      <td colSpan={8} className="p-4 text-center text-muted-foreground text-sm">
+                        <div className="flex items-center justify-center gap-2">
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          Carregando mais registros...
+                        </div>
+                      </td>
+                    </tr>
+                  )}
                 </TableBody>
               </Table>
             </div>

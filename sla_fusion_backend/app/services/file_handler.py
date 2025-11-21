@@ -40,6 +40,7 @@ class FileHandler:
         self.allowed_extensions = settings.ALLOWED_EXTENSIONS
         self.max_content_length = settings.MAX_CONTENT_LENGTH
         self.files: Dict[str, FileInfo] = {}
+        self._dataframe_cache: Dict[str, pd.DataFrame] = {}
         
     def _generate_file_id(self) -> str:
         """Generate a unique file ID."""
@@ -201,17 +202,23 @@ class FileHandler:
         file_extension = self._get_file_extension(file_info.filename)
         return self.upload_path / f"{file_id}{file_extension}"
     
-    def read_excel_file(self, file_id: str, **kwargs) -> pd.DataFrame:
+    def read_excel_file(self, file_id: str, use_cache: bool = True, **kwargs) -> pd.DataFrame:
         """
         Read an Excel file into a pandas DataFrame.
         Additional kwargs are passed to pandas.read_excel()
         """
+        if use_cache and file_id in self._dataframe_cache:
+            return self._dataframe_cache[file_id].copy()
+
         file_path = self.get_file_path(file_id)
         if not file_path or not file_path.exists():
             raise FileNotFoundError(f"File with ID {file_id} not found")
             
         try:
-            return pd.read_excel(file_path, **kwargs)
+            df = pd.read_excel(file_path, **kwargs)
+            if use_cache:
+                self._dataframe_cache[file_id] = df
+            return df.copy()
         except Exception as e:
             logger.error(f"Error reading Excel file {file_id}: {str(e)}")
             raise ValueError(f"Error reading Excel file: {str(e)}")
@@ -271,6 +278,8 @@ class FileHandler:
         # Remove from files dictionary
         if file_id in self.files:
             del self.files[file_id]
+        if file_id in self._dataframe_cache:
+            del self._dataframe_cache[file_id]
             
         return True
 

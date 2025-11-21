@@ -1,9 +1,10 @@
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 import logging
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional
 from datetime import datetime
 import re
-from pathlib import Path
 
 from ..models.schemas import FileType, MergeRequest, MergeResponse
 from .file_handler import file_handler
@@ -320,6 +321,13 @@ class MergeService:
     
     async def merge_files(self, merge_request: MergeRequest) -> MergeResponse:
         """
+        Offload heavy dataframe work to a worker thread so the event loop
+        remains responsive during long merges.
+        """
+        return await asyncio.to_thread(self._merge_files_sync, merge_request)
+
+    def _merge_files_sync(self, merge_request: MergeRequest) -> MergeResponse:
+        """
         Merge multiple Excel files based on the provided request.
         Returns a MergeResponse with the result of the operation.
         """
@@ -332,23 +340,34 @@ class MergeService:
                 raise ValueError(f"Mother file {merge_request.mother_file_id} not found")
                 
             mother_df = file_handler.read_excel_file(merge_request.mother_file_id)
-            mother_df = mother_df.copy()
             mother_df['fonte_planilha'] = self._get_display_name(mother_file, "Planilha Mãe")
             mother_df['tipo_planilha'] = 'mae'
             
             # Read all single files
-            single_dfs = []
-            for idx, file_id in enumerate(merge_request.single_file_ids, start=1):
+            single_dfs: List[pd.DataFrame] = []
+
+            def _load_single(args: tuple[int, str]) -> Optional[pd.DataFrame]:
+                idx, file_id = args
                 single_file = file_handler.get_file_info(file_id)
                 if not single_file:
                     logger.warning(f"Single file {file_id} not found, skipping")
-                    continue
-                    
-                df = file_handler.read_excel_file(file_id)
-                df = df.copy()
-                df['fonte_planilha'] = self._get_display_name(single_file, f"Planilha Avulsa {idx}")
-                df['tipo_planilha'] = 'avulsa'
-                single_dfs.append(df)
+                    return None
+                try:
+                    df = file_handler.read_excel_file(file_id)
+                    df['fonte_planilha'] = self._get_display_name(single_file, f"Planilha Avulsa {idx}")
+                    df['tipo_planilha'] = 'avulsa'
+                    return df
+                except Exception as exc:
+                    logger.error(f"Failed to read single file {file_id}: {exc}")
+                    return None
+
+            single_payloads = list(enumerate(merge_request.single_file_ids, start=1))
+            if single_payloads:
+                max_workers = min(4, len(single_payloads))
+                with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                    for df in executor.map(_load_single, single_payloads):
+                        if df is not None:
+                            single_dfs.append(df)
             
             # Merge the DataFrames
             merged_df = self._merge_dataframes(
