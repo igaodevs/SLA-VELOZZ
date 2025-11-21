@@ -1,11 +1,11 @@
 "use client"
 
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react'
+import { useDeferredValue, useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Download, BarChart3, Search, ArrowUpDown, Loader2 } from 'lucide-react'
+import { Download, BarChart3, Search, ArrowUpDown } from 'lucide-react'
 import {
   Table,
   TableBody,
@@ -26,10 +26,9 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc')
   const [exporting, setExporting] = useState(false)
   const deferredSearch = useDeferredValue(searchTerm)
-  const INITIAL_BATCH = 200
-  const BATCH_SIZE = 150
-  const [visibleRows, setVisibleRows] = useState(INITIAL_BATCH)
-  const loadMoreRef = useRef<HTMLTableRowElement | null>(null)
+  const pageSizeOptions = [25, 50, 100]
+  const [pageSize, setPageSize] = useState(pageSizeOptions[1])
+  const [page, setPage] = useState(1)
 
   const processedData = useMemo(() => {
     const safeData = Array.isArray(data) ? data : []
@@ -66,37 +65,22 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
     })
   }, [data, deferredSearch, sortField, sortDirection])
 
-  useEffect(() => {
-    setVisibleRows(INITIAL_BATCH)
-  }, [processedData])
-
-  const hasMoreRows = visibleRows < processedData.length
+  const totalPages = Math.max(1, Math.ceil(processedData.length / pageSize))
 
   useEffect(() => {
-    if (!hasMoreRows) return
-    const sentinel = loadMoreRef.current
-    if (!sentinel) return
+    setPage(1)
+  }, [processedData, pageSize])
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries
-        if (entry.isIntersecting) {
-          setVisibleRows((prev) => Math.min(processedData.length, prev + BATCH_SIZE))
-        }
-      },
-      { rootMargin: '200px' }
-    )
-
-    observer.observe(sentinel)
-    return () => {
-      observer.disconnect()
+  useEffect(() => {
+    if (page > totalPages) {
+      setPage(totalPages)
     }
-  }, [hasMoreRows, processedData.length])
+  }, [page, totalPages])
 
-  const visibleData = useMemo(
-    () => processedData.slice(0, visibleRows),
-    [processedData, visibleRows]
-  )
+  const visibleData = useMemo(() => {
+    const start = (page - 1) * pageSize
+    return processedData.slice(start, start + pageSize)
+  }, [processedData, page, pageSize])
 
   const handleSort = (field: string) => {
     if (sortField === field) {
@@ -353,20 +337,70 @@ export function ResultsSection({ data, onShowCharts }: ResultsSectionProps) {
                       </TableCell>
                     </motion.tr>
                   ))}
-                  {visibleData.length > 0 && hasMoreRows && (
-                    <tr ref={loadMoreRef}>
-                      <td colSpan={8} className="p-4 text-center text-muted-foreground text-sm">
-                        <div className="flex items-center justify-center gap-2">
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          Carregando mais registros...
-                        </div>
-                      </td>
-                    </tr>
-                  )}
                 </TableBody>
               </Table>
             </div>
           </Card>
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between px-3 sm:px-0">
+            <div className="text-sm text-muted-foreground">
+              {processedData.length > 0 ? (
+                <>
+                  Mostrando{' '}
+                  <span className="font-medium text-foreground">
+                    {(page - 1) * pageSize + 1}
+                  </span>{' '}
+                  a{' '}
+                  <span className="font-medium text-foreground">
+                    {Math.min(page * pageSize, processedData.length)}
+                  </span>{' '}
+                  de{' '}
+                  <span className="font-semibold text-foreground">{processedData.length}</span>{' '}
+                  registros
+                </>
+              ) : (
+                'Nenhum registro encontrado'
+              )}
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <label className="flex items-center gap-2 text-sm text-muted-foreground">
+                Linhas por página:
+                <select
+                  className="h-9 rounded-md border bg-background px-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                  value={pageSize}
+                  onChange={(e) => setPageSize(Number(e.target.value))}
+                >
+                  {pageSizeOptions.map(option => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+                  disabled={page === 1}
+                >
+                  Anterior
+                </Button>
+                <span className="text-sm text-muted-foreground">
+                  Página{' '}
+                  <span className="font-semibold text-foreground">{page}</span> de{' '}
+                  <span className="font-semibold text-foreground">{totalPages}</span>
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setPage((prev) => Math.min(totalPages, prev + 1))}
+                  disabled={page === totalPages}
+                >
+                  Próxima
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
