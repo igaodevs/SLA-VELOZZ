@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRef, useState } from 'react'
@@ -37,17 +36,10 @@ function CustomTooltip({ active, payload, label }: any) {
       <div className="space-y-1.5 text-muted-foreground">
         <p className="flex items-center justify-between">
           <span className="flex items-center gap-2 text-foreground">
-            <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-primary/60" />
-            % de atrasos
-          </span>
-          <span className="font-semibold text-foreground">{data.percentual}%</span>
-        </p>
-        <p className="flex items-center justify-between">
-          <span className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
             Atrasos
           </span>
-          <span className="font-medium">{data.atrasos} pedidos</span>
+          <span className="font-semibold text-foreground">{data.atrasos} pedidos</span>
         </p>
         <p className="flex items-center justify-between">
           <span className="flex items-center gap-2">
@@ -75,8 +67,12 @@ function LegendContent() {
   return (
     <div className="flex flex-wrap gap-4 text-xs text-muted-foreground">
       <div className="flex items-center gap-2">
-        <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-primary to-primary/60" />
-        % de pedidos atrasados
+        <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
+        Atrasos
+      </div>
+      <div className="flex items-center gap-2">
+        <span className="h-2.5 w-2.5 rounded-full bg-emerald-500" />
+        No prazo
       </div>
       <div className="flex items-center gap-2">
         <span className="h-2 w-6 rounded-full border border-dashed border-primary/60" />
@@ -117,14 +113,7 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
     }
 
     acc[vendedor].total++
-
-    // Conta volume de pedidos/pacotes usando a coluna normalizada 'pedido' quando existir
-    if (row.pedido) {
-      acc[vendedor].totalPedidos++
-    } else {
-      // fallback: considera cada linha como um pedido
-      acc[vendedor].totalPedidos++
-    }
+    acc[vendedor].totalPedidos++
 
     if (row.status === 'Atrasado') {
       acc[vendedor].atrasos++
@@ -144,28 +133,10 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
     }))
     .sort((a, b) => b.percentual - a.percentual)
 
-  const colorPalette = [
-    '#f97316',
-    '#f43f5e',
-    '#a855f7',
-    '#6366f1',
-    '#0ea5e9',
-    '#14b8a6',
-    '#22c55e',
-    '#84cc16',
-    '#eab308',
-    '#ef4444',
-  ]
+  const topSellers = chartData.slice(0, 10)
+  const totalSellers = chartData.length
 
-  const chartDisplayData = chartData.map((seller, index) => ({
-    ...seller,
-    color: colorPalette[index % colorPalette.length],
-  }))
-
-  const topSellers = chartDisplayData.slice(0, 10)
-  const totalSellers = chartDisplayData.length
-
-  const metrics = chartDisplayData.reduce(
+  const metrics = chartData.reduce(
     (acc, seller) => {
       acc.totalAtrasos += seller.atrasos
       acc.totalPedidos += seller.atrasos + seller.noPrazo
@@ -205,7 +176,6 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
         pdf.save(`grafico_atrasos_${Date.now()}.pdf`)
       }
     } catch (err) {
-      // graceful fallback
       console.error('Export failed', err)
       alert('Falha ao exportar. Verifique o console para mais detalhes.')
     } finally {
@@ -258,7 +228,7 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
                 </p>
               </div>
               <ResponsiveContainer width="100%" height={380}>
-                <BarChart data={chartDisplayData} margin={{ top: 20, right: 16, left: -10, bottom: 20 }}>
+                <BarChart data={chartData} margin={{ top: 20, right: 16, left: -10, bottom: 20 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" opacity={0.25} />
                   <XAxis
                     dataKey="vendedor"
@@ -290,18 +260,14 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
                       fontWeight: 600,
                     }}
                   />
-                  <Bar dataKey="percentual" name="% atrasos" radius={[8, 8, 0, 0]} barSize={26}>
-                    {chartDisplayData.map((entry, index) => (
-                      <Cell key={`cell-${entry.vendedor}`} fill={entry.color} />
-                    ))}
-                    <LabelList
-                      dataKey="percentual"
-                      position="top"
-                      formatter={(value: number) => `${value}%`}
-                      className="text-[10px] md:text-xs fill-foreground font-semibold"
-                    />
+                  {/* BARRAS EMPILHADAS COLORIDAS */}
+                  <Bar dataKey="atrasos" stackId="a" fill="#ef4444" radius={[8, 0, 0, 8]} barSize={26}>
+                    <LabelList dataKey="atrasos" position="insideTop" className="text-[10px] md:text-xs fill-white font-semibold" />
                   </Bar>
-                  {chartDisplayData.length > 12 && (
+                  <Bar dataKey="noPrazo" stackId="a" fill="#22c55e" radius={[0, 8, 8, 0]} barSize={26}>
+                    <LabelList dataKey="noPrazo" position="insideTop" className="text-[10px] md:text-xs fill-white font-semibold" />
+                  </Bar>
+                  {chartData.length > 12 && (
                     <Brush
                       dataKey="vendedor"
                       height={18}
@@ -315,6 +281,7 @@ export function ChartsSection({ data, onClose }: ChartsSectionProps) {
               </ResponsiveContainer>
             </Card>
 
+            {/* PANORAMA DE MÉTRICAS */}
             <Card className="p-4 md:p-6 shadow-lg">
               <div className="flex flex-col gap-4">
                 <div>

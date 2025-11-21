@@ -1110,6 +1110,10 @@ img, video {
   fill: var(--color-foreground);
 }
 
+.fill-white {
+  fill: #fff;
+}
+
 .p-0 {
   padding: 0;
 }
