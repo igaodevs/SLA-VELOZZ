@@ -3,12 +3,11 @@ from pydantic import BaseModel
 from typing import Dict, List, Any, Tuple
 import pandas as pd
 import os
-import time
 import math
 
 from ..models.schemas import AnalyticsResponse
-from ..config import settings
 from ..services.merge_service import merge_service
+from ..services.file_handler import file_handler
 
 router = APIRouter()
 
@@ -110,12 +109,11 @@ async def get_analytics(request: AnalyticsRequest):
         # Lê os arquivos indicados e concatena
         dfs: List[pd.DataFrame] = []
         for fid in request.file_ids:
-            matches = [f for f in os.listdir(settings.UPLOAD_FOLDER) if f.startswith(f"{fid}_")]
-            if not matches:
+            file_path = file_handler.get_file_path(fid)
+            if not file_path or not file_path.exists():
                 continue
-            file_path = os.path.join(settings.UPLOAD_FOLDER, matches[0])
             try:
-                df = _read_excel_cached(file_path)
+                df = _read_excel_cached(str(file_path))
                 dfs.append(df)
             except Exception:
                 continue
@@ -253,12 +251,11 @@ async def get_meli_delayed(
     try:
         dfs: List[pd.DataFrame] = []
         for fid in request.file_ids:
-            matches = [f for f in os.listdir(settings.UPLOAD_FOLDER) if f.startswith(f"{fid}_")]
-            if not matches:
+            file_path = file_handler.get_file_path(fid)
+            if not file_path or not file_path.exists():
                 continue
-            file_path = os.path.join(settings.UPLOAD_FOLDER, matches[0])
             try:
-                df = _read_excel_cached(file_path)
+                df = _read_excel_cached(str(file_path))
                 dfs.append(df)
             except Exception:
                 continue

@@ -7,6 +7,7 @@ from datetime import datetime
 import re
 
 from ..models.schemas import FileType, MergeRequest, MergeResponse
+from ..config import settings
 from .file_handler import file_handler
 
 # Configure logging
@@ -449,10 +450,17 @@ class MergeService:
 
             # Create response
             # Expose a download URL for the merged file (served by reports router)
+            download_path = f"/api/v1/download/file/{file_path.name}"
+            if settings.BASE_URL:
+                base_url = settings.BASE_URL.rstrip("/")
+                merged_file_url = f"{base_url}{download_path}"
+            else:
+                merged_file_url = download_path
+
             response = MergeResponse(
                 merge_id=merge_id,
                 status="completed",
-                merged_file_url=f"/api/v1/download/file/{file_path.name}",
+                merged_file_url=merged_file_url,
                 message=f"Successfully merged {len(single_dfs)} files with mother file",
                 timestamp=datetime.utcnow(),
                 preview_data=preview_data,

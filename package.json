@@ -5,6 +5,8 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "backend": "cd sla_fusion_backend && python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000",
+    "dev:full": "concurrently -k -n api,web -c green,cyan \"npm run backend\" \"next dev\"",
     "lint": "eslint .",
     "start": "next start"
   },
@@ -73,6 +75,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-scroll": "^1.8.10",
+    "concurrently": "^9.0.1",
     "autoprefixer": "^10.4.22",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
