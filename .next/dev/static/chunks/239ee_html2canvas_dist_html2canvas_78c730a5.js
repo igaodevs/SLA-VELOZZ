@@ -1,9 +1,7 @@
 (globalThis.TURBOPACK_CHUNK_LISTS || (globalThis.TURBOPACK_CHUNK_LISTS = [])).push({
     script: typeof document === "object" ? document.currentScript : undefined,
     chunks: [
-  "static/chunks/OneDrive_Documentos_GitHub_SLA-VELOZZ_components_48f917aa._.js",
-  "static/chunks/OneDrive_Documentos_GitHub_SLA-VELOZZ_3f45a802._.js",
-  "static/chunks/239ee_8c3e1010._.js"
+  "static/chunks/239ee_html2canvas_dist_html2canvas_86913a22.js"
 ],
     source: "dynamic"
 });

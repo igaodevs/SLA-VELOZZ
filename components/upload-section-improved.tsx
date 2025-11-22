@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, useCallback, useState, useRef, useEffect } from 'react';
-import { Upload, FileSpreadsheet, CheckCircle2, AlertCircle, X, Loader2, AlertTriangle, FileX } from 'lucide-react';
+import { Upload, FileSpreadsheet, CheckCircle2, X, Loader2, AlertTriangle, FileX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -22,7 +22,7 @@ interface UploadCardProps {
   onFileSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onRemove: () => void;
   accept?: string;
-  maxSize?: number; // in bytes
+  maxSize?: number;
 }
 
 const UploadCard = memo(({ 
@@ -37,7 +37,7 @@ const UploadCard = memo(({
   onFileSelect,
   onRemove,
   accept,
-  maxSize = 10 * 1024 * 1024 // 10MB default
+  maxSize = 20 * 1024 * 1024 // 20MB
 }: UploadCardProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const fileInputId = `file-upload-${title.toLowerCase().replace(/\s+/g, '-')}`;
@@ -49,7 +49,7 @@ const UploadCard = memo(({
       'application/vnd.ms-excel',
       'text/csv'
     ],
-    maxSize: 20 * 1024 * 1024, // 20MB
+    maxSize,
   });
 
   // Mostrar erro do drop, se houver
@@ -91,8 +91,8 @@ const UploadCard = memo(({
         return;
       }
       
-      if (file.size > 20 * 1024 * 1024) { // 20MB
-        toast.error(`Arquivo muito grande (${formatFileSize(file.size)}). Tamanho máximo: 20MB`, {
+      if (file.size > maxSize) {
+        toast.error(`Arquivo muito grande (${formatFileSize(file.size)}). Tamanho máximo: ${formatFileSize(maxSize)}`, {
           position: 'top-center',
           duration: 5000,
         });
@@ -105,13 +105,16 @@ const UploadCard = memo(({
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
-  }, [onFileSelect]);
+  }, [onFileSelect, maxSize]);
 
   return (
     <Card 
-      className={`p-6 transition-all ${primary ? 'border-primary/50 bg-primary/5' : ''} ${
-        isDragging ? 'ring-2 ring-primary' : ''
-      }`}
+      className={cn(
+        'p-6 transition-all',
+        primary ? 'border-primary/50 bg-primary/5' : '',
+        isDragging ? 'ring-2 ring-primary' : '',
+        error ? 'border-red-500/50' : ''
+      )}
       {...dragProps}
     >
       <div className="flex flex-col h-full">
@@ -127,11 +130,12 @@ const UploadCard = memo(({
             <Button 
               variant="ghost" 
               size="icon" 
-              className="h-8 w-8" 
+              className="h-8 w-8"
               onClick={(e) => {
                 e.stopPropagation();
                 onRemove();
               }}
+              disabled={progress > 0 && progress < 100}
             >
               <X className="h-4 w-4" />
             </Button>
@@ -140,12 +144,12 @@ const UploadCard = memo(({
 
         {!file ? (
           <div 
-        className={cn(
-          'flex-1 flex flex-col items-center justify-center gap-3 p-6 border-2 border-dashed rounded-lg text-center transition-colors',
-          isDragging ? 'border-primary bg-primary/5' : 'border-muted-foreground/25 hover:border-muted-foreground/50',
-          error ? 'border-red-500/50 bg-red-500/5' : ''
-        )}
-      >
+            className={cn(
+              'flex-1 flex flex-col items-center justify-center gap-3 p-6 border-2 border-dashed rounded-lg text-center transition-colors',
+              isDragging ? 'border-primary bg-primary/5' : 'border-muted-foreground/25 hover:border-muted-foreground/50',
+              error ? 'border-red-500/50 bg-red-500/5' : ''
+            )}
+          >
             <div 
               className={cn(
                 'p-3 rounded-full transition-colors',
@@ -179,7 +183,7 @@ const UploadCard = memo(({
             <input
               type="file"
               className="hidden"
-              accept={accept || ".xlsx, .xls, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"}
+              accept={accept || ".xlsx, .xls, .csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, text/csv"}
               onChange={handleFileSelect}
               id={fileInputId}
               ref={fileInputRef}
@@ -247,21 +251,16 @@ const UploadCard = memo(({
                 <X className="h-4 w-4" />
               </Button>
             </div>
-            {progress > 0 && progress < 100 && (
-              <>
-                <Progress value={progress} className="h-2" />
-                <p className="text-xs text-muted-foreground text-right">
-                  Enviando... {progress}%
-                </p>
-              </>
-            )}
+            
             {progress === 0 && (
               <p className="text-xs text-muted-foreground text-right">
                 Aguardando envio
               </p>
             )}
+            
             {progress === 100 && (
-              <p className="text-xs text-green-600 text-right font-medium">
+              <p className="text-xs text-green-600 text-right font-medium flex items-center justify-end gap-1">
+                <CheckCircle2 className="h-3.5 w-3.5" />
                 Upload concluído
               </p>
             )}
@@ -270,7 +269,7 @@ const UploadCard = memo(({
 
         {(error || dropError) && (
           <div className="mt-2 text-sm text-red-500 flex items-center gap-1">
-            <AlertCircle className="w-4 h-4 flex-shrink-0" />
+            <AlertTriangle className="w-4 h-4 flex-shrink-0" />
             <span>{error || dropError}</span>
           </div>
         )}
@@ -293,7 +292,7 @@ interface UploadSectionProps {
     additional2: number;
   };
   onFileUpload: (type: FileType, file: File | null) => void;
-  onMerge: () => void | Promise<void>;
+  onMerge: () => Promise<void>;
   isMerging: boolean;
   className?: string;
 }
@@ -317,6 +316,8 @@ function UploadSectionComponent({
   });
 
   const handleDrop = useCallback((type: FileType, file: File) => {
+    // Limpa erros ao tentar fazer upload de um novo arquivo
+    setErrors(prev => ({ ...prev, [type]: null }));
     onFileUpload(type, file);
   }, [onFileUpload]);
 
@@ -327,10 +328,13 @@ function UploadSectionComponent({
     const file = e.target.files?.[0];
     if (!file) return;
     
+    // Limpa erros ao selecionar um novo arquivo
+    setErrors(prev => ({ ...prev, [type]: null }));
     onFileUpload(type, file);
   }, [onFileUpload]);
 
   const handleRemove = useCallback((type: FileType) => {
+    setErrors(prev => ({ ...prev, [type]: null }));
     onFileUpload(type, null);
   }, [onFileUpload]);
 
@@ -350,13 +354,13 @@ function UploadSectionComponent({
           onDrop={(file) => handleDrop('main', file)}
           onFileSelect={(e) => handleFileSelect(e, 'main')}
           onRemove={() => handleRemove('main')}
-          accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+          accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .xlsx, .xls, .csv, text/csv"
         />
 
         <div className="space-y-6">
           <UploadCard
             title="Planilha Avulsa 1"
-            subtitle="Primeira planilha adicional (opcional)"
+            subtitle="Primeira planilha adicional (obrigatória)"
             required
             file={files.additional1}
             progress={uploadProgress.additional1}
@@ -364,7 +368,7 @@ function UploadSectionComponent({
             onDrop={(file) => handleDrop('additional1', file)}
             onFileSelect={(e) => handleFileSelect(e, 'additional1')}
             onRemove={() => handleRemove('additional1')}
-            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .xlsx, .xls, .csv, text/csv"
           />
 
           <UploadCard
@@ -376,7 +380,7 @@ function UploadSectionComponent({
             onDrop={(file) => handleDrop('additional2', file)}
             onFileSelect={(e) => handleFileSelect(e, 'additional2')}
             onRemove={() => handleRemove('additional2')}
-            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel, .xlsx, .xls, .csv, text/csv"
           />
         </div>
       </div>
@@ -386,21 +390,33 @@ function UploadSectionComponent({
           <Button
             onClick={() => {
               if (!files.main) {
-                toast.error('Por favor, faça upload da Planilha Mãe antes de continuar.');
+                setErrors(prev => ({ ...prev, main: 'A Planilha Mãe é obrigatória' }));
+                return;
+              }
+              if (!files.additional1) {
+                setErrors(prev => ({ ...prev, additional1: 'A Planilha Avulsa 1 é obrigatória' }));
                 return;
               }
               onMerge();
             }}
             disabled={!canMerge || isMerging}
-            className="w-full gap-2 px-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            className={cn(
+              'w-full gap-2 px-8 shadow-lg hover:shadow-xl transition-all duration-300',
+              canMerge && !isMerging ? 'hover:scale-105' : ''
+            )}
             aria-busy={isMerging}
           >
             {isMerging ? (
-              <Loader2 className="w-5 h-5 animate-spin" />
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Processando...
+              </>
             ) : (
-              <FileSpreadsheet className="w-5 h-5" />
+              <>
+                <FileSpreadsheet className="w-5 h-5" />
+                Mesclar Planilhas
+              </>
             )}
-            {isMerging ? 'Mesclando...' : 'Mesclar Planilhas'}
           </Button>
         </div>
         

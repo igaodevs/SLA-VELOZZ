@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, Suspense, useTransition } from 'react';
+import { useState, useCallback, useMemo, Suspense, useTransition, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Loader2 } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -8,6 +8,7 @@ import { ErrorBoundary } from '@/components/error-boundary';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { isMeliRecord } from '@/lib/utils';
+import { toast } from 'sonner';
 
 // Lazy load heavy components with proper typing
 const UploadSection = dynamic<{
@@ -16,7 +17,7 @@ const UploadSection = dynamic<{
   onFileUpload: (type: FileType, file: File | null) => void;
   onMerge: () => Promise<void>;
   isMerging: boolean;
-}>(() => import('@/components/upload-section').then(mod => mod.UploadSection), {
+}>(() => import('@/components/upload-section-improved').then(mod => mod.UploadSection), {
   loading: () => (
     <div className="flex items-center justify-center min-h-[400px]">
       <Loader2 className="w-8 h-8 animate-spin text-primary" />
@@ -152,8 +153,20 @@ export default function Home() {
 
   // Handle file upload
   const handleFileUpload = useCallback((type: FileType, file: File | null) => {
-    setFiles(prev => ({ ...prev, [type]: file }));
-    setUploadProgress(prev => ({ ...prev, [type]: 0 }));
+    setFiles(prev => {
+      // Se o arquivo for o mesmo, não faz nada
+      if (prev[type] === file) return prev;
+      // Se estiver substituindo um arquivo, reseta o progresso
+      if (prev[type] && file) {
+        setUploadProgress(prevProgress => ({ ...prevProgress, [type]: 0 }));
+      }
+      return { ...prev, [type]: file };
+    });
+    
+    // Se for uma remoção de arquivo, reseta o progresso
+    if (!file) {
+      setUploadProgress(prev => ({ ...prev, [type]: 0 }));
+    }
   }, []);
 
   // Helper para fazer upload de um arquivo individual
@@ -173,120 +186,169 @@ export default function Home() {
         const xhr = new XMLHttpRequest();
         xhr.open('POST', `${API_BASE_URL}/api/v1/upload/${backendType}`, true);
 
-        setUploadProgress(prev => ({ ...prev, [type]: Math.max(prev[type], 5) }));
+        // Configura o timeout para 5 minutos (300000 ms)
+        xhr.timeout = 300000;
+        
+        // Inicia com 5% para mostrar que o upload começou
+        setUploadProgress(prev => ({ ...prev, [type]: 5 }));
 
         xhr.upload.onprogress = (event) => {
-          if (!event.lengthComputable) return;
-          const percentage = Math.round((event.loaded / event.total) * 100);
-          setUploadProgress(prev => ({ ...prev, [type]: percentage }));
+          if (event.lengthComputable) {
+            // Calcula o progresso entre 5% e 95% (deixa 5% para a conclusão)
+            const percentage = 5 + Math.round((event.loaded / event.total) * 90);
+            setUploadProgress(prev => ({
+              ...prev,
+              [type]: Math.min(percentage, 95) // Não ultrapassa 95% até a conclusão
+            }));
+          }
         };
 
         xhr.onreadystatechange = () => {
           if (xhr.readyState !== XMLHttpRequest.DONE) return;
+          
+          // Marca como 100% quando o upload for concluído com sucesso
           if (xhr.status >= 200 && xhr.status < 300) {
+            setUploadProgress(prev => ({ ...prev, [type]: 100 }));
             try {
               const parsed = JSON.parse(xhr.responseText);
-              setUploadProgress(prev => ({ ...prev, [type]: 100 }));
               resolve(parsed.file_id as string);
             } catch (error) {
+              console.error('Erro ao processar resposta do servidor:', error);
               reject(new Error('Resposta inválida do servidor'));
             }
           } else {
             let detail = 'Erro ao enviar arquivo';
             try {
               const parsed = JSON.parse(xhr.responseText);
-              detail = parsed.detail ?? detail;
-            } catch {
-              // ignore JSON parse errors
+              detail = parsed.detail || parsed.message || detail;
+            } catch (e) {
+              console.error('Erro ao processar mensagem de erro:', e);
             }
+            
+            // Reseta o progresso em caso de erro
+            setUploadProgress(prev => ({ ...prev, [type]: 0 }));
             reject(new Error(detail));
           }
         };
 
-        xhr.onerror = () => {
-          reject(new Error('Falha na conexão durante o upload.'));
+        xhr.ontimeout = () => {
+          setUploadProgress(prev => ({ ...prev, [type]: 0 }));
+          reject(new Error('Tempo limite de conexão excedido. Tente novamente.'));
         };
 
-        xhr.send(formData);
+        xhr.onerror = () => {
+          setUploadProgress(prev => ({ ...prev, [type]: 0 }));
+          reject(new Error('Erro de conexão com o servidor. Verifique sua internet e tente novamente.'));
+        };
+
+        try {
+          xhr.send(formData);
+        } catch (error) {
+          setUploadProgress(prev => ({ ...prev, [type]: 0 }));
+          reject(new Error('Falha ao enviar o arquivo. Tente novamente.'));
+        }
       });
     },
     []
   );
 
-  // Handle merge functionality (faz upload e chama o backend)
+  // Função para mesclar as planilhas
   const handleMerge = useCallback(async () => {
-    if (!files.main || !files.additional1) {
-      alert('Faça upload da Planilha Mãe e da Planilha Avulsa 1 para continuar.');
-      return;
-    }
+    if (!files.main || !files.additional1) return;
 
     setIsMerging(true);
     setMergedData(null);
-
-    const filesToUpload: Array<{ file: File; type: FileType }> = [
-      { file: files.main, type: 'main' },
-      { file: files.additional1, type: 'additional1' },
-    ];
-
-    if (files.additional2) {
-      filesToUpload.push({ file: files.additional2, type: 'additional2' });
-    }
+    let toastId: string | number = '';
 
     try {
-      const uploadResults = await Promise.all(
-        filesToUpload.map(async ({ file, type }) => {
-          const id = await uploadSingleFile(file, type);
-          return { id, type };
+      // Mostrar notificação de início do processo
+      toastId = toast.loading('Iniciando processamento das planilhas...');
+      
+      // Fazer upload dos arquivos
+      toast.loading('Enviando arquivos para o servidor...', { id: toastId });
+
+      const fileIds = await Promise.all(
+        Object.entries(files).map(async ([type, file]) => {
+          if (!file) return null;
+          try {
+            const fileId = await uploadSingleFile(file, type as FileType);
+            return fileId;
+          } catch (error) {
+            console.error(`Erro ao enviar arquivo ${type}:`, error);
+            throw new Error(`Falha ao enviar ${type === 'main' ? 'Planilha Mãe' : 'Planilha ' + type}. ${error instanceof Error ? error.message : 'Tente novamente.'}`);
+          }
         })
       );
 
-      const motherId = uploadResults.find(result => result.type === 'main')?.id;
-      if (!motherId) {
-        throw new Error('Não foi possível identificar a planilha mãe.');
+      // Filtrar apenas os IDs válidos
+      const validFileIds = fileIds.filter(Boolean) as string[];
+      
+      if (validFileIds.length === 0) {
+        throw new Error('Nenhum arquivo válido para processar');
       }
 
-      const singleIds = uploadResults
-        .filter(result => result.type !== 'main')
-        .map(result => result.id);
+      // Chamar a API para mesclar
+      toast.loading('Processando e mesclando planilhas...', { id: toastId });
 
-      const mergeRes = await fetch(`${API_BASE_URL}/api/v1/merge`, {
+      const response = await fetch(`${API_BASE_URL}/api/v1/merge`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          mother_file_id: motherId,
-          single_file_ids: singleIds,
-          options: {
-            apply_meli_filter: applyMeliFilter,
-          },
+          file_ids: validFileIds,
         }),
       });
 
-      if (!mergeRes.ok) {
-        const errorBody = await mergeRes.json().catch(() => ({}));
-        throw new Error(errorBody.detail || 'Erro ao mesclar arquivos');
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        const errorMessage = errorData.detail || errorData.message || 'Erro ao processar as planilhas';
+        throw new Error(errorMessage);
       }
 
-      const mergeData = await mergeRes.json();
-      const preview = Array.isArray(mergeData.preview_data) ? mergeData.preview_data : [];
-
-      startFilteringTransition(() => {
-        setMergedData(preview);
-        setShowCharts(false);
-      });
-
-      const resultsSection = document.getElementById('results-section');
-      if (resultsSection) {
-        resultsSection.scrollIntoView({ behavior: 'smooth' });
+      const result = await response.json();
+      
+      if (!result || !result.data) {
+        throw new Error('Dados inválidos retornados do servidor');
       }
+
+      // Atualizar os dados mesclados
+      setMergedData(result.data);
+      
+      // Mostrar notificação de sucesso
+      toast.success('Planilhas mescladas com sucesso!', { id: toastId });
+      
+      // Rolar até a seção de resultados
+      setTimeout(() => {
+        const resultsSection = document.getElementById('results-section');
+        if (resultsSection) {
+          resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      
     } catch (error) {
-      console.error(error);
-      alert(error instanceof Error ? error.message : 'Falha ao mesclar planilhas');
+      console.error('Erro ao mesclar planilhas:', error);
+      
+      // Mostrar notificação de erro
+      toast.error(
+        error instanceof Error ? error.message : 'Ocorreu um erro ao processar as planilhas',
+        { 
+          id: toastId,
+          position: 'top-center',
+          duration: 5000,
+        }
+      );
+      
+      // Resetar progresso em caso de erro
+      setUploadProgress({
+        main: files.main ? 0 : uploadProgress.main,
+        additional1: files.additional1 ? 0 : uploadProgress.additional1,
+        additional2: files.additional2 ? 0 : uploadProgress.additional2,
+      });
     } finally {
       setIsMerging(false);
     }
-  }, [files, applyMeliFilter, uploadSingleFile, startFilteringTransition]);
+    }, [files, uploadSingleFile, uploadProgress]);
 
   // Memoize the header and footer to prevent unnecessary re-renders
   const memoizedHeader = <MemoizedHeader />;

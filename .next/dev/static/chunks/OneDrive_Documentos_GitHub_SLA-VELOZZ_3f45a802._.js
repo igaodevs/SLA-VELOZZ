@@ -2214,6 +2214,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$Gi
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$components$2f$header$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/header.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$components$2f$footer$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/footer.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/lib/utils.ts [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/sonner/dist/index.mjs [app-client] (ecmascript)");
 ;
 ;
 ;
@@ -2229,11 +2230,12 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
+;
 // Lazy load heavy components with proper typing
-const UploadSection = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$shared$2f$lib$2f$app$2d$dynamic$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(()=>__turbopack_context__.A("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/upload-section.tsx [app-client] (ecmascript, next/dynamic entry, async loader)").then((mod)=>mod.UploadSection), {
+const UploadSection = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$shared$2f$lib$2f$app$2d$dynamic$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])(()=>__turbopack_context__.A("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/upload-section-improved.tsx [app-client] (ecmascript, next/dynamic entry, async loader)").then((mod)=>mod.UploadSection), {
     loadableGenerated: {
         modules: [
-            "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/upload-section.tsx [app-client] (ecmascript, next/dynamic entry)"
+            "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/upload-section-improved.tsx [app-client] (ecmascript, next/dynamic entry)"
         ]
     },
     loading: ()=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2242,12 +2244,12 @@ const UploadSection = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDri
                 className: "w-8 h-8 animate-spin text-primary"
             }, void 0, false, {
                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                lineNumber: 22,
+                lineNumber: 23,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-            lineNumber: 21,
+            lineNumber: 22,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0)),
     ssr: false
@@ -2266,12 +2268,12 @@ const PreviewSection = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDr
                 className: "w-6 h-6 animate-spin text-primary"
             }, void 0, false, {
                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                lineNumber: 36,
+                lineNumber: 37,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-            lineNumber: 35,
+            lineNumber: 36,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
 });
@@ -2289,12 +2291,12 @@ const ResultsSection = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDr
                 className: "w-8 h-8 animate-spin text-primary"
             }, void 0, false, {
                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                lineNumber: 48,
+                lineNumber: 49,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-            lineNumber: 47,
+            lineNumber: 48,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
 });
@@ -2312,12 +2314,12 @@ const ChartsSection = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDri
                 className: "w-10 h-10 animate-spin text-primary"
             }, void 0, false, {
                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                lineNumber: 60,
+                lineNumber: 61,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-            lineNumber: 59,
+            lineNumber: 60,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
 });
@@ -2418,17 +2420,33 @@ function Home() {
     const handleFileUpload = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "Home.useCallback[handleFileUpload]": (type, file)=>{
             setFiles({
-                "Home.useCallback[handleFileUpload]": (prev)=>({
+                "Home.useCallback[handleFileUpload]": (prev)=>{
+                    // Se o arquivo for o mesmo, não faz nada
+                    if (prev[type] === file) return prev;
+                    // Se estiver substituindo um arquivo, reseta o progresso
+                    if (prev[type] && file) {
+                        setUploadProgress({
+                            "Home.useCallback[handleFileUpload]": (prevProgress)=>({
+                                    ...prevProgress,
+                                    [type]: 0
+                                })
+                        }["Home.useCallback[handleFileUpload]"]);
+                    }
+                    return {
                         ...prev,
                         [type]: file
-                    })
+                    };
+                }
             }["Home.useCallback[handleFileUpload]"]);
-            setUploadProgress({
-                "Home.useCallback[handleFileUpload]": (prev)=>({
-                        ...prev,
-                        [type]: 0
-                    })
-            }["Home.useCallback[handleFileUpload]"]);
+            // Se for uma remoção de arquivo, reseta o progresso
+            if (!file) {
+                setUploadProgress({
+                    "Home.useCallback[handleFileUpload]": (prev)=>({
+                            ...prev,
+                            [type]: 0
+                        })
+                }["Home.useCallback[handleFileUpload]"]);
+            }
         }
     }["Home.useCallback[handleFileUpload]"], []);
     // Helper para fazer upload de um arquivo individual
@@ -2441,163 +2459,207 @@ function Home() {
                 "Home.useCallback[uploadSingleFile]": (resolve, reject)=>{
                     const xhr = new XMLHttpRequest();
                     xhr.open('POST', `${API_BASE_URL}/api/v1/upload/${backendType}`, true);
+                    // Configura o timeout para 5 minutos (300000 ms)
+                    xhr.timeout = 300000;
+                    // Inicia com 5% para mostrar que o upload começou
                     setUploadProgress({
                         "Home.useCallback[uploadSingleFile]": (prev)=>({
                                 ...prev,
-                                [type]: Math.max(prev[type], 5)
+                                [type]: 5
                             })
                     }["Home.useCallback[uploadSingleFile]"]);
                     xhr.upload.onprogress = ({
                         "Home.useCallback[uploadSingleFile]": (event)=>{
-                            if (!event.lengthComputable) return;
-                            const percentage = Math.round(event.loaded / event.total * 100);
-                            setUploadProgress({
-                                "Home.useCallback[uploadSingleFile]": (prev)=>({
-                                        ...prev,
-                                        [type]: percentage
-                                    })
-                            }["Home.useCallback[uploadSingleFile]"]);
+                            if (event.lengthComputable) {
+                                // Calcula o progresso entre 5% e 95% (deixa 5% para a conclusão)
+                                const percentage = 5 + Math.round(event.loaded / event.total * 90);
+                                setUploadProgress({
+                                    "Home.useCallback[uploadSingleFile]": (prev)=>({
+                                            ...prev,
+                                            [type]: Math.min(percentage, 95) // Não ultrapassa 95% até a conclusão
+                                        })
+                                }["Home.useCallback[uploadSingleFile]"]);
+                            }
                         }
                     })["Home.useCallback[uploadSingleFile]"];
                     xhr.onreadystatechange = ({
                         "Home.useCallback[uploadSingleFile]": ()=>{
                             if (xhr.readyState !== XMLHttpRequest.DONE) return;
+                            // Marca como 100% quando o upload for concluído com sucesso
                             if (xhr.status >= 200 && xhr.status < 300) {
+                                setUploadProgress({
+                                    "Home.useCallback[uploadSingleFile]": (prev)=>({
+                                            ...prev,
+                                            [type]: 100
+                                        })
+                                }["Home.useCallback[uploadSingleFile]"]);
                                 try {
                                     const parsed = JSON.parse(xhr.responseText);
-                                    setUploadProgress({
-                                        "Home.useCallback[uploadSingleFile]": (prev)=>({
-                                                ...prev,
-                                                [type]: 100
-                                            })
-                                    }["Home.useCallback[uploadSingleFile]"]);
                                     resolve(parsed.file_id);
                                 } catch (error) {
+                                    console.error('Erro ao processar resposta do servidor:', error);
                                     reject(new Error('Resposta inválida do servidor'));
                                 }
                             } else {
                                 let detail = 'Erro ao enviar arquivo';
                                 try {
                                     const parsed = JSON.parse(xhr.responseText);
-                                    detail = parsed.detail ?? detail;
-                                } catch  {
-                                // ignore JSON parse errors
+                                    detail = parsed.detail || parsed.message || detail;
+                                } catch (e) {
+                                    console.error('Erro ao processar mensagem de erro:', e);
                                 }
+                                // Reseta o progresso em caso de erro
+                                setUploadProgress({
+                                    "Home.useCallback[uploadSingleFile]": (prev)=>({
+                                            ...prev,
+                                            [type]: 0
+                                        })
+                                }["Home.useCallback[uploadSingleFile]"]);
                                 reject(new Error(detail));
                             }
                         }
                     })["Home.useCallback[uploadSingleFile]"];
-                    xhr.onerror = ({
+                    xhr.ontimeout = ({
                         "Home.useCallback[uploadSingleFile]": ()=>{
-                            reject(new Error('Falha na conexão durante o upload.'));
+                            setUploadProgress({
+                                "Home.useCallback[uploadSingleFile]": (prev)=>({
+                                        ...prev,
+                                        [type]: 0
+                                    })
+                            }["Home.useCallback[uploadSingleFile]"]);
+                            reject(new Error('Tempo limite de conexão excedido. Tente novamente.'));
                         }
                     })["Home.useCallback[uploadSingleFile]"];
-                    xhr.send(formData);
+                    xhr.onerror = ({
+                        "Home.useCallback[uploadSingleFile]": ()=>{
+                            setUploadProgress({
+                                "Home.useCallback[uploadSingleFile]": (prev)=>({
+                                        ...prev,
+                                        [type]: 0
+                                    })
+                            }["Home.useCallback[uploadSingleFile]"]);
+                            reject(new Error('Erro de conexão com o servidor. Verifique sua internet e tente novamente.'));
+                        }
+                    })["Home.useCallback[uploadSingleFile]"];
+                    try {
+                        xhr.send(formData);
+                    } catch (error) {
+                        setUploadProgress({
+                            "Home.useCallback[uploadSingleFile]": (prev)=>({
+                                    ...prev,
+                                    [type]: 0
+                                })
+                        }["Home.useCallback[uploadSingleFile]"]);
+                        reject(new Error('Falha ao enviar o arquivo. Tente novamente.'));
+                    }
                 }
             }["Home.useCallback[uploadSingleFile]"]);
         }
     }["Home.useCallback[uploadSingleFile]"], []);
-    // Handle merge functionality (faz upload e chama o backend)
+    // Função para mesclar as planilhas
     const handleMerge = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "Home.useCallback[handleMerge]": async ()=>{
-            if (!files.main || !files.additional1) {
-                alert('Faça upload da Planilha Mãe e da Planilha Avulsa 1 para continuar.');
-                return;
-            }
+            if (!files.main || !files.additional1) return;
             setIsMerging(true);
             setMergedData(null);
-            const filesToUpload = [
-                {
-                    file: files.main,
-                    type: 'main'
-                },
-                {
-                    file: files.additional1,
-                    type: 'additional1'
-                }
-            ];
-            if (files.additional2) {
-                filesToUpload.push({
-                    file: files.additional2,
-                    type: 'additional2'
-                });
-            }
+            let toastId = '';
             try {
-                const uploadResults = await Promise.all(filesToUpload.map({
-                    "Home.useCallback[handleMerge]": async ({ file, type })=>{
-                        const id = await uploadSingleFile(file, type);
-                        return {
-                            id,
-                            type
-                        };
+                // Mostrar notificação de início do processo
+                toastId = __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].loading('Iniciando processamento das planilhas...');
+                // Fazer upload dos arquivos
+                __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].loading('Enviando arquivos para o servidor...', {
+                    id: toastId
+                });
+                const fileIds = await Promise.all(Object.entries(files).map({
+                    "Home.useCallback[handleMerge]": async ([type, file])=>{
+                        if (!file) return null;
+                        try {
+                            const fileId = await uploadSingleFile(file, type);
+                            return fileId;
+                        } catch (error) {
+                            console.error(`Erro ao enviar arquivo ${type}:`, error);
+                            throw new Error(`Falha ao enviar ${type === 'main' ? 'Planilha Mãe' : 'Planilha ' + type}. ${error instanceof Error ? error.message : 'Tente novamente.'}`);
+                        }
                     }
                 }["Home.useCallback[handleMerge]"]));
-                const motherId = uploadResults.find({
-                    "Home.useCallback[handleMerge]": (result)=>result.type === 'main'
-                }["Home.useCallback[handleMerge]"])?.id;
-                if (!motherId) {
-                    throw new Error('Não foi possível identificar a planilha mãe.');
+                // Filtrar apenas os IDs válidos
+                const validFileIds = fileIds.filter(Boolean);
+                if (validFileIds.length === 0) {
+                    throw new Error('Nenhum arquivo válido para processar');
                 }
-                const singleIds = uploadResults.filter({
-                    "Home.useCallback[handleMerge].singleIds": (result)=>result.type !== 'main'
-                }["Home.useCallback[handleMerge].singleIds"]).map({
-                    "Home.useCallback[handleMerge].singleIds": (result)=>result.id
-                }["Home.useCallback[handleMerge].singleIds"]);
-                const mergeRes = await fetch(`${API_BASE_URL}/api/v1/merge`, {
+                // Chamar a API para mesclar
+                __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].loading('Processando e mesclando planilhas...', {
+                    id: toastId
+                });
+                const response = await fetch(`${API_BASE_URL}/api/v1/merge`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        mother_file_id: motherId,
-                        single_file_ids: singleIds,
-                        options: {
-                            apply_meli_filter: applyMeliFilter
-                        }
+                        file_ids: validFileIds
                     })
                 });
-                if (!mergeRes.ok) {
-                    const errorBody = await mergeRes.json().catch({
+                if (!response.ok) {
+                    const errorData = await response.json().catch({
                         "Home.useCallback[handleMerge]": ()=>({})
                     }["Home.useCallback[handleMerge]"]);
-                    throw new Error(errorBody.detail || 'Erro ao mesclar arquivos');
+                    const errorMessage = errorData.detail || errorData.message || 'Erro ao processar as planilhas';
+                    throw new Error(errorMessage);
                 }
-                const mergeData = await mergeRes.json();
-                const preview = Array.isArray(mergeData.preview_data) ? mergeData.preview_data : [];
-                startFilteringTransition({
+                const result = await response.json();
+                if (!result || !result.data) {
+                    throw new Error('Dados inválidos retornados do servidor');
+                }
+                // Atualizar os dados mesclados
+                setMergedData(result.data);
+                // Mostrar notificação de sucesso
+                __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].success('Planilhas mescladas com sucesso!', {
+                    id: toastId
+                });
+                // Rolar até a seção de resultados
+                setTimeout({
                     "Home.useCallback[handleMerge]": ()=>{
-                        setMergedData(preview);
-                        setShowCharts(false);
+                        const resultsSection = document.getElementById('results-section');
+                        if (resultsSection) {
+                            resultsSection.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
                     }
-                }["Home.useCallback[handleMerge]"]);
-                const resultsSection = document.getElementById('results-section');
-                if (resultsSection) {
-                    resultsSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+                }["Home.useCallback[handleMerge]"], 100);
             } catch (error) {
-                console.error(error);
-                alert(error instanceof Error ? error.message : 'Falha ao mesclar planilhas');
+                console.error('Erro ao mesclar planilhas:', error);
+                // Mostrar notificação de erro
+                __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["toast"].error(error instanceof Error ? error.message : 'Ocorreu um erro ao processar as planilhas', {
+                    id: toastId,
+                    position: 'top-center',
+                    duration: 5000
+                });
+                // Resetar progresso em caso de erro
+                setUploadProgress({
+                    main: files.main ? 0 : uploadProgress.main,
+                    additional1: files.additional1 ? 0 : uploadProgress.additional1,
+                    additional2: files.additional2 ? 0 : uploadProgress.additional2
+                });
             } finally{
                 setIsMerging(false);
             }
         }
     }["Home.useCallback[handleMerge]"], [
         files,
-        applyMeliFilter,
         uploadSingleFile,
-        startFilteringTransition
+        uploadProgress
     ]);
     // Memoize the header and footer to prevent unnecessary re-renders
     const memoizedHeader = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MemoizedHeader, {}, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-        lineNumber: 292,
+        lineNumber: 354,
         columnNumber: 26
     }, this);
     const memoizedFooter = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(MemoizedFooter, {}, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-        lineNumber: 293,
+        lineNumber: 355,
         columnNumber: 26
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2636,13 +2698,13 @@ function Home() {
                                                         children: "em segundos"
                                                     }, void 0, false, {
                                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                        lineNumber: 316,
+                                                        lineNumber: 378,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                lineNumber: 315,
+                                                lineNumber: 377,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2650,28 +2712,28 @@ function Home() {
                                                 children: "Plataforma profissional para fusão de planilhas Excel. Rápido, simples e intuitivo. Suporte a arquivos grandes."
                                             }, void 0, false, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                lineNumber: 318,
+                                                lineNumber: 380,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 308,
+                                        lineNumber: 370,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 307,
+                                    lineNumber: 369,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 303,
+                                lineNumber: 365,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 302,
+                            lineNumber: 364,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].section, {
@@ -2693,7 +2755,7 @@ function Home() {
                                                 children: "Erro ao carregar o upload"
                                             }, void 0, false, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                lineNumber: 336,
+                                                lineNumber: 398,
                                                 columnNumber: 19
                                             }, void 0),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2701,18 +2763,18 @@ function Home() {
                                                 children: "Ocorreu um erro ao carregar a seção de upload. Por favor, recarregue a página e tente novamente."
                                             }, void 0, false, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                lineNumber: 337,
+                                                lineNumber: 399,
                                                 columnNumber: 19
                                             }, void 0)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 335,
+                                        lineNumber: 397,
                                         columnNumber: 17
                                     }, void 0)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 334,
+                                    lineNumber: 396,
                                     columnNumber: 15
                                 }, void 0),
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Suspense"], {
@@ -2722,12 +2784,12 @@ function Home() {
                                             className: "w-8 h-8 animate-spin text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                            lineNumber: 345,
+                                            lineNumber: 407,
                                             columnNumber: 19
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 344,
+                                        lineNumber: 406,
                                         columnNumber: 17
                                     }, void 0),
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(UploadSection, {
@@ -2738,22 +2800,22 @@ function Home() {
                                         isMerging: isMergeBusy
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 348,
+                                        lineNumber: 410,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 343,
+                                    lineNumber: 405,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 333,
+                                lineNumber: 395,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 327,
+                            lineNumber: 389,
                             columnNumber: 11
                         }, this),
                         (files.main || files.additional1) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].section, {
@@ -2772,12 +2834,12 @@ function Home() {
                                             className: "w-6 h-6 animate-spin text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                            lineNumber: 370,
+                                            lineNumber: 432,
                                             columnNumber: 21
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 369,
+                                        lineNumber: 431,
                                         columnNumber: 19
                                     }, void 0),
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(PreviewSection, {
@@ -2786,22 +2848,22 @@ function Home() {
                                         onFilterChange: setApplyMeliFilter
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 373,
+                                        lineNumber: 435,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 368,
+                                    lineNumber: 430,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 367,
+                                lineNumber: 429,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 361,
+                            lineNumber: 423,
                             columnNumber: 13
                         }, this),
                         mergedData && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2821,12 +2883,12 @@ function Home() {
                                             className: "w-8 h-8 animate-spin text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                            lineNumber: 395,
+                                            lineNumber: 457,
                                             columnNumber: 21
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 394,
+                                        lineNumber: 456,
                                         columnNumber: 19
                                     }, void 0),
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ResultsSection, {
@@ -2834,22 +2896,22 @@ function Home() {
                                         onShowCharts: ()=>setShowCharts(true)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 398,
+                                        lineNumber: 460,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 393,
+                                    lineNumber: 455,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 392,
+                                lineNumber: 454,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 385,
+                            lineNumber: 447,
                             columnNumber: 13
                         }, this),
                         showCharts && mergedData && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2874,12 +2936,12 @@ function Home() {
                                             className: "w-10 h-10 animate-spin text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                            lineNumber: 419,
+                                            lineNumber: 481,
                                             columnNumber: 21
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 418,
+                                        lineNumber: 480,
                                         columnNumber: 19
                                     }, void 0),
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(ChartsSection, {
@@ -2887,40 +2949,40 @@ function Home() {
                                         onClose: ()=>setShowCharts(false)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 422,
+                                        lineNumber: 484,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 417,
+                                    lineNumber: 479,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 416,
+                                lineNumber: 478,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 409,
+                            lineNumber: 471,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                    lineNumber: 300,
+                    lineNumber: 362,
                     columnNumber: 9
                 }, this),
                 memoizedFooter
             ]
         }, void 0, true, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-            lineNumber: 297,
+            lineNumber: 359,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-        lineNumber: 296,
+        lineNumber: 358,
         columnNumber: 5
     }, this);
 }

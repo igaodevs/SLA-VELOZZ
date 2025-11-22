@@ -13,25 +13,25 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$Gi
 ;
 ;
 ;
-function Progress({ className, value, ...props }) {
+function Progress({ className, value, indicatorClassName, ...props }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$progress$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Root"], {
         "data-slot": "progress",
         className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('bg-primary/20 relative h-2 w-full overflow-hidden rounded-full', className),
         ...props,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f40$radix$2d$ui$2f$react$2d$progress$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Indicator"], {
             "data-slot": "progress-indicator",
-            className: "bg-primary h-full w-full flex-1 transition-all",
+            className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["cn"])('h-full w-full flex-1 transition-all', indicatorClassName || 'bg-primary'),
             style: {
                 transform: `translateX(-${100 - (value || 0)}%)`
             }
         }, void 0, false, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/ui/progress.tsx",
-            lineNumber: 22,
+            lineNumber: 27,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/components/ui/progress.tsx",
-        lineNumber: 14,
+        lineNumber: 19,
         columnNumber: 5
     }, this);
 }
@@ -53,26 +53,64 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var _s = __turbopack_context__.k.signature();
 ;
+// Mapeamento de tipos MIME para extensões
+const MIME_TYPES = {
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': [
+        '.xlsx'
+    ],
+    'application/vnd.ms-excel': [
+        '.xls'
+    ],
+    'text/csv': [
+        '.csv'
+    ]
+};
 function useFileDrop({ onDrop, acceptedTypes = [
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-], maxSize = 10 * 1024 * 1024 // 10MB default
+], maxSize = 20 * 1024 * 1024 // Aumentado para 20MB
  }) {
     _s();
     const [isDragging, setIsDragging] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const getFileExtension = (filename)=>{
+        return filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2).toLowerCase();
+    };
     const validateFile = (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "useFileDrop.useCallback[validateFile]": (file)=>{
-            if (acceptedTypes.length > 0 && !acceptedTypes.some({
-                "useFileDrop.useCallback[validateFile]": (type)=>file.type === type || file.name.endsWith(type)
-            }["useFileDrop.useCallback[validateFile]"])) {
-                setError(`Tipo de arquivo não suportado. Tipos permitidos: ${acceptedTypes.join(', ')}`);
-                return false;
-            }
-            if (file.size > maxSize) {
-                setError(`Arquivo muito grande. O tamanho máximo permitido é ${maxSize / (1024 * 1024)}MB`);
-                return false;
-            }
+            // Reset error state
             setError(null);
+            // Verifica se o tipo do arquivo é válido
+            const isValidType = acceptedTypes.some({
+                "useFileDrop.useCallback[validateFile].isValidType": (type)=>{
+                    // Verifica pelo tipo MIME
+                    if (file.type === type) return true;
+                    // Verifica pela extensão do arquivo
+                    const fileExt = getFileExtension(file.name);
+                    const validExtensions = MIME_TYPES[type] || [];
+                    return validExtensions.some({
+                        "useFileDrop.useCallback[validateFile].isValidType": (ext)=>`.${fileExt}` === ext
+                    }["useFileDrop.useCallback[validateFile].isValidType"]);
+                }
+            }["useFileDrop.useCallback[validateFile].isValidType"]);
+            if (!isValidType) {
+                const allowedExtensions = acceptedTypes.flatMap({
+                    "useFileDrop.useCallback[validateFile].allowedExtensions": (type)=>MIME_TYPES[type] || []
+                }["useFileDrop.useCallback[validateFile].allowedExtensions"]).join(', ');
+                setError(`Tipo de arquivo não suportado. Use: ${allowedExtensions || 'arquivos Excel (.xlsx, .xls)'}`);
+                return false;
+            }
+            // Verifica o tamanho do arquivo
+            if (file.size > maxSize) {
+                const maxSizeMB = (maxSize / (1024 * 1024)).toFixed(1);
+                const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
+                setError(`Arquivo muito grande (${fileSizeMB}MB). Tamanho máximo: ${maxSizeMB}MB`);
+                return false;
+            }
+            // Verifica se o arquivo não está vazio
+            if (file.size === 0) {
+                setError('O arquivo está vazio');
+                return false;
+            }
             return true;
         }
     }["useFileDrop.useCallback[validateFile]"], [
@@ -108,10 +146,22 @@ function useFileDrop({ onDrop, acceptedTypes = [
             e.preventDefault();
             e.stopPropagation();
             setIsDragging(false);
-            setError(null);
-            const file = e.dataTransfer.files[0];
-            if (file && validateFile(file)) {
-                onDrop(file);
+            const files = e.dataTransfer.files;
+            // Verifica se há arquivos
+            if (!files || files.length === 0) {
+                setError('Nenhum arquivo encontrado');
+                return;
+            }
+            // Apenas o primeiro arquivo é processado
+            const file = files[0];
+            // Valida o arquivo
+            if (validateFile(file)) {
+                try {
+                    onDrop(file);
+                } catch (error) {
+                    console.error('Erro ao processar o arquivo:', error);
+                    setError('Erro ao processar o arquivo. Tente novamente.');
+                }
             }
         }
     }["useFileDrop.useCallback[handleDrop]"], [
@@ -121,6 +171,9 @@ function useFileDrop({ onDrop, acceptedTypes = [
     return {
         isDragging,
         error,
+        resetError: (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+            "useFileDrop.useCallback": ()=>setError(null)
+        }["useFileDrop.useCallback"], []),
         dragProps: {
             onDragOver: handleDragOver,
             onDragEnter: handleDragEnter,
@@ -129,7 +182,7 @@ function useFileDrop({ onDrop, acceptedTypes = [
         }
     };
 }
-_s(useFileDrop, "uCXxftfU+AXdhHQPvhyIB2cQjGQ=");
+_s(useFileDrop, "ebD/BvIBZ4Ia09qgSTALFXMyGBU=");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
