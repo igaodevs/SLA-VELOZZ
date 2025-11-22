@@ -14,7 +14,7 @@ const UploadSection = dynamic<{
   files: FileState;
   uploadProgress: UploadProgressState;
   onFileUpload: (type: FileType, file: File | null) => void;
-  onMerge: () => void;
+  onMerge: () => Promise<void>;
   isMerging: boolean;
 }>(() => import('@/components/upload-section').then(mod => mod.UploadSection), {
   loading: () => (
