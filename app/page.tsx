@@ -280,11 +280,12 @@ export default function Home() {
         })
       );
 
-      // Filtrar apenas os IDs válidos
-      const validFileIds = fileIds.filter(Boolean) as string[];
+      // Extrair o ID do arquivo principal (main) e os IDs adicionais
+      const mainFileId = fileIds[0]; // Assumindo que o primeiro arquivo é sempre o principal
+      const additionalFileIds = fileIds.slice(1).filter(Boolean) as string[];
       
-      if (validFileIds.length === 0) {
-        throw new Error('Nenhum arquivo válido para processar');
+      if (!mainFileId || additionalFileIds.length === 0) {
+        throw new Error('É necessário enviar pelo menos um arquivo principal e um arquivo adicional');
       }
 
       // Chamar a API para mesclar
@@ -296,13 +297,37 @@ export default function Home() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          file_ids: validFileIds,
+          mother_file_id: mainFileId,
+          single_file_ids: additionalFileIds,
         }),
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        const errorMessage = errorData.detail || errorData.message || 'Erro ao processar as planilhas';
+        let errorMessage = 'Erro ao processar as planilhas';
+        try {
+          const errorData = await response.json();
+          console.error('Error details:', errorData);
+          
+          if (response.status === 422) {
+            // Handle validation errors
+            if (Array.isArray(errorData.detail)) {
+              errorMessage = errorData.detail
+                .map((err: any) => `${err.loc ? err.loc.join('.') + ': ' : ''}${err.msg}`)
+                .join('; ');
+            } else if (typeof errorData.detail === 'string') {
+              errorMessage = errorData.detail;
+            } else if (errorData.message) {
+              errorMessage = errorData.message;
+            }
+          } else if (errorData.detail) {
+            errorMessage = errorData.detail;
+          } else if (errorData.message) {
+            errorMessage = errorData.message;
+          }
+        } catch (e) {
+          console.error('Error parsing error response:', e);
+          errorMessage = `Erro ${response.status}: ${response.statusText}`;
+        }
         throw new Error(errorMessage);
       }
 
@@ -329,15 +354,28 @@ export default function Home() {
     } catch (error) {
       console.error('Erro ao mesclar planilhas:', error);
       
-      // Mostrar notificação de erro
-      toast.error(
-        error instanceof Error ? error.message : 'Ocorreu um erro ao processar as planilhas',
-        { 
-          id: toastId,
-          position: 'top-center',
-          duration: 5000,
+      // Extrai a mensagem de erro de forma segura
+      let errorMessage = 'Ocorreu um erro ao processar as planilhas. Por favor, tente novamente.';
+      
+      if (error instanceof Error) {
+        errorMessage = error.message || errorMessage;
+      } else if (typeof error === 'string') {
+        errorMessage = error;
+      } else if (error && typeof error === 'object') {
+        // Handle case where error is an object but not an Error instance
+        if ('message' in error) {
+          errorMessage = String(error.message);
+        } else {
+          errorMessage = JSON.stringify(error);
         }
-      );
+      }
+      
+      // Mostrar notificação de erro
+      toast.error(errorMessage, { 
+        id: toastId,
+        position: 'top-center',
+        duration: 5000,
+      });
       
       // Resetar progresso em caso de erro
       setUploadProgress({

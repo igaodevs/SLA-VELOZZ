@@ -2443,10 +2443,11 @@ function Home() {
                     throw new Error(`Falha ao enviar ${type === 'main' ? 'Planilha Mãe' : 'Planilha ' + type}. ${error instanceof Error ? error.message : 'Tente novamente.'}`);
                 }
             }));
-            // Filtrar apenas os IDs válidos
-            const validFileIds = fileIds.filter(Boolean);
-            if (validFileIds.length === 0) {
-                throw new Error('Nenhum arquivo válido para processar');
+            // Extrair o ID do arquivo principal (main) e os IDs adicionais
+            const mainFileId = fileIds[0]; // Assumindo que o primeiro arquivo é sempre o principal
+            const additionalFileIds = fileIds.slice(1).filter(Boolean);
+            if (!mainFileId || additionalFileIds.length === 0) {
+                throw new Error('É necessário enviar pelo menos um arquivo principal e um arquivo adicional');
             }
             // Chamar a API para mesclar
             __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"].loading('Processando e mesclando planilhas...', {
@@ -2458,12 +2459,33 @@ function Home() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    file_ids: validFileIds
+                    mother_file_id: mainFileId,
+                    single_file_ids: additionalFileIds
                 })
             });
             if (!response.ok) {
-                const errorData = await response.json().catch(()=>({}));
-                const errorMessage = errorData.detail || errorData.message || 'Erro ao processar as planilhas';
+                let errorMessage = 'Erro ao processar as planilhas';
+                try {
+                    const errorData = await response.json();
+                    console.error('Error details:', errorData);
+                    if (response.status === 422) {
+                        // Handle validation errors
+                        if (Array.isArray(errorData.detail)) {
+                            errorMessage = errorData.detail.map((err)=>`${err.loc ? err.loc.join('.') + ': ' : ''}${err.msg}`).join('; ');
+                        } else if (typeof errorData.detail === 'string') {
+                            errorMessage = errorData.detail;
+                        } else if (errorData.message) {
+                            errorMessage = errorData.message;
+                        }
+                    } else if (errorData.detail) {
+                        errorMessage = errorData.detail;
+                    } else if (errorData.message) {
+                        errorMessage = errorData.message;
+                    }
+                } catch (e) {
+                    console.error('Error parsing error response:', e);
+                    errorMessage = `Erro ${response.status}: ${response.statusText}`;
+                }
                 throw new Error(errorMessage);
             }
             const result = await response.json();
@@ -2487,8 +2509,22 @@ function Home() {
             }, 100);
         } catch (error) {
             console.error('Erro ao mesclar planilhas:', error);
+            // Extrai a mensagem de erro de forma segura
+            let errorMessage = 'Ocorreu um erro ao processar as planilhas. Por favor, tente novamente.';
+            if (error instanceof Error) {
+                errorMessage = error.message || errorMessage;
+            } else if (typeof error === 'string') {
+                errorMessage = error;
+            } else if (error && typeof error === 'object') {
+                // Handle case where error is an object but not an Error instance
+                if ('message' in error) {
+                    errorMessage = String(error.message);
+                } else {
+                    errorMessage = JSON.stringify(error);
+                }
+            }
             // Mostrar notificação de erro
-            __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"].error(error instanceof Error ? error.message : 'Ocorreu um erro ao processar as planilhas', {
+            __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$sonner$2f$dist$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["toast"].error(errorMessage, {
                 id: toastId,
                 position: 'top-center',
                 duration: 5000
@@ -2510,12 +2546,12 @@ function Home() {
     // Memoize the header and footer to prevent unnecessary re-renders
     const memoizedHeader = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MemoizedHeader, {}, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-        lineNumber: 354,
+        lineNumber: 392,
         columnNumber: 26
     }, this);
     const memoizedFooter = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MemoizedFooter, {}, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-        lineNumber: 355,
+        lineNumber: 393,
         columnNumber: 26
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2554,13 +2590,13 @@ function Home() {
                                                         children: "em segundos"
                                                     }, void 0, false, {
                                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                        lineNumber: 378,
+                                                        lineNumber: 416,
                                                         columnNumber: 41
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                lineNumber: 377,
+                                                lineNumber: 415,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2568,28 +2604,28 @@ function Home() {
                                                 children: "Plataforma profissional para fusão de planilhas Excel. Rápido, simples e intuitivo. Suporte a arquivos grandes."
                                             }, void 0, false, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                lineNumber: 380,
+                                                lineNumber: 418,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 370,
+                                        lineNumber: 408,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 369,
+                                    lineNumber: 407,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 365,
+                                lineNumber: 403,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 364,
+                            lineNumber: 402,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].section, {
@@ -2611,7 +2647,7 @@ function Home() {
                                                 children: "Erro ao carregar o upload"
                                             }, void 0, false, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                lineNumber: 398,
+                                                lineNumber: 436,
                                                 columnNumber: 19
                                             }, void 0),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2619,18 +2655,18 @@ function Home() {
                                                 children: "Ocorreu um erro ao carregar a seção de upload. Por favor, recarregue a página e tente novamente."
                                             }, void 0, false, {
                                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                                lineNumber: 399,
+                                                lineNumber: 437,
                                                 columnNumber: 19
                                             }, void 0)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 397,
+                                        lineNumber: 435,
                                         columnNumber: 17
                                     }, void 0)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 396,
+                                    lineNumber: 434,
                                     columnNumber: 15
                                 }, void 0),
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Suspense"], {
@@ -2640,12 +2676,12 @@ function Home() {
                                             className: "w-8 h-8 animate-spin text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                            lineNumber: 407,
+                                            lineNumber: 445,
                                             columnNumber: 19
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 406,
+                                        lineNumber: 444,
                                         columnNumber: 17
                                     }, void 0),
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(UploadSection, {
@@ -2656,22 +2692,22 @@ function Home() {
                                         isMerging: isMergeBusy
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 410,
+                                        lineNumber: 448,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 405,
+                                    lineNumber: 443,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 395,
+                                lineNumber: 433,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 389,
+                            lineNumber: 427,
                             columnNumber: 11
                         }, this),
                         (files.main || files.additional1) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].section, {
@@ -2690,12 +2726,12 @@ function Home() {
                                             className: "w-6 h-6 animate-spin text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                            lineNumber: 432,
+                                            lineNumber: 470,
                                             columnNumber: 21
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 431,
+                                        lineNumber: 469,
                                         columnNumber: 19
                                     }, void 0),
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PreviewSection, {
@@ -2704,22 +2740,22 @@ function Home() {
                                         onFilterChange: setApplyMeliFilter
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 435,
+                                        lineNumber: 473,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 430,
+                                    lineNumber: 468,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 429,
+                                lineNumber: 467,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 423,
+                            lineNumber: 461,
                             columnNumber: 13
                         }, this),
                         mergedData && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2739,12 +2775,12 @@ function Home() {
                                             className: "w-8 h-8 animate-spin text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                            lineNumber: 457,
+                                            lineNumber: 495,
                                             columnNumber: 21
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 456,
+                                        lineNumber: 494,
                                         columnNumber: 19
                                     }, void 0),
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ResultsSection, {
@@ -2752,22 +2788,22 @@ function Home() {
                                         onShowCharts: ()=>setShowCharts(true)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 460,
+                                        lineNumber: 498,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 455,
+                                    lineNumber: 493,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 454,
+                                lineNumber: 492,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 447,
+                            lineNumber: 485,
                             columnNumber: 13
                         }, this),
                         showCharts && mergedData && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -2792,12 +2828,12 @@ function Home() {
                                             className: "w-10 h-10 animate-spin text-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                            lineNumber: 481,
+                                            lineNumber: 519,
                                             columnNumber: 21
                                         }, void 0)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 480,
+                                        lineNumber: 518,
                                         columnNumber: 19
                                     }, void 0),
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Documentos$2f$GitHub$2f$SLA$2d$VELOZZ$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ChartsSection, {
@@ -2805,40 +2841,40 @@ function Home() {
                                         onClose: ()=>setShowCharts(false)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                        lineNumber: 484,
+                                        lineNumber: 522,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                    lineNumber: 479,
+                                    lineNumber: 517,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                                lineNumber: 478,
+                                lineNumber: 516,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                            lineNumber: 471,
+                            lineNumber: 509,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-                    lineNumber: 362,
+                    lineNumber: 400,
                     columnNumber: 9
                 }, this),
                 memoizedFooter
             ]
         }, void 0, true, {
             fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-            lineNumber: 359,
+            lineNumber: 397,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/OneDrive/Documentos/GitHub/SLA-VELOZZ/app/page.tsx",
-        lineNumber: 358,
+        lineNumber: 396,
         columnNumber: 5
     }, this);
 }
