@@ -14,7 +14,8 @@ from fastapi import (
     status, 
     Form, 
     BackgroundTasks,
-    Depends
+    Depends,
+    Request
 )
 from fastapi.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
@@ -69,25 +70,63 @@ async def _process_large_file(
         logger.error(f"Erro ao processar arquivo grande {filename}: {str(e)}", exc_info=True)
         raise
 
-@router.post("/upload/{file_type}", response_model=FileUploadResponse)
+@router.post("/upload/{file_type}", response_model=FileUploadResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/upload/{file_type:path}", response_model=FileUploadResponse, status_code=status.HTTP_201_CREATED)
 async def upload_file(
-    file_type: FileType,
+    file_type: str,
     background_tasks: BackgroundTasks,
     file: UploadFile = File(...),
     name: Optional[str] = Form(None),
     chunk_index: Optional[int] = Form(None),
     total_chunks: Optional[int] = Form(None),
-    file_id: Optional[str] = Form(None)
+    file_id: Optional[str] = Form(None),
+    request: Request = None
 ):
     """
     Endpoint para upload de arquivos, com suporte a upload em partes (chunks).
     
     - Para arquivos pequenos: envia em uma única requisição
     - Para arquivos grandes: divide em chunks e envia em múltiplas requisições
+    
+    Tipos de arquivo suportados:
+    - mother
+    - single_1
+    - single_2
     """
     try:
-        # Validações iniciais
-        if not file:
+        # Log the incoming request for debugging
+        logger.info(f"Incoming upload request - Path: {request.url.path if request else 'N/A'}, File: {file.filename}, Type: {file_type}")
+        
+        # Normalize file type (case-insensitive, remove any path components)
+        file_type = file_type.lower().split('/')[-1]  # Get the last part of the path and make lowercase
+        
+        # Validate file_type
+        try:
+            file_type_enum = FileType(file_type)
+        except ValueError:
+            # Try to find a matching file type case-insensitively
+            valid_types = [t.value.lower() for t in FileType]
+            if file_type.lower() in valid_types:
+                file_type_enum = FileType(file_type.lower())
+            else:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail={
+                        "error": "invalid_file_type",
+                        "message": f"Tipo de arquivo inválido: {file_type}",
+                        "valid_types": [t.value for t in FileType]
+                    }
+                )
+            
+        # Validate file
+        if not file or file.filename == '':
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="No file provided"
+            )
+            
+        # Process the file based on whether it's chunked or not
+        if chunk_index is not None and total_chunks is not None and total_chunks > 1:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Nenhum arquivo enviado"
@@ -116,11 +155,24 @@ async def upload_file(
 
     except HTTPException:
         raise
+    except HTTPException as he:
+        # Re-raise HTTP exceptions as-is
+        raise he
     except Exception as e:
         logger.error(f"Erro ao processar o upload: {str(e)}", exc_info=True)
+        # Return a more detailed error response
+        error_detail = {
+            "error": "upload_failed",
+            "message": f"Falha ao processar o upload: {str(e)}",
+            "file_type": file_type if 'file_type' in locals() else 'unknown',
+            "file_name": file.filename if file and hasattr(file, 'filename') else 'unknown'
+        }
+        if hasattr(e, 'args') and len(e.args) > 0:
+            error_detail["details"] = str(e.args[0])
+            
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"Erro ao processar o arquivo: {str(e)}"
+            detail=error_detail
         )
 
 async def _handle_single_upload(
@@ -128,45 +180,64 @@ async def _handle_single_upload(
     file_type: FileType,
     name: Optional[str],
     background_tasks: BackgroundTasks
-) -> FileUploadResponse:
-    """Processa um upload de arquivo único."""
-    # Valida o arquivo
-    validation = file_handler.validate_file(file, file.filename)
-    if not validation.get("valid", False):
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=validation.get("message", "Arquivo inválido")
-        )
+) -> Dict[str, Any]:
+    """
+    Handle a single file upload (non-chunked).
     
-    file_size = validation.get('size', 0)
-    
-    # Se for um arquivo grande (> 50MB), processa em background
-    if file_size > 50 * 1024 * 1024:  # 50MB
-        file_id = file_handler._generate_file_id()
-        background_tasks.add_task(
-            _process_large_file,
+    Args:
+        file: The uploaded file
+        file_type: Type of the file (mother, single_1, single_2)
+        name: Optional display name for the file
+        background_tasks: Background tasks for async processing
+        
+    Returns:
+        Dict with upload response data
+    """
+    try:
+        logger.info(f"Starting single file upload: {file.filename} as {file_type}")
+        
+        # Validate file has content
+        if not file.filename or not file.content_type:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Invalid file: missing filename or content type"
+            )
+            
+        filename = file.filename
+        file_size = 0
+        
+        # Read file content with size limit
+        content = await file.read(MAX_FILE_SIZE + 1)
+        file_size = len(content)
+        
+        # Check if file is too large
+        if file_size > MAX_FILE_SIZE:
+            logger.warning(f"File {filename} exceeds maximum size limit")
+            raise HTTPException(
+                status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+                detail=f"File size exceeds maximum limit of {MAX_FILE_SIZE} bytes"
+            )
+        
+        # Save file using file handler
+        saved_info = await file_handler.save_uploaded_file(
             file=file,
-            filename=file.filename,
+            filename=filename,
             file_type=file_type,
-            name=name or file.filename,
-            file_size=file_size
+            name=name or filename
         )
         
-        return {
-            'status': 'processing',
-            'message': 'Arquivo grande em processamento em segundo plano',
-            'file_id': file_id
-        }
-    
-    # Processa arquivos pequenos normalmente
-    saved_info = await file_handler.save_uploaded_file(
-        file=file,
-        filename=file.filename,
-        file_type=file_type,
-        name=name or file.filename,
-    )
-    
-    return _create_upload_response(saved_info)
+        logger.info(f"Successfully uploaded file: {filename} (ID: {saved_info.id})")
+        return _create_upload_response(saved_info)
+        
+    except HTTPException:
+        # Re-raise HTTP exceptions as-is
+        raise
+    except Exception as e:
+        logger.error(f"Error in single file upload: {str(e)}", exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to process file: {str(e)}"
+        )
 
 async def _handle_chunked_upload(
     file: UploadFile,

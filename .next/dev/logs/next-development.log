@@ -4,3 +4,6 @@
 [00:16:21.137] Server  LOG        Reload env: .env.local
 [00:16:21.280] Server  LOG        Reload env: .env.local
 [00:16:24.132] Server  LOG      ✓ Compiled in 2.8s
+[00:45:00.567] Browser ERROR   Erro ao enviar arquivo main: {}
+[00:45:00.567] Browser ERROR   Erro ao mesclar planilhas: {}
+[00:45:00.567] Browser ERROR   Erro ao enviar arquivo additional1: {}
