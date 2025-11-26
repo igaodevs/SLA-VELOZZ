@@ -1,33 +1,55 @@
 import os
 import shutil
 import uuid
-from pathlib import Path
-from typing import Optional, BinaryIO, Dict, Any
 import sys
-
-from fastapi import HTTPException
-
-# On Windows, python-magic's loader may not find the bundled libmagic DLL
-# because it looks in current working dir or system PATH. Add the package
-# libmagic folder to PATH before importing `magic` so the loader can find it.
-if sys.platform in ('win32', 'cygwin'):
-    for p in sys.path:
-        candidate = os.path.join(p, 'magic', 'libmagic')
-        if os.path.isdir(candidate):
-            os.environ['PATH'] = candidate + os.pathsep + os.environ.get('PATH', '')
-            break
-
-import magic
-import pandas as pd
+import io
+import time
+import concurrent.futures
+from pathlib import Path
+from typing import Optional, BinaryIO, Dict, Any, List, Union, Tuple
 from datetime import datetime
 import logging
 
-from ..config import settings
-from ..models.schemas import FileType, UploadStatus, FileInfo
+from fastapi import HTTPException, status, UploadFile
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+try:
+    # On Windows, python-magic's loader may not find the bundled libmagic DLL
+    if sys.platform in ('win32', 'cygwin'):
+        for p in sys.path:
+            candidate = os.path.join(p, 'magic', 'libmagic')
+            if os.path.isdir(candidate):
+                os.environ['PATH'] = candidate + os.pathsep + os.environ.get('PATH', '')
+                break
+    
+    import magic
+    import pandas as pd
+    import openpyxl
+    from openpyxl.utils import get_column_letter
+    from openpyxl.styles import Font
+    
+    # Configure pandas for better performance with large files
+    pd.set_option('io.excel.xlsx.reader', 'openpyxl')
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.max_rows', 100)
+    
+    # Configure openpyxl for better performance
+    openpyxl_version = tuple(map(int, openpyxl.__version__.split('.')))
+    if openpyxl_version >= (3, 1, 0):
+        from openpyxl.utils.exceptions import InvalidFileException
+    else:
+        class InvalidFileException(Exception):
+            pass
+
+except ImportError as e:
+    logger.error(f"Error importing required libraries: {e}")
+    raise
+
+from ..config import settings
+from ..models.schemas import FileType, UploadStatus, FileInfo
 
 class FileHandler:
     """
@@ -36,25 +58,35 @@ class FileHandler:
     """
     
     def __init__(self):
-        self.upload_path = settings.UPLOAD_PATH
+        self.upload_path = Path(settings.UPLOAD_FOLDER)
         self.allowed_extensions = settings.ALLOWED_EXTENSIONS
         self.max_content_length = settings.MAX_CONTENT_LENGTH
         self.files: Dict[str, FileInfo] = {}
         self._dataframe_cache: Dict[str, pd.DataFrame] = {}
+        self._file_locks: Dict[str, asyncio.Lock] = {}
         
+        # Ensure upload directory exists
+        self.upload_path.mkdir(parents=True, exist_ok=True)
+    
+    def _get_file_lock(self, file_id: str) -> asyncio.Lock:
+        """Get or create a lock for a specific file."""
+        if file_id not in self._file_locks:
+            self._file_locks[file_id] = asyncio.Lock()
+        return self._file_locks[file_id]
+    
     def _generate_file_id(self) -> str:
-        """Generate a unique file ID."""
-        return str(uuid.uuid4())
+        """Generate a unique file ID with timestamp for better debugging."""
+        return f"{int(time.time())}_{uuid.uuid4().hex[:8]}"
     
     def _get_file_extension(self, filename: str) -> str:
-        """Get the file extension in lowercase."""
+        """Get the file extension in lowercase with dot (e.g., '.xlsx')."""
         return Path(filename).suffix.lower()
     
     def is_allowed_file(self, filename: str) -> bool:
         """Check if the file has an allowed extension."""
         return self._get_file_extension(filename) in self.allowed_extensions
     
-    def validate_file(self, file: BinaryIO, filename: str) -> Dict[str, Any]:
+    def validate_file(self, file: Union[BinaryIO, UploadFile], filename: str) -> Dict[str, Any]:
         """
         Validate the uploaded file for type and size.
         Returns a dictionary with validation results.
@@ -67,7 +99,7 @@ class FileHandler:
         }
         
         try:
-            # Check file extension
+            # Check file extension first (fast check)
             if not self.is_allowed_file(filename):
                 result.update({
                     'valid': False,
@@ -75,53 +107,71 @@ class FileHandler:
                 })
                 return result
             
-            # Get file size by seeking to end
-            file.seek(0, 2)  # Seek to end
-            file_size = file.tell()
-            file.seek(0)  # Reset file pointer
+            # Get file size
+            file_obj = file.file if hasattr(file, 'file') else file
             
-            result['size'] = file_size
+            # Save current position
+            original_position = file_obj.tell()
             
-            # Check file size
-            if file_size > self.max_content_length:
+            try:
+                # Seek to end to get size
+                file_obj.seek(0, 2)  # Seek to end
+                file_size = file_obj.tell()
+                file_obj.seek(original_position)  # Reset file pointer
+                
+                result['size'] = file_size
+                
+                # Check file size
+                if file_size > self.max_content_length:
+                    result.update({
+                        'valid': False,
+                        'message': f'File size ({file_size} bytes) exceeds maximum allowed size of {self.max_content_length} bytes'
+                    })
+                    return result
+                
+                # For Excel files, do a basic header check
+                if file_size > 0:
+                    # Read first 8 bytes for file signature
+                    header = file_obj.read(8)
+                    file_obj.seek(original_position)  # Reset file pointer
+                    
+                    # Check for Excel file signatures
+                    excel_signatures = [
+                        b'\x50\x4B\x05\x06',  # ZIP-based format (XLSX, XLSM, etc.)
+                        b'\x50\x4B\x03\x04',  # ZIP header
+                        b'\xD0\xCF\x11\xE0\xA1\xB1\x1A\xE1'  # OLE2 (XLS)
+                    ]
+                    
+                    if not any(sig in header for sig in excel_signatures):
+                        logger.warning(f"File {filename} doesn't match Excel file signature. Header: {header}")
+                        # Don't fail here, as some Excel files might still be valid
+                
+                return result
+                
+            except Exception as e:
+                logger.error(f"Error checking file size/signature for {filename}: {str(e)}")
+                # If we can't determine size, assume it's invalid
                 result.update({
                     'valid': False,
-                    'message': f'File size exceeds maximum allowed size of {self.max_content_length} bytes'
+                    'message': f'Error validating file: {str(e)}'
                 })
                 return result
             
-            # Check MIME type using python-magic. On Windows this can be unreliable,
-            # so we treat mismatches as a warning instead of a hard error as long
-            # as the extension is correct.
-            try:
-                mime = magic.Magic(mime=True)
-                file_bytes = file.read(2048)  # Read first 2KB for MIME detection
-                file.seek(0)  # Reset file pointer
-
-                mime_type = magic.from_buffer(file_bytes, mime=True)
-                allowed_mimes = [
-                    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-                    'application/vnd.ms-excel',
-                ]
-                if mime_type not in allowed_mimes:
-                    # Log a warning but still accept if extension is valid.
-                    logger.warning(
-                        f"Suspicious MIME type for Excel file {filename}: {mime_type}. "
-                        "Accepting based on extension check."
-                    )
-            except Exception as mime_err:
-                # If MIME detection fails entirely, log and continue based on extension.
-                logger.warning(f"Failed to detect MIME type for {filename}: {mime_err}")
-            
-            # If we got here, file is valid
-            return result
-            
         except Exception as e:
-            logger.error(f"Error validating file {filename}: {str(e)}")
+            logger.error(f"Error validating file {filename}: {str(e)}", exc_info=True)
             return {
                 'valid': False,
-                'message': f'Error validating file: {str(e)}'
+                'message': f'Error validating file: {str(e)}',
+                'error_type': type(e).__name__
             }
+            
+        finally:
+            # Ensure file pointer is reset if it's a file-like object
+            if hasattr(file_obj, 'seek'):
+                try:
+                    file_obj.seek(0)
+                except:
+                    pass
     
     async def save_uploaded_file(
         self, 

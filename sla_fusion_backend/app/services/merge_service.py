@@ -207,14 +207,12 @@ class MergeService:
         return None
 
     def _format_date_output(self, value: Any) -> str:
-        if value is None or (isinstance(value, float) and pd.isna(value)):
+        if value is None or pd.isna(value):  # This will catch both None and NaT
             return ''
-        if isinstance(value, pd.Timestamp):
-            if pd.isna(value):
+        if isinstance(value, (pd.Timestamp, datetime)):
+            if pd.isna(value):  # This will catch NaT
                 return ''
             return value.strftime('%d/%m/%Y')
-        if isinstance(value, datetime):
-            return pd.Timestamp(value).strftime('%d/%m/%Y')
         if isinstance(value, str):
             return value
         return ''

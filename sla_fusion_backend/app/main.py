@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse
 import os
 from pathlib import Path
 
@@ -49,6 +50,36 @@ async def health_check():
         "version": "1.0.0"
     }
 
+# Root endpoint with basic information
+@app.get("/")
+async def root():
+    return {
+        "app": settings.APP_NAME,
+        "version": "1.0.0",
+        "endpoints": {
+            "upload": "/api/v1/upload/{file_type}",
+            "merge": "/api/v1/merge/",
+            "download": "/api/v1/download/{file_id}",
+            "docs": "/docs",
+            "health": "/health"
+        }
+    }
+
+# Error handlers
+@app.exception_handler(404)
+async def not_found_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=404,
+        content={"detail": f"Endpoint '{request.url}' not found. Available endpoints: /api/v1/upload/{'{file_type}'}, /api/v1/merge/, /api/v1/download/{'{file_id}'}"}
+    )
+
+@app.exception_handler(500)
+async def server_error_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal server error. Please try again later or contact support."}
+    )
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

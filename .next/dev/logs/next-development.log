@@ -1,4 +1,6 @@
-[00:00:02.576] Server  LOG      ✓ Ready in 1636ms
-[00:00:23.122] Server  LOG      ○ Compiling / ...
-[00:02:39.600] Browser ERROR   Erro ao mesclar planilhas: {}
-[00:38:43.727] Browser ERROR   Erro ao mesclar planilhas: {}
+[00:00:03.885] Server  LOG      ✓ Ready in 2.7s
+[00:02:31.140] Server  LOG      ○ Compiling / ...
+[00:10:01.169] Browser ERROR   Erro ao mesclar planilhas: {}
+[00:16:21.137] Server  LOG        Reload env: .env.local
+[00:16:21.280] Server  LOG        Reload env: .env.local
+[00:16:24.132] Server  LOG      ✓ Compiled in 2.8s
