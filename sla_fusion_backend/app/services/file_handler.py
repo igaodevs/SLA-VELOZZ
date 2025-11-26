@@ -88,18 +88,17 @@ class FileHandler:
     
     def validate_file(self, file: Union[BinaryIO, UploadFile], filename: str) -> Dict[str, Any]:
         """
-        Validate the uploaded file for type and size.
+        Optimized file validation with minimal memory usage.
         Returns a dictionary with validation results.
         """
         result = {
             'valid': True,
             'message': 'File is valid',
-            'file_type': None,
             'size': 0
         }
         
         try:
-            # Check file extension first (fast check)
+            # Fast check for file extension first
             if not self.is_allowed_file(filename):
                 result.update({
                     'valid': False,
@@ -107,19 +106,16 @@ class FileHandler:
                 })
                 return result
             
-            # Get file size
             file_obj = file.file if hasattr(file, 'file') else file
-            
-            # Save current position
             original_position = file_obj.tell()
             
             try:
-                # Seek to end to get size
-                file_obj.seek(0, 2)  # Seek to end
-                file_size = file_obj.tell()
-                file_obj.seek(original_position)  # Reset file pointer
-                
+                # Get file size without reading entire file
+                file_size = file_obj.seek(0, 2)
                 result['size'] = file_size
+                
+                # Reset file pointer
+                file_obj.seek(original_position)
                 
                 # Check file size
                 if file_size > self.max_content_length:
@@ -129,28 +125,25 @@ class FileHandler:
                     })
                     return result
                 
-                # For Excel files, do a basic header check
+                # Only check signature for non-empty files
                 if file_size > 0:
-                    # Read first 8 bytes for file signature
+                    # Read minimal bytes needed for signature check
                     header = file_obj.read(8)
                     file_obj.seek(original_position)  # Reset file pointer
                     
                     # Check for Excel file signatures
-                    excel_signatures = [
+                    if not any(header.startswith(sig) for sig in [
                         b'\x50\x4B\x05\x06',  # ZIP-based format (XLSX, XLSM, etc.)
                         b'\x50\x4B\x03\x04',  # ZIP header
-                        b'\xD0\xCF\x11\xE0\xA1\xB1\x1A\xE1'  # OLE2 (XLS)
-                    ]
-                    
-                    if not any(sig in header for sig in excel_signatures):
-                        logger.warning(f"File {filename} doesn't match Excel file signature. Header: {header}")
-                        # Don't fail here, as some Excel files might still be valid
+                        b'\xD0\xCF\x11\xE0'   # OLE2 (XLS) - first 4 bytes
+                    ]):
+                        logger.warning(f"File {filename} doesn't match Excel file signature.")
+                        # Don't fail here, just log a warning
                 
                 return result
                 
             except Exception as e:
-                logger.error(f"Error checking file size/signature for {filename}: {str(e)}")
-                # If we can't determine size, assume it's invalid
+                logger.error(f"Error checking file {filename}: {str(e)}")
                 result.update({
                     'valid': False,
                     'message': f'Error validating file: {str(e)}'
@@ -167,27 +160,29 @@ class FileHandler:
             
         finally:
             # Ensure file pointer is reset if it's a file-like object
-            if hasattr(file_obj, 'seek'):
+            if 'file_obj' in locals() and hasattr(file_obj, 'seek'):
                 try:
                     file_obj.seek(0)
-                except:
-                    pass
+                except Exception as e:
+                    logger.warning(f"Failed to reset file pointer: {str(e)}")
     
     async def save_uploaded_file(
         self, 
-        file: BinaryIO, 
+        file: Union[BinaryIO, UploadFile], 
         filename: str, 
         file_type: FileType,
-        name: Optional[str] = None
+        name: Optional[str] = None,
+        chunk_size: int = 1024 * 1024  # 1MB chunks by default
     ) -> FileInfo:
         """
-        Save an uploaded file to the configured storage.
+        Optimized file upload handler with streaming support.
         
         Args:
             file: The uploaded file (can be a file-like object or FastAPI's UploadFile)
             filename: Original filename
             file_type: Type of the file (mother, single_1, single_2)
             name: Optional display name for the file (defaults to filename if not provided)
+            chunk_size: Size of chunks to process at a time (in bytes)
             
         Returns:
             FileInfo: Information about the saved file
@@ -196,8 +191,45 @@ class FileHandler:
         file_extension = self._get_file_extension(filename)
         new_filename = f"{file_id}{file_extension}"
         
-        # Create upload directory if it doesn't exist
-        os.makedirs(self.upload_path, exist_ok=True)
+        # Ensure upload directory exists
+        self.upload_path.mkdir(parents=True, exist_ok=True)
+        
+        # Get file object and size
+        file_obj = file.file if hasattr(file, 'file') else file
+        file_size = 0
+        
+        # Save file in chunks to avoid high memory usage
+        destination = self.upload_path / new_filename
+        try:
+            with open(destination, 'wb') as buffer:
+                while True:
+                    chunk = await file_obj.read(chunk_size)
+                    if not chunk:
+                        break
+                    buffer.write(chunk)
+                    file_size += len(chunk)
+        except Exception as e:
+            # Clean up partially uploaded file on error
+            if destination.exists():
+                try:
+                    destination.unlink()
+                except:
+                    pass
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Error saving file: {str(e)}"
+            )
+        
+        # Create file info
+        return FileInfo(
+            id=file_id,
+            filename=filename,
+            name=name or filename,
+            size=file_size,
+            upload_time=datetime.utcnow(),
+            status=UploadStatus.UPLOADED,
+            file_type=file_type
+        )
         
         # Save file to disk
         file_path = self.upload_path / new_filename
