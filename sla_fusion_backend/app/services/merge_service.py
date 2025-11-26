@@ -1,10 +1,14 @@
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
+import numpy as np
 import logging
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Set, Tuple
 from datetime import datetime
 import re
+from functools import lru_cache
+import psutil
+import os
 
 from ..models.schemas import FileType, MergeRequest, MergeResponse
 from ..config import settings
@@ -13,6 +17,20 @@ from .file_handler import file_handler
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Constants for memory management
+MAX_MEMORY_USAGE_PERCENT = 70  # Maximum allowed memory usage percentage
+CHUNK_SIZE = 10000  # Number of rows to process at a time
+
+# Pre-compile regex patterns for better performance
+MELI_CODE_PATTERN = re.compile(r'\b(?:ML)?\d{10}\b', re.IGNORECASE)
+MELI_KEYWORDS = {'meli', 'mercado livre', 'mercadolivre', 'mercadolibre', 'ml.com'}
+
+# LRU Cache for expensive operations
+@lru_cache(maxsize=128)
+def _get_meli_keywords() -> Set[str]:
+    """Get Meli keywords as a set for O(1) lookups."""
+    return MELI_KEYWORDS
 
 class MergeService:
     """
@@ -24,62 +42,70 @@ class MergeService:
         self.merged_files: Dict[str, MergeResponse] = {}
     
     def _is_meli_record(self, row: pd.Series) -> bool:
-        """Check if a row contains Meli-related information.
+        """Check if a row contains Meli-related information using vectorized operations.
 
         A detecção considera:
         - Palavras-chave relacionadas ao Mercado Livre
         - Códigos com padrão ML + 10 dígitos (ex.: ML1234567890)
         - Códigos somente numéricos com 10 dígitos (ex.: 1234567890)
         """
-        # Common ways Meli appears in spreadsheets
-        meli_keywords = [
-            'meli',
-            'mercado livre',  # with space
-            'mercadolivre',   # without space
-            'mercadolibre',
-            'ml.com',
-        ]
-
-        # Regex para códigos do Mercado Livre:
-        # - "ML" opcional (case-insensitive)
-        # - seguido de exatamente 10 dígitos
-        meli_code_pattern = re.compile(r'\b(?:ML)?\d{10}\b', re.IGNORECASE)
-
         for _, value in row.items():
-            if not pd.isna(value) and isinstance(value, str):
-                lower_val = value.lower()
-
-                # Check for Meli keywords (case-insensitive)
-                if any(keyword in lower_val for keyword in meli_keywords):
-                    return True
-
-                # Check for Meli codes (com ou sem o prefixo ML)
-                if meli_code_pattern.search(value):
-                    return True
-
+            if pd.isna(value):
+                continue
+                
+            str_val = str(value).lower()
+            
+            # Check for Meli keywords (using set for O(1) lookup)
+            if any(keyword in str_val for keyword in _get_meli_keywords()):
+                return True
+                
+            # Check for Meli codes (com ou sem o prefixo ML)
+            if MELI_CODE_PATTERN.search(str_val):
+                return True
+                
         return False
     
     def _filter_meli_records(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Filter a DataFrame to only include Meli-related records."""
+        """Filter a DataFrame to only include Meli-related records using vectorized operations."""
         if df.empty:
             return df
             
-        # Apply the Meli filter to each row
-        meli_mask = df.apply(self._is_meli_record, axis=1)
+        # Check memory before processing
+        self._check_memory_usage()
+            
+        # Convert all columns to string and lowercase for vectorized operations
+        str_df = df.astype(str).apply(lambda x: x.str.lower())
+        
+        # Check for Meli keywords (vectorized)
+        keyword_mask = str_df.apply(
+            lambda col: col.str.contains('|'.join(map(re.escape, _get_meli_keywords())), na=False, regex=True)
+        ).any(axis=1)
+        
+        # Check for Meli codes (vectorized)
+        code_mask = str_df.apply(
+            lambda col: col.str.contains(MELI_CODE_PATTERN, na=False, regex=True)
+        ).any(axis=1)
+        
+        # Combine masks
+        meli_mask = keyword_mask | code_mask
+        
         return df[meli_mask].copy()
     
-    def _clean_dataframe(self, df: pd.DataFrame, base_columns: Optional[List[str]] = None) -> pd.DataFrame:
-        """
-        Clean and standardize the DataFrame.
-        - Remove duplicate rows
-        - Standardize column names
-        - Handle missing values
-        """
-        if df.empty:
-            return df
-            
+    def _check_memory_usage(self) -> None:
+        """Check system memory usage and raise an exception if it's too high."""
+        process = psutil.Process(os.getpid())
+        memory_info = process.memory_info()
+        memory_percent = psutil.virtual_memory().percent
+        
+        logger.debug(f"Memory usage: {memory_info.rss / 1024 / 1024:.2f}MB ({memory_percent}%)")
+        
+        if memory_percent > MAX_MEMORY_USAGE_PERCENT:
+            raise MemoryError(f"Memory usage too high: {memory_percent}% > {MAX_MEMORY_USAGE_PERCENT}%")
+
+    def _process_dataframe_chunk(self, df_chunk: pd.DataFrame, base_columns: Optional[List[str]] = None) -> pd.DataFrame:
+        """Process a chunk of the DataFrame."""
         # Make a copy to avoid modifying the original
-        df_clean = df.copy()
+        df_clean = df_chunk.copy()
         
         # Standardize column names (remove extra spaces, lowercase, etc.)
         df_clean.columns = [
@@ -91,22 +117,61 @@ class MergeService:
         df_clean = df_clean.dropna(how='all')
         df_clean = df_clean.dropna(axis=1, how='all')
         
-        # Fill NaN values with appropriate defaults
-        for col in df_clean.select_dtypes(include=['object']).columns:
-            df_clean[col] = df_clean[col].fillna('')
+        if df_clean.empty:
+            return df_clean
+        
+        # Fill NaN values with appropriate defaults (vectorized operations)
+        object_cols = df_clean.select_dtypes(include=['object']).columns
+        if not object_cols.empty:
+            df_clean[object_cols] = df_clean[object_cols].fillna('')
             
-        for col in df_clean.select_dtypes(include=['number']).columns:
-            df_clean[col] = df_clean[col].fillna(0)
-            
+        numeric_cols = df_clean.select_dtypes(include=['number']).columns
+        if not numeric_cols.empty:
+            df_clean[numeric_cols] = df_clean[numeric_cols].fillna(0)
+        
         # Remove duplicate rows
         df_clean = df_clean.drop_duplicates()
         
+        # Add missing base columns if needed
         if base_columns:
-            for col in base_columns:
-                if col not in df_clean.columns:
-                    df_clean[col] = None
-
+            missing_cols = [col for col in base_columns if col not in df_clean.columns]
+            if missing_cols:
+                df_clean = df_clean.reindex(columns=df_clean.columns.tolist() + missing_cols)
+        
         return df_clean
+
+    def _clean_dataframe(self, df: pd.DataFrame, base_columns: Optional[List[str]] = None) -> pd.DataFrame:
+        """
+        Clean and standardize the DataFrame using chunked processing for large DataFrames.
+        - Remove duplicate rows
+        - Standardize column names
+        - Handle missing values
+        """
+        if df.empty:
+            return df
+            
+        # Check memory before processing
+        self._check_memory_usage()
+        
+        # Process in chunks if DataFrame is large
+        if len(df) > CHUNK_SIZE:
+            chunks = []
+            for i in range(0, len(df), CHUNK_SIZE):
+                chunk = df.iloc[i:i + CHUNK_SIZE]
+                processed_chunk = self._process_dataframe_chunk(chunk, base_columns)
+                if not processed_chunk.empty:
+                    chunks.append(processed_chunk)
+                
+                # Check memory after each chunk
+                self._check_memory_usage()
+                
+            # Combine all non-empty chunks
+            if chunks:
+                return pd.concat(chunks, ignore_index=True)
+            return pd.DataFrame()
+        else:
+            # Process small DataFrames normally
+            return self._process_dataframe_chunk(df, base_columns)
 
     def _reorder_columns(self, df: pd.DataFrame, mother_df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -130,35 +195,73 @@ class MergeService:
         options: Optional[Dict[str, Any]] = None
     ) -> pd.DataFrame:
         """
-        Merge multiple DataFrames into a single DataFrame.
+        Merge multiple DataFrames into a single DataFrame with memory optimization.
         Preserves every column coming from mother and single sheets.
         """
         if options is None:
             options = {}
             
         apply_meli_filter = options.get("apply_meli_filter", True)
-
-        frames: List[pd.DataFrame] = []
-
+        
+        # Check memory before starting
+        self._check_memory_usage()
+        
+        # Process mother DataFrame
         base_df = self._filter_meli_records(mother_df) if apply_meli_filter else mother_df.copy()
+        
+        # Process single DataFrames in chunks if needed
+        processed_dfs = []
         if not base_df.empty:
-            frames.append(base_df)
+            processed_dfs.append(base_df)
         
         for df in single_dfs:
             if df.empty:
                 continue
-            filtered = self._filter_meli_records(df) if apply_meli_filter else df
-            if not filtered.empty:
-                frames.append(filtered)
-
-        if not frames:
+                
+            # Process in chunks if DataFrame is large
+            if len(df) > CHUNK_SIZE:
+                chunks = []
+                for i in range(0, len(df), CHUNK_SIZE):
+                    chunk = df.iloc[i:i + CHUNK_SIZE]
+                    filtered_chunk = self._filter_meli_records(chunk) if apply_meli_filter else chunk
+                    if not filtered_chunk.empty:
+                        chunks.append(filtered_chunk)
+                    
+                    # Check memory after each chunk
+                    self._check_memory_usage()
+                
+                if chunks:
+                    processed_dfs.extend(chunks)
+            else:
+                filtered = self._filter_meli_records(df) if apply_meli_filter else df
+                if not filtered.empty:
+                    processed_dfs.append(filtered)
+        
+        # If no data to merge, return empty DataFrame
+        if not processed_dfs:
             return pd.DataFrame()
-
-        merged = pd.concat(frames, ignore_index=True, sort=False)
-        merged = self._clean_dataframe(merged, base_columns=list(mother_df.columns))
-        merged = self._reorder_columns(merged, mother_df)
-        merged = self._enrich_with_deadline_info(merged)
-        return merged
+        
+        # Concatenate all DataFrames
+        try:
+            merged = pd.concat(processed_dfs, ignore_index=True, sort=False, copy=False)
+            
+            # Clean and process the merged DataFrame
+            merged = self._clean_dataframe(merged, base_columns=list(mother_df.columns))
+            
+            if not merged.empty:
+                merged = self._reorder_columns(merged, mother_df)
+                merged = self._enrich_with_deadline_info(merged)
+                
+            # Force garbage collection
+            import gc
+            del processed_dfs
+            gc.collect()
+            
+            return merged
+            
+        except MemoryError as e:
+            logger.error(f"Memory error during merge: {str(e)}")
+            raise MemoryError("Not enough memory to complete the merge operation. Try with smaller files or increase system memory.")
 
     def _first_non_empty_value(self, row: pd.Series, candidates: List[str]) -> Any:
         for col in candidates:
